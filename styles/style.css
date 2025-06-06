@@ -1,0 +1,232 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  margin: 0;
+  padding: 20px;
+  color: #fff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  background: #ffffff1a;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px #0000004d;
+  padding: 20px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  text-shadow: 2px 2px 4px #00000070;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 70%;
+  font-size: 1em;
+}
+
+button {
+  background-color: #00c6ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #0072ff;
+  transform: scale(1.05);
+}
+
+.favorite-button {
+  margin: 0 auto 5px;
+}
+
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 0; /* Position above the button */
+  left: 70%;
+  transform: translateX(37.5%);
+  background-color: #000000b7;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.25s;
+  width: 75%;
+  max-width: 75%;
+  opacity: 1; /* Show tooltip on hover */
+}
+
+#toggle-theme[data-tooltip]:hover::after {
+  bottom: 115%; /* Position above the button */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 100%;
+}
+
+.favorite-button[data-tooltip]:hover::after {
+  bottom: -0.25em;
+}
+
+.favorite-button.favorite[data-tooltip]:hover::after {
+  bottom: -1.5em;
+  left: 80%;
+  transform: translateX(37.5%);
+  width: 50%;
+  max-width: 50%;
+}
+
+.alert-button[data-tooltip]:hover::after {
+  bottom: -0.25em;
+  left: 70%;
+}
+
+.crypto-data {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.crypto-card {
+  background: #ffffff1a;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 10px #00000055;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.crypto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px #0000004d;
+}
+
+.crypto-card h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.crypto-card p {
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: #ddd;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .container {
+  background: #ffffff0e;
+}
+
+body.dark-mode .crypto-card {
+  background: #ffffff1a;
+}
+
+body.dark-mode th {
+  background-color: #ffffff1a;
+  color: #00c6ff;
+}
+
+body.dark-mode td {
+  color: #e0e0e0;
+}
+
+.crypto-card.favorite {
+  border: 2px solid #ffcc00; /* Highlight favorite cards */
+  background: #ffcc001a; /* Light background for favorites */
+}
+
+.error-message {
+  color: #ff0000;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loading-spinner {
+  display: none;
+  margin: auto;
+  border: 8px solid #ffffff1a;
+  border-top: 8px solid #00c6ff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
