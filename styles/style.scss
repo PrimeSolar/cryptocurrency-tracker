@@ -210,6 +210,23 @@ body.dark-mode td {
   }
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #318ce7;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #007fff;
+}
+
 /* Responsive Design */
 @media (max-width: 600px) {
   h1 {
