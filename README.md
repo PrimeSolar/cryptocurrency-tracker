@@ -1,6 +1,6 @@
 # Cryptocurrency Tracker
 
-&nbsp;&nbsp;Welcome to the **Cryptocurrency Tracker** repository! This web application is designed to provide users with real-time tracking of cryptocurrency prices, making it an essential tool for investors, traders, and enthusiasts. With its intuitive interface and powerful features, you can stay informed about the cryptocurrency market.
+&nbsp;&nbsp;Welcome to the **Cryptocurrency Tracker** repository! This web application is designed to provide users with real-time tracking of cryptocurrency prices, making it an essential tool for investors, traders, and enthusiasts. With its intuitive interface and powerful features, the Cryptocurrency Tracker helps you make informed decisions in the trading. Whether you're a seasoned investor or just starting, this tool is designed to meet your needs.
 
 - [Cryptocurrency Tracker](#cryptocurrency-tracker)
   - [Features](#features)
@@ -21,32 +21,35 @@
 
 ## Technologies Used
 
-- **HTML5**: For structuring the web application, ensuring semantic markup and improved SEO.
-- **CSS3**: For styling and layout, including responsive design techniques that enhance user experience across devices.
-- **JavaScript**: For dynamic content updates and user interactions, providing a smooth and interactive experience.
-- **APIs**: Utilizes the CoinGecko API for fetching real-time cryptocurrency data, ensuring accurate and up-to-date information.
+- **HTML5**: for structuring the web application, ensuring semantic markup and improved SEO.
+- **CSS3**: for styling and layout, including responsive design techniques that enhance user experience across devices.
+- **JavaScript**: for dynamic content updates and user interactions, providing a smooth and interactive experience.
+- **APIs**: utilizes the CoinGecko API for fetching real-time cryptocurrency data, ensuring accurate and up-to-date information.
 
 ## Getting Started
 
 &nbsp;&nbsp;To get started with the Cryptocurrency Tracker, follow these steps:
 
-1. **Clone the Repository**:
+1. Ensure you have Git installed on your system. If you haven't installed it yet, you can download it from [git-scm.com](https://git-scm.com/). Once Git is installed, open a terminal window and **run the following command** to clone the repository:
 
-   ```bash
-   git clone https://github.com/PrimeSolar/cryptocurrency-tracker.git
-   ```
+```bash
+git clone https://github.com/PrimeSolar/cryptocurrency-tracker.git
+```
 
-2. **Open the Application**: navigate to the cloned directory and open the `index.html` file in your web browser.
+2. **Navigate to the project directory** on your local device.
 
-3. **Explore the Features**: use the search bar to find cryptocurrencies, toggle between themes, and enjoy the responsive design on any device.
+3. **Open the `index.html` file** in your web browser.
 
 ## Usage
 
 &nbsp;&nbsp;Once the application is open, you can:
 
-- **Search for Cryptocurrencies**: type the name of the cryptocurrency you want to track in the search bar.
-- **View Price Information**: click on a cryptocurrency to see detailed information, including current price, market capitalization, and price changes.
-- **Toggle Themes**: click the theme toggle button to switch between light and dark modes for a comfortable viewing experience.
+- **Search for Cryptocurrencies**: type the name of the cryptocurrency you want to track in the search bar to find and view its information.
+- **View Price Information**: access detailed information for each cryptocurrency, including the current price, market capitalization, and percentage changes in price.
+- **Add to Favorites**: easily add cryptocurrencies to your favorites list for quick access to the ones you track most frequently.
+- **Set Price Alerts**: receive notifications when a cryptocurrency reaches a specified price, helping you make timely trading decisions.
+- **Toggle Themes**: click the theme toggle button to switch between light and dark modes, allowing for a comfortable viewing experience tailored to your preference.
+- **Responsive Design**: enjoy a seamless experience across various devices, whether you're using a desktop, tablet, or smartphone.
 
 ## Acknowledgments
 
