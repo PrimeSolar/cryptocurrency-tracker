@@ -1,8 +1,9 @@
 # Cryptocurrency Tracker
 
-&nbsp;&nbsp;Welcome to the **Cryptocurrency Tracker** repository! This web application is designed to provide users with real-time tracking of cryptocurrency prices, making it an essential tool for investors, traders, and enthusiasts. With its intuitive interface and powerful features, the Cryptocurrency Tracker helps you make informed decisions in the trading. Whether you're a seasoned investor or just starting, this tool is designed to meet your needs.
+&nbsp;&nbsp;Welcome to the Cryptocurrency Tracker project! This web application is designed to provide users with real-time tracking of cryptocurrency prices, making it an essential tool for investors, traders, and enthusiasts. With its intuitive interface and powerful features, the Cryptocurrency Tracker helps you make informed decisions in the trading. Whether you're a seasoned investor or just starting, this tool is designed to meet your needs.
 
 - [Cryptocurrency Tracker](#cryptocurrency-tracker)
+  - [Interface](#interface)
   - [Features](#features)
   - [Technologies Used](#technologies-used)
   - [Getting Started](#getting-started)
@@ -10,6 +11,14 @@
   - [Acknowledgments](#acknowledgments)
   - [Support My Work ☕](#support-my-work-)
   - [Contact Me](#contact-me)
+
+## Interface
+
+&nbsp;&nbsp;The interface is designed to be user-friendly and visually appealing.
+
+<!--prettier-ignore-->
+<img alt="Cryptocurrency Tracker" src="assets/interface.jpg"/>
+<p align="center"><em>The Cryptocurrency Tracker Interface</em></p>
 
 ## Features
 
@@ -65,7 +74,7 @@ git clone https://github.com/PrimeSolar/cryptocurrency-tracker.git
 **Click the image to support my work:**
 
 <a href="https://coff.ee/cocacola">
-    <img src="assets/coffee.jpg" width="370" height="auto" alt="Buy Me a Coffee"/>
+  <img src="assets/coffee.jpg" width="370" height="auto" alt="Buy Me a Coffee"/>
 </a>
 
 &nbsp;&nbsp;Thank you for your support! Together, we can create something wonderful! 💖
