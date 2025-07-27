@@ -14,8 +14,8 @@
     <title>Cryptocurrency Tracker</title>
     <link rel="stylesheet" href="styles/style-min.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
     />
     <link
       rel="stylesheet"
@@ -27,7 +27,8 @@
       <h1>Cryptocurrency Tracker</h1>
     </header>
     <main class="container">
-      <section class="controls">
+      <section class="controls" aria-labelledby="controls">
+        <h2 id="controls" class="hidden">Controls</h2>
         <input
           type="text"
           id="search"
@@ -36,6 +37,7 @@
         />
         <button
           id="toggle-theme"
+          type="button"
           aria-label="Switch Theme"
           data-tooltip="Switch between light and dark themes"
         >
@@ -44,11 +46,44 @@
       </section>
       <section class="crypto-data" id="crypto-data" aria-live="polite">
         <div class="loading-spinner" id="loading-spinner" role="status"></div>
+        <p id="no-data-message" class="hidden">
+          No cryptocurrency data available.
+        </p>
       </section>
       <footer>
         <p>Data provided by CoinGecko</p>
       </footer>
     </main>
+    <!-- Modal Structure -->
+    <div
+      id="price-alert-modal"
+      class="modal"
+      role="dialog"
+      aria-labelledby="modal-title"
+    >
+      <div class="modal-content">
+        <span class="modal-item close-button" aria-label="Close modal"
+          >&times;</span
+        >
+        <h2 id="modal-title" class="modal-item">Set Price Alert</h2>
+        <label for="alert-price" class="modal-item">Alert Price (USD):</label>
+        <input
+          class="modal-item"
+          type="number"
+          id="alert-price"
+          placeholder="Enter alert price..."
+          aria-required="true"
+        />
+        <button
+          id="set-alert-button"
+          class="modal-item"
+          type="button"
+          aria-label="Set Price Alert"
+        >
+          Set Alert
+        </button>
+      </div>
+    </div>
     <script src="scripts/script-min.js"></script>
   </body>
 </html>
