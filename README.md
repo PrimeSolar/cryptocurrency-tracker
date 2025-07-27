@@ -26,6 +26,7 @@
 - **User-Friendly Interface**: the intuitive design allows users to easily search for their favorite cryptocurrencies and view detailed price information, including price changes and market capitalization.
 - **Theme Toggle**: switch between light and dark themes for a personalized viewing experience, catering to user preferences and enhancing usability, especially in different lighting conditions.
 - **Search Functionality**: quickly find specific cryptocurrencies using the search bar.
+- **Latest Cryptocurrency News**: stay informed with the latest news articles related to cryptocurrencies, helping make timely and informed trading decisions.
 - **Responsive Design**: optimized for all devices, ensuring a seamless experience whether you're on a desktop, tablet, or smartphone.
 
 ## Technologies Used
@@ -33,7 +34,7 @@
 - **HTML5**: for structuring the web application, ensuring semantic markup and improved SEO.
 - **CSS3**: for styling and layout, including responsive design techniques that enhance user experience across devices.
 - **JavaScript**: for dynamic content updates and user interactions, providing a smooth and interactive experience.
-- **APIs**: utilizes the CoinGecko API for fetching real-time cryptocurrency data, ensuring accurate and up-to-date information.
+- **APIs**: the web application utilizes the CoinGecko API for fetching real-time cryptocurrency data, ensuring accurate and up-to-date information. Also, it integrates CoinTelegraph's RSS feed to provide the latest cryptocurrency news.
 
 ## Getting Started
 
@@ -57,12 +58,13 @@ git clone https://github.com/PrimeSolar/cryptocurrency-tracker.git
 - **View Price Information**: access detailed information for each cryptocurrency, including the current price, market capitalization, and percentage changes in price.
 - **Add to Favorites**: easily add cryptocurrencies to your favorites list for quick access to the ones you track most frequently.
 - **Set Price Alerts**: receive notifications when a cryptocurrency reaches a specified price, helping you make timely trading decisions.
+- **Stay Updated with Cryptocurrency News**: overview the latest cryptocurrency news that help you stay informed and make better trading decisions.
 - **Toggle Themes**: click the theme toggle button to switch between light and dark modes, allowing for a comfortable viewing experience tailored to your preference.
 - **Responsive Design**: enjoy a seamless experience across various devices, whether you're using a desktop, tablet, or smartphone.
 
 ## Acknowledgments
 
-- **Data Provider**: special thanks to CoinGecko for providing the cryptocurrency data that powers this application.
+- **Data Providers**: special thanks to CoinGecko for providing the cryptocurrency data that powers this application and to CoinTelegraph for their comprehensive cryptocurrency news.
 - **Inspiration**: inspired by the growing interest in cryptocurrency and the need for appropriate tools that empower users to make informed financial decisions.
 
 ## Support My Work ☕
