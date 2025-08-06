@@ -1,5 +1,9 @@
 const cryptoDataContainer = document.getElementById("crypto-data");
 const searchInput = document.getElementById("search");
+const modal = document.getElementById("price-alert-modal");
+const closeButton = document.querySelector(".close-button");
+const setAlertButton = document.getElementById("set-alert-button");
+let currentCoinId = null;
 const toggleThemeButton = document.getElementById("toggle-theme");
 const loadingSpinner = document.getElementById("loading-spinner");
 const errorMessage = document.createElement("div");
@@ -21,8 +25,8 @@ function debounce(func, delay) {
 // Function to fetch cryptocurrency prices
 async function fetchCryptoPrices() {
   loadingSpinner.style.display = "block";
-  errorMessage.textContent = ""; // Clear previous error messages
-  cryptoDataContainer.innerHTML = ""; // Clear previous data
+  errorMessage.textContent = "";
+  cryptoDataContainer.innerHTML = "";
 
   try {
     const response = await fetch(
@@ -45,10 +49,16 @@ function populateCryptoData(data) {
   // Clear previous data to avoid duplication
   cryptoDataContainer.innerHTML = ""; // Clear previous data
 
-  data.forEach((coin) => {
+  const favoriteCoins = data.filter((coin) => favorites.includes(coin.id));
+  const nonFavoriteCoins = data.filter((coin) => !favorites.includes(coin.id));
+
+  const sortedData = [...favoriteCoins, ...nonFavoriteCoins];
+
+  // Create cards for each currency
+  sortedData.forEach((coin) => {
     const card = document.createElement("div");
     card.className = "crypto-card";
-    card.dataset.id = coin.id; // Store the coin ID for favorites
+    card.dataset.id = coin.id; // Store currency identifiers for favorites
     card.innerHTML = `
             <h2>${coin.name} (${coin.symbol.toUpperCase()})</h2>
             <p>Price: ${coin.current_price.toFixed(2)} USD</p>
@@ -70,16 +80,6 @@ function populateCryptoData(data) {
     // Add event listener for the favorite button
     card.querySelector(".favorite-button").addEventListener("click", () => {
       toggleFavorite(coin.id);
-      const favoriteButton = card.querySelector(".favorite-button");
-      favorites.includes(coin.id)
-        ? (favoriteButton.textContent = "Remove from Favorites")
-        : (favoriteButton.textContent = "Add to Favorites");
-      favoriteButton.setAttribute(
-        "data-tooltip",
-        favorites.includes(coin.id)
-          ? `Remove ${coin.name} from your favorites`
-          : `Add ${coin.name} to your favorites`
-      );
     });
 
     // Add event listener for the alert button
@@ -91,15 +91,14 @@ function populateCryptoData(data) {
   updateFavoritesDisplay();
 }
 
-// Function to toggle favorite status
 function toggleFavorite(coinId) {
   if (favorites.includes(coinId)) {
-    favorites.splice(favorites.indexOf(coinId), 1); // Remove from favorites
+    favorites.splice(favorites.indexOf(coinId), 1);
   } else {
-    favorites.push(coinId); // Add to favorites
+    favorites.push(coinId);
   }
   localStorage.setItem("favorites", JSON.stringify(favorites));
-  updateFavoritesDisplay();
+  fetchCryptoPrices();
 }
 
 // Function to update favorites display
@@ -117,37 +116,6 @@ function updateFavoritesDisplay() {
   }
 }
 
-// Function to set a price alert
-function setPriceAlert(coinId) {
-  const targetPrice = prompt("Enter target price for alert (USD):");
-  if (targetPrice) {
-    const alerts = JSON.parse(localStorage.getItem("alerts")) || {};
-    alerts[coinId] = parseFloat(targetPrice);
-    localStorage.setItem("alerts", JSON.stringify(alerts));
-    alert(`Alert set for ${coinId} at price ${targetPrice} USD.`);
-  }
-}
-
-// Function to check price alerts
-function checkPriceAlerts(data) {
-  const alerts = JSON.parse(localStorage.getItem("alerts")) || {};
-  for (const coin of data) {
-    const targetPrice = alerts[coin.id];
-    if (targetPrice && coin.current_price >= targetPrice) {
-      // Notify the user
-      new Notification(
-        `Alert: ${coin.name} reached ${coin.current_price} USD!`,
-        {
-          body: `Target price: ${targetPrice} USD`,
-        }
-      );
-      // Remove the alert after notifying
-      delete alerts[coin.id];
-    }
-  }
-  localStorage.setItem("alerts", JSON.stringify(alerts));
-}
-
 // Debounced search functionality
 const debouncedSearch = debounce(() => {
   const filter = searchInput.value.toLowerCase();
@@ -159,68 +127,162 @@ const debouncedSearch = debounce(() => {
   }
 }, 300); // 300ms debounce delay
 
+// Apply the theme on page load
+document.body.classList.toggle("dark-mode", darkMode);
+toggleThemeButton.innerHTML = `<i class="fas fa-adjust"></i> ${
+  darkMode ? "Light Theme" : "Dark Theme"
+}`;
+
 // Event listeners
 searchInput.addEventListener("input", debouncedSearch);
 toggleThemeButton.addEventListener("click", () => {
   darkMode = !darkMode;
-  document.body.classList.toggle("dark-mode", darkMode);
+  document.body.classList.toggle("dark-mode", darkMode); // Apply a theme
   localStorage.setItem("darkMode", JSON.stringify(darkMode)); // Save theme preference
   toggleThemeButton.innerHTML = `<i class="fas fa-adjust"></i> ${
     darkMode ? "Light Theme" : "Dark Theme"
-  }`;
+  }`; // Update button text
 });
 
-// Request permission for notifications
-if (Notification.permission !== "granted") {
-  Notification.requestPermission();
+// Function to set a price alert
+function setPriceAlert(coinId) {
+  currentCoinId = coinId; // Store the current coin ID
+  modal.style.display = "block"; // Show the modal
 }
 
-// Fetch prices on load and set interval for updates
-fetchCryptoPrices();
-setInterval(fetchCryptoPrices, 60000); // Refresh every minute
+// Event listener for the close button
+closeButton.addEventListener("click", () => {
+  modal.style.display = "none"; // Hide the modal
+});
 
-// Check for price alerts periodically
-setInterval(() => {
-  fetchCryptoPrices().then(checkPriceAlerts);
-}, 60000); // Check alerts every minute
+// Event listener for the set alert button
+setAlertButton.addEventListener("click", () => {
+  const alertPrice = parseFloat(document.getElementById("alert-price").value);
+  if (!isNaN(alertPrice)) {
+    // Store the alert in localStorage or handle it as needed
+    const alerts = JSON.parse(localStorage.getItem("priceAlerts")) || {};
+    alerts[currentCoinId] = alertPrice;
+    localStorage.setItem("priceAlerts", JSON.stringify(alerts));
+    alert(
+      `Price alert set for ${capitalizeFirstLetter(
+        currentCoinId
+      )} at ${alertPrice} USD.`
+    );
+    modal.style.display = "none"; // Hide the modal
+  } else {
+    alert("Please enter a valid price.");
+  }
+});
 
-// WebSocket integration for real-time updates (if applicable)
-const socket = new WebSocket("wss://your-websocket-url");
+// Function to capitalize the first letter of a string
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
-socket.onopen = () => {
-  console.log("WebSocket connection established.");
-};
+function checkPriceAlerts() {
+  const alerts = JSON.parse(localStorage.getItem("priceAlerts")) || {};
+  const cards = cryptoDataContainer.getElementsByClassName("crypto-card");
 
-socket.onerror = (error) => {
-  console.error("WebSocket error:", error);
-};
+  for (let card of cards) {
+    const coinId = card.dataset.id;
+    const currentPrice = parseFloat(
+      card.querySelector("p").textContent.match(/[\d.]+/)[0]
+    );
 
-socket.onclose = () => {
-  console.log("WebSocket connection closed.");
-};
+    if (alerts[coinId]) {
+      const alertPrice = alerts[coinId];
 
-socket.onmessage = (event) => {
-  const data = JSON.parse(event.data);
-  updateCryptoPrices(data);
-};
-
-// Function to update cryptocurrency prices from WebSocket data
-function updateCryptoPrices(data) {
-  data.forEach((coin) => {
-    const card = document.querySelector(`.crypto-card[data-id="${coin.id}"]`);
-    if (card) {
-      card.querySelector(
-        "p"
-      ).textContent = `Price: ${coin.current_price.toFixed(2)} USD`;
-      card.querySelector(
-        "p:nth-child(3)"
-      ).textContent = `Change: ${coin.price_change_percentage_24h.toFixed(2)}%`;
+      if (currentPrice >= alertPrice) {
+        alert(
+          `Price alert! ${capitalizeFirstLetter(
+            coinId
+          )} has reached ${currentPrice} USD.`
+        );
+        delete alerts[coinId];
+      }
     }
+  }
+  localStorage.setItem("priceAlerts", JSON.stringify(alerts));
+}
+
+const newsSectionContainer = document.createElement("div");
+newsSectionContainer.id = "news-section";
+
+const newsHeading = document.createElement("h2");
+newsHeading.textContent = "Latest Cryptocurrency News";
+
+const articlesContainer = document.createElement("div");
+articlesContainer.id = "news-articles";
+
+newsSectionContainer.appendChild(newsHeading);
+newsSectionContainer.appendChild(articlesContainer);
+
+document.body.appendChild(newsSectionContainer);
+
+async function fetchCryptoNews() {
+  try {
+    const response = await fetch("https://cointelegraph.com/rss");
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+    const text = await response.text();
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(text, "text/xml");
+    const items = xmlDoc.getElementsByTagName("item");
+
+    const articles = Array.from(items)
+      .slice(0, 30)
+      .map((item) => ({
+        title: item.getElementsByTagName("title")[0].textContent,
+        description: item.getElementsByTagName("description")[0].textContent,
+        url: item.getElementsByTagName("link")[0].textContent,
+        publishedAt: item.getElementsByTagName("pubDate")[0].textContent,
+      }));
+
+    displayNewsArticles(articles);
+  } catch (error) {
+    console.error("Error fetching news:", error.message);
+    newsSectionContainer.innerHTML =
+      "<p>Error loading news. Please try again later.</p>";
+  }
+}
+
+function displayNewsArticles(articles) {
+  const articlesContainer = document.getElementById("news-articles");
+  articlesContainer.innerHTML = "";
+
+  articles.forEach((article) => {
+    const articleElement = document.createElement("div");
+    articleElement.className = "news-article";
+    articleElement.innerHTML = `
+      <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
+      <p>${article.description}</p>
+      <p><small>Published on: ${new Date(
+        article.publishedAt
+      ).toLocaleDateString()}</small></p>
+    `;
+    articlesContainer.appendChild(articleElement);
   });
 }
 
 // Initialize the application
 document.addEventListener("DOMContentLoaded", () => {
-  // Fetch initial data
-  fetchCryptoPrices();
+  fetchCryptoPrices()
+    .then(() => {
+      fetchCryptoNews();
+    })
+    .catch((error) => {
+      console.error("Error fetching cryptocurrency prices:", error);
+    });
+
+  setInterval(() => {
+    fetchCryptoPrices()
+      .then(() => {
+        fetchCryptoNews();
+      })
+      .catch((error) => {
+        console.error("Error fetching cryptocurrency prices:", error);
+      });
+  }, 60000);
+
+  setInterval(checkPriceAlerts, 60000);
 });
