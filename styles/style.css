@@ -1,4 +1,4 @@
-/* General Styles */
+/* Common Styles */
 * {
   box-sizing: border-box;
 }
@@ -8,9 +8,31 @@ body {
   padding: 20px;
   overflow-x: hidden;
   font-family: "Roboto", sans-serif;
-  background: linear-gradient(to right, #00c6ff, #0073ff);
+  background: linear-gradient(to right, #00c7ff, #0073ff);
   color: #ffffff;
   transition: background-color 0.25s, color 0.25s;
+  /* Dark Mode Styles */
+}
+body.dark-mode {
+  background-color: #373737;
+  color: #e0e0e0;
+}
+body.dark-mode .container {
+  background: #ffffff0e;
+}
+body.dark-mode .crypto-card {
+  background-color: #ffffff1a;
+}
+body.dark-mode th {
+  background-color: #ffffff1a;
+  color: #00c7ff;
+}
+body.dark-mode td {
+  color: #e0e0e0;
+}
+body.dark-mode [data-tooltip]:hover::after {
+  background-color: #000000a7;
+  color: #ffffff;
 }
 
 .container {
@@ -60,7 +82,7 @@ h2 {
   display: none;
 }
 
-input[type="text"] {
+input[type=text] {
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -80,7 +102,6 @@ button {
   cursor: pointer;
   transition: background-color 0.25s, transform 0.25s, border 0.25s;
 }
-
 button:hover {
   background-color: #0073ff;
   transform: scale(1.05);
@@ -165,7 +186,7 @@ button:hover {
 }
 
 .crypto-card {
-  background: #ffffff1a;
+  background-color: #ffffff1a;
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 4px 10px #00000055;
@@ -251,7 +272,7 @@ button:hover {
   max-width: 1200px;
   margin: 25px auto;
   padding: 25px;
-  background: #ffffff1a;
+  background-color: #ffffff1a;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -284,34 +305,6 @@ footer {
   margin-top: 20px;
   font-size: 0.9em;
   color: #dddddd;
-}
-
-/* Dark Mode Styles */
-body.dark-mode {
-  background: #373737;
-  color: #e0e0e0;
-}
-
-body.dark-mode .container {
-  background: #ffffff0e;
-}
-
-body.dark-mode .crypto-card {
-  background: #ffffff1a;
-}
-
-body.dark-mode th {
-  background-color: #ffffff1a;
-  color: #00c7ff;
-}
-
-body.dark-mode td {
-  color: #e0e0e0;
-}
-
-body.dark-mode [data-tooltip]:hover::after {
-  background-color: #000000a7;
-  color: #ffffff;
 }
 
 .crypto-card.favorite {
@@ -370,11 +363,11 @@ body.dark-mode [data-tooltip]:hover::after {
     flex-direction: column;
     align-items: stretch;
   }
-  input[type="text"] {
+  input[type=text] {
     width: 100%;
     margin-bottom: 10px;
   }
   button {
     width: 100%;
   }
-} /*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
