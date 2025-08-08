@@ -40,7 +40,7 @@
 
 &nbsp;&nbsp;To get started with the Cryptocurrency Tracker, follow these steps:
 
-1. Ensure you have Git installed on your system. If you haven't installed it yet, you can download it from [git-scm.com](https://git-scm.com/). Once Git is installed, open a terminal window and **run the following command** to clone the repository:
+1. Ensure you have Git installed on your system. If you haven't installed it yet, you can find detailed installation instructions and download options at the <a href="https://github.com/git-guides/install-git" target="blank" rel="noopener noreferrer">Install Git</a> page. This resource provides step-by-step guidance for various operating systems. Once Git is installed, open a terminal window and **run the following command** to clone the repository:
 
 ```bash
 git clone https://github.com/PrimeSolar/cryptocurrency-tracker.git
