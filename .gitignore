@@ -4,6 +4,7 @@ node_modules/
 # Build output
 dist/
 build/
+coverage/
 
 # Logs
 *.log
@@ -15,8 +16,33 @@ build/
 
 # IDE files
 .vscode/
+*.sublime-workspace
 .idea/
 
 # Temporary files
 tmp/
 .tmp/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+jspm_packages/
+
+# Yarn Integrity file
+.yarn-integrity
+
+# npm debug log
+npm-debug.log*
+
+# Build artifacts
+*.tgz
+*.zip
+
+# Local configuration files
+*.local
+
+# Node cache
+.npm/
+.yarn/cache/
