@@ -1,50 +1,60 @@
-/* Common Styles */
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  margin: 0;
-  padding: 20px;
+  margin: 0; /* Set the margin of the element */
+  padding: 20px; /* Set the padding of the element */
   overflow-x: hidden;
   font-family: "Roboto", sans-serif;
-  background: linear-gradient(to right, #00c7ff, #0073ff);
-  color: #ffffff;
+  background: linear-gradient(
+    to right,
+    #00c7ff,
+    #0073ff
+  ); /* Set the background of the element */
+  color: #ffffff; /* Set the color for the text of the element */
   transition: background-color 0.25s, color 0.25s;
-  /* Dark Mode Styles */
 }
-body.dark-mode {
-  background-color: #373737;
-  color: #e0e0e0;
+
+.nav-menu {
+  list-style-type: none;
+  padding: 0; /* Set the padding of the element */
+  /* Use flexbox to align the content inside the element */
+  display: -webkit-box; /* For earlier versions of Chrome and Safari (pre-flexbox) */
+  display: -ms-flexbox; /* For Internet Explorer 10 (supports an earlier flexbox model) */
+  display: flex; /* Standard syntax for modern browsers (widely supported) */
+  justify-content: space-around;
 }
-body.dark-mode .container {
-  background: #ffffff0e;
+
+.nav-menu li {
+  margin: 0; /* Set the margin of the element */
 }
-body.dark-mode .crypto-card {
-  background-color: #ffffff1a;
-}
-body.dark-mode th {
-  background-color: #ffffff1a;
-  color: #00c7ff;
-}
-body.dark-mode td {
-  color: #e0e0e0;
-}
-body.dark-mode [data-tooltip]:hover::after {
-  background-color: #000000a7;
-  color: #ffffff;
+
+.nav-menu a {
+  color: #ffffff; /* Set the color for the text of the element */
+  text-decoration: none; /* Specify the decoration applied to the text of the element */
+  padding: 15px 20px; /* Set the padding of the element */
+  display: block; /* Specify the display behavior of the element */
 }
 
 .container {
+  margin: auto; /* Set the margin of the element */
   max-width: 1200px;
-  margin: auto;
-  background: #ffffff1a;
-  border-radius: 12px;
   box-shadow: 0 4px 20px #0000004d;
-  padding: 20px;
+  padding: 20px; /* Set the padding of the element */
+  background-color: #ffffff1a; /* Set the color for the background of the element */
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   animation: fadeIn 1s ease-in-out;
+  /* Set the border radius for the corners of the element */
+  -webkit-border-radius: 12px; /* For older versions of Chrome and Safari */
+  -moz-border-radius: 12px; /* For older versions of Firefox */
+  -o-border-radius: 12px; /* For older versions of Opera */
+  border-radius: 12px; /* Standard property for border radius */
 }
 
 @keyframes fadeIn {
@@ -55,6 +65,7 @@ body.dark-mode [data-tooltip]:hover::after {
     opacity: 1;
   }
 }
+
 h1 {
   text-align: center;
   font-size: 2.5em;
@@ -65,7 +76,7 @@ h1 {
 
 h2 {
   text-align: center;
-  margin: 50px auto 20px;
+  margin: 50px auto 20px; /* Set the margin of the element */
   font-size: 1.5em;
   font-weight: bolder;
   text-shadow: 2px 2px 4px #00000070;
@@ -73,55 +84,75 @@ h2 {
 }
 
 .controls {
-  display: flex;
+  /* Use flexbox to align the content inside the element */
+  display: -webkit-box; /* For earlier versions of Chrome and Safari (pre-flexbox) */
+  display: -ms-flexbox; /* For Internet Explorer 10 (supports an earlier flexbox model) */
+  display: flex; /* Standard syntax for modern browsers (widely supported) */
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
 .hidden {
-  display: none;
+  display: none; /* Specify the display behavior of the element */
 }
 
-input[type=text] {
-  padding: 10px;
+input[type="text"] {
+  padding: 10px; /* Set the padding of the element */
   border: none;
-  border-radius: 5px;
-  width: 70%;
+  width: 70%; /* Set the width of the element */
   font-size: 1em;
+  /* Set the border radius for the corners of the element */
+  -webkit-border-radius: 5px; /* For older versions of Chrome and Safari */
+  -moz-border-radius: 5px; /* For older versions of Firefox */
+  -o-border-radius: 5px; /* For older versions of Opera */
+  border-radius: 5px; /* Standard property for border radius */
 }
 
 /* Button Styles */
 button {
-  position: relative; /* Set the position for the element */
+  position: relative; /* Set the position of the element */
   border: 1px solid #ffffff;
-  border-radius: 5px;
-  padding: 10px 15px;
-  z-index: 1;
-  background: linear-gradient(to right, #00c6ff, #0073ff);
-  color: #ffffff;
+  padding: 10px 15px; /* Set the padding of the element */
+  z-index: 1; /* Set the stacking order of the element */
+  background: linear-gradient(
+    to right,
+    #00c6ff,
+    #0073ff
+  ); /* Set the background of the element */
+  color: #ffffff; /* Set the color for the text of the element */
   cursor: pointer;
   transition: background-color 0.25s, transform 0.25s, border 0.25s;
+  /* Set the border radius for the corners of the element */
+  -webkit-border-radius: 5px; /* For older versions of Chrome and Safari */
+  -moz-border-radius: 5px; /* For older versions of Firefox */
+  -o-border-radius: 5px; /* For older versions of Opera */
+  border-radius: 5px; /* Standard property for border radius */
 }
+
 button:hover {
-  background-color: #0073ff;
+  background-color: #0073ff; /* Set the color for the background of the element */
   transform: scale(1.05);
 }
 
 .favorite-button {
-  margin: 0 auto 5px;
+  margin: 0 auto 5px; /* Set the margin of the element */
 }
 
 .button-wrapper {
-  position: relative;
-  overflow: hidden;
+  position: relative; /* Set the position of the element */
+  overflow: hidden; /* Set the visibility of content that exceeds the element's boundaries */
 }
 
 .ripple {
-  position: absolute;
-  border-radius: 50%;
-  background-color: #ffffffee;
+  position: absolute; /* Set the position of the element */
+  background-color: #ffffffee; /* Set the color for the background of the element */
   transform: scale(0);
   animation: ripple-animation 0.5s linear;
+  /* Set the border radius for the corners of the element */
+  -webkit-border-radius: 50%; /* For older versions of Chrome and Safari */
+  -moz-border-radius: 50%; /* For older versions of Firefox */
+  -o-border-radius: 50%; /* For older versions of Opera */
+  border-radius: 50%; /* Standard property for border radius */
 }
 
 @keyframes ripple-animation {
@@ -130,34 +161,39 @@ button:hover {
     opacity: 0;
   }
 }
+
 [data-tooltip] {
-  position: relative;
+  position: relative; /* Set the position of the element */
 }
 
 [data-tooltip]:hover::after {
   content: attr(data-tooltip);
-  position: absolute;
+  position: absolute; /* Set the position of the element */
   bottom: 0; /* Position the element relative to the bottom edge of its nearest positioned ancestor */
   left: 70%;
   transform: translateX(37.5%);
   font-weight: normal;
-  background-color: #ffffff;
-  color: #000000a7;
-  padding: 5px 10px;
-  border-radius: 5px;
-  z-index: 10;
+  background-color: #ffffff; /* Set the color for the background of the element */
+  color: #000000a7; /* Set the color for the text of the element */
+  padding: 5px 10px; /* Set the padding of the element */
+  z-index: 10; /* Set the stacking order of the element */
   opacity: 0;
   transition: opacity 0.25s;
-  width: 75%;
+  width: 75%; /* Set the width of the element */
   max-width: 75%;
   opacity: 1; /* Set the opacity for the element */
+  /* Set the border radius for the corners of the element */
+  -webkit-border-radius: 5px; /* For older versions of Chrome and Safari */
+  -moz-border-radius: 5px; /* For older versions of Firefox */
+  -o-border-radius: 5px; /* For older versions of Opera */
+  border-radius: 5px; /* Standard property for border radius */
 }
 
 #toggle-theme[data-tooltip]:hover::after {
   bottom: 115%; /* Position the element relative to the bottom edge of its nearest positioned ancestor */
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
+  width: 100%; /* Set the width of the element */
   max-width: 100%;
 }
 
@@ -169,7 +205,7 @@ button:hover {
   bottom: -1.5em; /* Position the element relative to the bottom edge of its nearest positioned ancestor */
   left: 80%;
   transform: translateX(37.5%);
-  width: 50%;
+  width: 50%; /* Set the width of the element */
   max-width: 50%;
 }
 
@@ -179,18 +215,22 @@ button:hover {
 }
 
 .crypto-data {
-  display: grid;
+  display: grid; /* Specify the display behavior of the element */
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
   margin-top: 20px;
 }
 
 .crypto-card {
-  background-color: #ffffff1a;
-  border-radius: 10px;
-  padding: 15px;
+  background-color: #ffffff1a; /* Set the color for the background of the element */
+  padding: 15px; /* Set the padding of the element */
   box-shadow: 0 4px 10px #00000055;
   transition: transform 0.2s, box-shadow 0.2s;
+  /* Set the border radius for the corners of the element */
+  -webkit-border-radius: 10px; /* For older versions of Chrome and Safari */
+  -moz-border-radius: 10px; /* For older versions of Firefox */
+  -o-border-radius: 10px; /* For older versions of Opera */
+  border-radius: 10px; /* Standard property for border radius */
 }
 
 .crypto-card:hover {
@@ -199,81 +239,116 @@ button:hover {
 }
 
 .crypto-card h2 {
-  margin: 0;
+  margin: 0; /* Set the margin of the element */
   font-size: 1.5em;
   font-weight: semi-bold;
 }
 
 .crypto-card p {
-  margin: 5px 0;
+  margin: 5px 0; /* Set the margin of the element */
   font-size: 1.1em;
   line-height: 1.5;
 }
 
 .modal {
-  display: none; /* Hide the element */
-  position: fixed; /* Set the position for the element */
-  z-index: 1; /* Set the stacking order for the element */
+  display: none; /* Specify the display behavior of the element */
+  position: fixed; /* Set the position of the element */
+  z-index: 1; /* Set the stacking order of the element */
   left: 0;
   top: 0;
-  width: 100vw; /* Set the width for the element */
-  height: 100vh; /* Set the height for the element */
+  width: 100vw; /* Set the width of the element */
+  height: 100vh; /* Set the height of the element */
   overflow: auto; /* Set the visibility of content that exceeds the element's boundaries */
-  background-color: #00000077;
+  background-color: #00000077; /* Set the color for the background of the element */
 }
 
 #modal-title {
-  margin: 1em 0;
+  margin: 1em 0; /* Set the margin of the element */
   text-shadow: none;
 }
 
 .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* Set the margin for the element */
-  padding: 20px;
+  background-color: #fefefe; /* Set the color for the background of the element */
+  margin: 15% auto; /* Set the margin of the element */
+  padding: 20px; /* Set the padding of the element */
   border: 1px solid #888888;
-  width: 80%; /* Set the width for the element */
-  color: #373737;
-  border-radius: 8px; /* Set the border radius for the element */
-  display: flex;
+  width: 80%; /* Set the width of the element */
+  color: #373737; /* Set the color for the text of the element */
+  /* Set the border radius for the corners of the element */
+  -webkit-border-radius: 8px; /* For older versions of Chrome and Safari */
+  -moz-border-radius: 8px; /* For older versions of Firefox */
+  -o-border-radius: 8px; /* For older versions of Opera */
+  border-radius: 8px; /* Standard property for border radius */
+  /* Use flexbox to align the content inside the element */
+  display: -webkit-box; /* For earlier versions of Chrome and Safari (pre-flexbox) */
+  display: -ms-flexbox; /* For Internet Explorer 10 (supports an earlier flexbox model) */
+  display: flex; /* Standard syntax for modern browsers (widely supported) */
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
 
 .modal-item {
-  width: 50%;
+  width: 50%; /* Set the width of the element */
 }
 
 .close-button {
-  display: flex;
-  justify-content: flex-end;
   font-size: 28px;
   font-weight: bold;
-  color: #a7a7a7;
+  color: #a7a7a7; /* Set the color for the text of the element */
+  /* Use flexbox to align the content inside the element */
+  display: -webkit-box; /* For earlier versions of Chrome and Safari (pre-flexbox) */
+  display: -ms-flexbox; /* For Internet Explorer 10 (supports an earlier flexbox model) */
+  display: flex; /* Standard syntax for modern browsers (widely supported) */
+  justify-content: flex-end;
 }
 
 .close-button:hover,
 .close-button:focus {
-  color: #000000;
-  text-decoration: none;
+  color: #000000; /* Set the color for the text of the element */
+  text-decoration: none; /* Specify the decoration applied to the text of the element */
   cursor: pointer;
 }
 
+.about-section {
+  padding: 20px; /* Set the padding of the element */
+  /* Set the border radius for the corners of the element */
+  -webkit-border-radius: 8px; /* For older versions of Chrome and Safari */
+  -moz-border-radius: 8px; /* For older versions of Firefox */
+  -o-border-radius: 8px; /* For older versions of Opera */
+  border-radius: 8px; /* Standard property for border radius */
+}
+
+.about-section p {
+  line-height: 1.6; /* Improved readability */
+}
+
+.about-section a {
+  color: #007bff; /* Set the color for the text of the element */
+  text-decoration: none; /* Specify the decoration applied to the text of the element */
+}
+
+.about-section a:hover {
+  text-decoration: underline; /* Specify the decoration applied to the text of the element */
+}
+
 #news-section {
-  position: relative !important;
+  position: relative !important; /* Set the position of the element */
   max-width: 100vw;
   overflow-y: hidden;
   animation: fadeIn 1s ease-in-out;
 }
 
 .news-article {
-  position: relative; /* Set the position for the element */
+  position: relative; /* Set the position of the element */
   max-width: 1200px;
-  margin: 25px auto;
-  padding: 25px;
-  background-color: #ffffff1a;
-  display: flex;
+  margin: 25px auto; /* Set the margin of the element */
+  padding: 25px; /* Set the padding of the element */
+  background-color: #ffffff1a; /* Set the color for the background of the element */
+  /* Use flexbox to align the content inside the element */
+  display: -webkit-box; /* For earlier versions of Chrome and Safari (pre-flexbox) */
+  display: -ms-flexbox; /* For Internet Explorer 10 (supports an earlier flexbox model) */
+  display: flex; /* Standard syntax for modern browsers (widely supported) */
   flex-direction: column;
   align-items: center;
 }
@@ -285,15 +360,15 @@ h3 {
 h3,
 img,
 .news-article p:nth-of-type(4) {
-  margin: 0 auto 25px !important;
+  margin: 0 auto 25px !important; /* Set the margin of the element */
 }
 
 a {
-  color: #ffffff;
+  color: #ffffff; /* Set the color for the text of the element */
 }
 
 .news-article p {
-  margin: 0 !important;
+  margin: 0 !important; /* Set the margin of the element */
   width: -moz-fit-content !important;
   width: fit-content !important;
   float: none !important;
@@ -304,28 +379,58 @@ footer {
   text-align: center;
   margin-top: 20px;
   font-size: 0.9em;
-  color: #dddddd;
+  color: #dddddd; /* Set the color for the text of the element */
+}
+
+body.dark-mode {
+  background-color: #373737; /* Set the color for the background of the element */
+  color: #e0e0e0; /* Set the color for the text of the element */
+}
+
+body.dark-mode .container {
+  background-color: #ffffff0e; /* Set the color for the background of the element */
+}
+body.dark-mode .crypto-card {
+  background-color: #ffffff1a; /* Set the color for the background of the element */
+}
+
+body.dark-mode th {
+  background-color: #ffffff1a; /* Set the color for the background of the element */
+  color: #00c7ff; /* Set the color for the text of the element */
+}
+
+body.dark-mode td {
+  color: #e0e0e0; /* Set the color for the text of the element */
+}
+
+body.dark-mode [data-tooltip]:hover::after {
+  background-color: #000000a7; /* Set the color for the background of the element */
+  color: #ffffff; /* Set the color for the text of the element */
 }
 
 .crypto-card.favorite {
-  border: 2px solid #ffcc00; /* Set the border for the element */
-  background: #7777781a; /* Set the background for the element */
+  border: 2px solid #ffcc00;
+  background-color: #7777781a; /* Set the color for the background of the element */
 }
 
 .error-message {
-  color: #ff0000;
+  color: #ff0000; /* Set the color for the text of the element */
   text-align: center;
   margin-top: 20px;
 }
 
 .loading-spinner {
-  display: none;
-  margin: auto;
+  display: none; /* Specify the display behavior of the element */
+  margin: auto; /* Set the margin of the element */
   border: 8px solid #ffffff1a;
   border-top: 8px solid #00c6ff;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  /* Set the border radius for the corners of the element */
+  -webkit-border-radius: 50%; /* For older versions of Chrome and Safari */
+  -moz-border-radius: 50%; /* For older versions of Firefox */
+  -o-border-radius: 50%; /* For older versions of Opera */
+  border-radius: 50%; /* Standard property for border radius */
+  width: 50px; /* Set the width of the element */
+  height: 50px; /* Set the height of the element */
   animation: spin 1s linear infinite;
 }
 
@@ -337,21 +442,63 @@ footer {
     transform: rotate(360deg);
   }
 }
+
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 12px; /* Set the width of the element */
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background-color: #f1f1f1; /* Set the color for the background of the element */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #318ce7;
-  border-radius: 10px;
+  background-color: #318ce7; /* Set the color for the background of the element */
+  /* Set the border radius for the corners of the element */
+  -webkit-border-radius: 10px; /* For older versions of Chrome and Safari */
+  -moz-border-radius: 10px; /* For older versions of Firefox */
+  -o-border-radius: 10px; /* For older versions of Opera */
+  border-radius: 10px; /* Standard property for border radius */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #007fff;
+  background-color: #007fff; /* Set the color for the background of the element */
+}
+
+to-top {
+  background-color: #ffffff; /* Set the color for the background of the element */
+  position: fixed; /* Set the position of the element */
+  bottom: 56px; /* Position the element relative to the bottom edge of its nearest positioned ancestor */
+  right: 25px; /* Position the element 25 pixels from the right side of the viewport */
+  width: 45px; /* Set the width of the element */
+  height: 45px; /* Set the height of the element */
+  opacity: 0; /* Set the opacity */
+  z-index: 2; /* Set the stacking order of the element */
+  font-size: 16px; /* Set the font size for the text */
+  text-decoration: none; /* Specify the decoration applied to the text of the element */
+  pointer-events: none; /* Deactivate pointer events */
+  transition: 0.25s; /* Set an effect of a transition */
+  /* Use flexbox to align content inside the element */
+  display: -ms-flexbox; /* For Internet Explorer 10 (supports an earlier flexbox model */
+  display: -webkit-box; /* For earlier versions of Chrome and Safari (pre-flexbox) */
+  display: flex; /* Standard syntax for modern browsers (widely supported) */
+
+  justify-content: center; /* Align flex items horizontally */
+
+  /* Align vertically */
+  -ms-flex-align: center; /* For Internet Explorer 10 */
+  -webkit-box-align: center; /* For older versions of Chrome and Safari */
+  align-items: center; /* Standard syntax for modern browsers (widely supported) */
+  /* Apply the border radius to round the corners of the element */
+  -moz-border-radius: 50%; /* For older versions of Firefox */
+  -o-border-radius: 50%; /* For older versions of Opera */
+  -webkit-border-radius: 50%; /* For older versions of Chrome and Safari */
+  border-radius: 50%; /* Standard syntax for modern browsers (widely supported) */
+}
+
+to-top.active {
+  bottom: 9.6rem; /* Position the element relative to the bottom edge of its nearest positioned ancestor */
+  pointer-events: auto;
+  opacity: 1;
 }
 
 /* Responsive Design */
@@ -363,11 +510,33 @@ footer {
     flex-direction: column;
     align-items: stretch;
   }
-  input[type=text] {
-    width: 100%;
+  input[type="text"] {
+    width: 100%; /* Set the width of the element */
     margin-bottom: 10px;
   }
   button {
-    width: 100%;
+    width: 100%; /* Set the width of the element */
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+@media print {
+  * {
+    color: #1a1a1a; /* Set the color for the text of the element */
+  }
+
+  .controls,
+  button {
+    display: none; /* Specify the display behavior of the element */
+  }
+
+  .crypto-card,
+  .news-article {
+    page-break-inside: avoid;
+  }
+
+  .about-section {
+    page-break-after: always;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
