@@ -312,6 +312,7 @@ button:hover {
 
 .about-section {
   padding: 20px; /* Set the padding of the element */
+  text-align: center;
   /* Set the border radius for the corners of the element */
   -webkit-border-radius: 8px; /* For older versions of Chrome and Safari */
   -moz-border-radius: 8px; /* For older versions of Firefox */
