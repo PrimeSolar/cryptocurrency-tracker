@@ -1,33 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Cryptocurrency tracker for tracking prices in real time."
-    />
-    <meta
-      name="keywords"
-      content="cryptocurrency, prices, bitcoin price, ethereum price, market cap, crypto price alerts, cryptocurrency change percentage, top cryptocurrencies, crypto market, best cryptocurrency, crypto price comparison, altcoin prices"
-    />
-    <title>Cryptocurrency Tracker</title>
-    <link rel="stylesheet" href="styles/style-min.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
   </head>
   <body>
+    <nav></nav>
+
     <header>
       <h1>Cryptocurrency Tracker</h1>
     </header>
-    <main class="container">
+    <main class="container" id="main">
       <section class="controls" aria-labelledby="controls">
+        <select id="language-selector" title="Select Language">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="pt">Português</option>
+          <option value="rs">Srpski</option>
+          <option value="ae">عربي</option>
+        </select>
         <h2 id="controls" class="hidden">Controls</h2>
         <input
           type="text"
@@ -41,7 +32,7 @@
           aria-label="Switch Theme"
           data-tooltip="Switch between light and dark themes"
         >
-          <i class="fas fa-adjust"></i> Dark Theme
+          <i class="fas fa-adjust"></i> Switch Theme
         </button>
       </section>
       <section class="crypto-data" id="crypto-data" aria-live="polite">
@@ -50,11 +41,28 @@
           No cryptocurrency data available.
         </p>
       </section>
-      <footer>
-        <p>Data provided by CoinGecko</p>
-      </footer>
+      <section id="about" class="about-section">
+        <h2>About Cryptocurrency Tracker</h2>
+        <p>
+          The <strong>Cryptocurrency Tracker</strong> is a user-friendly
+          application designed to help you monitor the latest prices and trends
+          in the cryptocurrency market. Whether you're a seasoned investor or
+          just starting, our platform provides real-time data and insights to
+          make informed decisions.
+        </p>
+        <p>
+          With features like price alerts, market cap tracking, and a
+          customizable interface, you can tailor your experience to fit your
+          needs. Our goal is to empower users with the information they need to
+          navigate the ever-evolving world of cryptocurrencies.
+        </p>
+        <p>
+          Data provided by CoinGecko, ensuring you receive accurate and
+          up-to-date information. Join us on this journey to explore the future
+          of finance!
+        </p>
+      </section>
     </main>
-    <!-- Modal Structure -->
     <div
       id="price-alert-modal"
       class="modal"
@@ -84,6 +92,9 @@
         </button>
       </div>
     </div>
-    <script src="scripts/script-min.js"></script>
+    <script src="scripts/meta-tags-min.js"></script>
+    <script src="scripts/cryptoapp-min.js"></script>
+    <script src="scripts/components-min.js"></script>
+    <script src="scripts/translator-min.js"></script>
   </body>
 </html>
