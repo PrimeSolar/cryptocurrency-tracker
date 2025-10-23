@@ -1,9 +1,69 @@
+/*
+ * Cryptocurrency Tracker Stylesheet
+ * 
+ * This stylesheet provides an extensive, responsive design for the 
+ * cryptocurrency tracker. Key features include:
+ * 
+ * Design Principles:
+ * - Modern, gradient-based color scheme
+ * - Responsive grid layout
+ * - Glassmorphism-inspired design with blur effects
+ * - Color palette
+ * - Smooth animations
+ * 
+ * Key Components Styled:
+ * - Navigation menu
+ * - Cryptocurrency data cards
+ * - Search and filter controls
+ * - Price alert modal
+ * - Theme toggle
+ * - Responsive news section
+ * 
+ * Cross-Browser Compatibility:
+ * - Vendor prefixes for flexbox and border-radius
+ * - Fallback display properties
+ * - Responsive design considerations
+ * 
+ * Responsive Techniques:
+ * - Flexbox and CSS Grid layouts
+ * - Relative and percentage-based sizing
+ * - Media query-ready structure
+ *
+ * Copyright © Vladislav Kazantsev
+ * All rights reserved.
+ * This code is the intellectual property of Vladislav Kazantsev.
+ * You are welcome to clone the related repository and use the code for exploratory purposes.
+ * However, unauthorized reproduction, modification, or redistribution of this code (including cloning of related repository or altering it for activities beyond exploratory use) is strictly prohibited.
+ * Code snippets may be shared only when the original author is explicitly credited and a direct link to the original source of the code is provided alongside the code snippet.
+ * Sharing the link to the file is permitted, except when directed toward retrieval purposes.
+ * Any form of interaction with this file is strictly prohibited when facilitated by the code, except when such interaction is for discussion or exchange purposes with others.
+ * This copyright notice applies globally.
+ * For inquiries about collaboration, usage outside exploratory purposes, or permissions, please contact: hypervisor7@pm.me
+ */
+
 * {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+.rtl-layout {
+  direction: rtl;
+  text-align: right;
+}
+
+.rtl-layout .some-specific-class {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="ltr"] {
+  text-align: left;
 }
 
 body {
@@ -168,7 +228,7 @@ button:hover {
 
 [data-tooltip]:hover::after {
   content: attr(data-tooltip);
-  position: absolute; /* Set the position of the element */
+  position: fixed; /* Set the position of the element */
   bottom: 0; /* Position the element relative to the bottom edge of its nearest positioned ancestor */
   left: 70%;
   transform: translateX(37.5%);
@@ -209,6 +269,12 @@ button:hover {
   max-width: 50%;
 }
 
+.favorite-button,
+.alert-button {
+  position: relative;
+  z-index: 1;
+}
+
 .alert-button[data-tooltip]:hover::after {
   bottom: -0.25em; /* Position the element relative to the bottom edge of its nearest positioned ancestor */
   left: 70%;
@@ -231,6 +297,7 @@ button:hover {
   -moz-border-radius: 10px; /* For older versions of Firefox */
   -o-border-radius: 10px; /* For older versions of Opera */
   border-radius: 10px; /* Standard property for border radius */
+  overflow: visible; /* Set the visibility of content that exceeds the element's boundaries */
 }
 
 .crypto-card:hover {
