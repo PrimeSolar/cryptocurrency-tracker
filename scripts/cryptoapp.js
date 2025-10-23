@@ -1,3 +1,35 @@
+/*
+ * Cryptocurrency Tracker Script
+ *
+ * This script provides an extensive tracker for cryptocurrency prices
+ * and news. It utilizes the CoinGecko API to fetch current market data and CoinTelegraph
+ * to retrieve the latest news articles in the cryptocurrency space.
+ *
+ * Key Features:
+ * - Displays a list of cryptocurrencies along with their current prices, market cap,
+ *   and price changes.
+ * - Allows users to mark cryptocurrencies as favorites and stores their preferences
+ *   in local storage for persistence across sessions.
+ * - Includes a search functionality to filter cryptocurrencies based on user input.
+ * - Supports price alert functionality, notifying users when a selected cryptocurrency
+ *   reaches a specified price.
+ * - Has a dark mode theme toggle that persists user preferences using local storage.
+ * - Fetches and displays the latest cryptocurrency news articles with links.
+ * - Automatically refreshes cryptocurrency prices and news articles at specified intervals.
+ * - Language selector that updates the user interface.
+ *
+ * Copyright © Vladislav Kazantsev
+ * All rights reserved.
+ * This code is the intellectual property of Vladislav Kazantsev.
+ * You are welcome to clone the related repository and use the code for exploratory purposes.
+ * However, unauthorized reproduction, modification, or redistribution of this code (including cloning of related repository or altering it for activities beyond exploratory use) is strictly prohibited.
+ * Code snippets may be shared only when the original author is explicitly credited and a direct link to the original source of the code is provided alongside the code snippet.
+ * Sharing the link to the file is permitted, except when directed toward retrieval purposes.
+ * Any form of interaction with this file is strictly prohibited when facilitated by the code, except when such interaction is for discussion or exchange purposes with others.
+ * This copyright notice applies globally.
+ * For inquiries about collaboration, usage outside exploratory purposes, or permissions, please contact: hypervisor7@pm.me
+ */
+
 let cryptoDataContainer = document.getElementById("crypto-data");
 const searchInput = document.getElementById("search");
 const modal = document.getElementById("price-alert-modal");
@@ -47,7 +79,13 @@ async function fetchCryptoPrices() {
 // Function to populate cryptocurrency data
 function populateCryptoData(data) {
   // Clear previous data to avoid duplication
-  cryptoDataContainer.innerHTML = ""; // Clear previous data
+  cryptoDataContainer.innerHTML = "";
+
+  // Get the current language from localStorage
+  const currentLanguage = localStorage.getItem("selectedLanguage") || "en";
+
+  // Determine the translation object based on current language
+  const langTranslations = translations[currentLanguage] || translations["en"];
 
   const favoriteCoins = data.filter((coin) => favorites.includes(coin.id));
   const nonFavoriteCoins = data.filter((coin) => !favorites.includes(coin.id));
@@ -61,19 +99,34 @@ function populateCryptoData(data) {
     card.dataset.id = coin.id; // Store currency identifiers for favorites
     card.innerHTML = `
             <h2>${coin.name} (${coin.symbol.toUpperCase()})</h2>
-            <p>Price: ${coin.current_price.toFixed(2)} USD</p>
-            <p>Change: ${coin.price_change_percentage_24h.toFixed(2)}%</p>
-            <p>Market Cap: ${coin.market_cap.toLocaleString()} USD</p>
+            <p>${langTranslations.labels.price}: ${coin.current_price.toFixed(
+      2
+    )} USD</p>
+            <p>${
+              langTranslations.labels.change
+            }: ${coin.price_change_percentage_24h.toFixed(2)}%</p>
+            <p>${
+              langTranslations.labels.marketCap
+            }: ${coin.market_cap.toLocaleString()} USD</p>
             <button class="favorite-button" data-tooltip="${
-              favorites.includes(coin.id) ? "Remove" : "Add"
-            } ${coin.name} ${
-      favorites.includes(coin.id) ? "from" : "to"
-    } your favorites">${
-      favorites.includes(coin.id) ? "Remove from Favorites" : "Add to Favorites"
+              favorites.includes(coin.id)
+                ? langTranslations.buttons.favoriteTooltipRemove.replace(
+                    "{coinName}",
+                    coin.name
+                  )
+                : langTranslations.buttons.favoriteTooltipAdd.replace(
+                    "{coinName}",
+                    coin.name
+                  )
+            }">${
+      favorites.includes(coin.id)
+        ? langTranslations.buttons.removeFromFavorites
+        : langTranslations.buttons.addToFavorites
     }</button>
-            <button class="alert-button" data-tooltip="Set a price alert for ${
+            <button class="alert-button" data-tooltip="${langTranslations.buttons.alertTooltip.replace(
+              "{coinName}",
               coin.name
-            }">Set Price Alert</button>
+            )}">${langTranslations.buttons.setPriceAlert}</button>
         `;
     cryptoDataContainer.appendChild(card);
 
@@ -137,11 +190,18 @@ toggleThemeButton.innerHTML = `<i class="fas fa-adjust"></i> ${
 searchInput.addEventListener("input", debouncedSearch);
 toggleThemeButton.addEventListener("click", () => {
   darkMode = !darkMode;
-  document.body.classList.toggle("dark-mode", darkMode); // Apply a theme
-  localStorage.setItem("darkMode", JSON.stringify(darkMode)); // Save theme preference
+  document.body.classList.toggle("dark-mode", darkMode);
+  localStorage.setItem("darkMode", JSON.stringify(darkMode));
+
+  // Get the current selected language
+  const currentLanguage = document.getElementById("language-selector").value;
+
+  // Update theme button text based on language and current mode
   toggleThemeButton.innerHTML = `<i class="fas fa-adjust"></i> ${
-    darkMode ? "Dark Theme" : "Light Theme"
-  }`; // Update button text
+    darkMode
+      ? translations[currentLanguage].controls.darkTheme
+      : translations[currentLanguage].controls.lightTheme
+  }`;
 });
 
 // Function to set a price alert
@@ -158,19 +218,29 @@ closeButton.addEventListener("click", () => {
 // Event listener for the set alert button
 setAlertButton.addEventListener("click", () => {
   const alertPrice = parseFloat(document.getElementById("alert-price").value);
-  if (!isNaN(alertPrice)) {
-    // Store the alert in localStorage or handle it as needed
-    const alerts = JSON.parse(localStorage.getItem("priceAlerts")) || {};
-    alerts[currentCoinId] = alertPrice;
-    localStorage.setItem("priceAlerts", JSON.stringify(alerts));
-    alert(
-      `Price alert set for ${capitalizeFirstLetter(
-        currentCoinId
-      )} at ${alertPrice} USD.`
-    );
-    modal.style.display = "none"; // Hide the modal
+
+  // Retrieve current language from localStorage
+  const currentLanguage = localStorage.getItem("selectedLanguage") || "en";
+
+  // Select appropriate translations
+  const langTranslations = translations[currentLanguage] || translations["en"];
+
+  if (isNaN(alertPrice)) {
+    alert(langTranslations.errorMessages.invalidPrice);
   } else {
-    alert("Please enter a valid price.");
+    const priceAlerts = JSON.parse(localStorage.getItem("priceAlerts")) || {};
+    priceAlerts[currentCoinId] = alertPrice;
+    localStorage.setItem("priceAlerts", JSON.stringify(priceAlerts));
+    const coinName = document
+      .querySelector(`.crypto-card[data-id="${currentCoinId}"] h2`)
+      .textContent.split(" ")[0];
+    alert(
+      langTranslations.alerts.priceAlertSet
+        .replace("{price}", alertPrice)
+        .replace("{coinName}", coinName)
+    );
+
+    modal.style.display = "none";
   }
 });
 
@@ -264,8 +334,33 @@ function displayNewsArticles(articles) {
   });
 }
 
+// Add language persistence logic
+let currentLanguage = localStorage.getItem("selectedLanguage") || "en";
+
+// Modify the language selector event listener
+document
+  .getElementById("language-selector")
+  .addEventListener("change", (event) => {
+    const selectedLanguage = event.target.value;
+
+    // Update the language selector dropdown to show the correct selected language
+    document.getElementById("language-selector").value = selectedLanguage;
+
+    // Save the selected language to localStorage
+    localStorage.setItem("selectedLanguage", selectedLanguage);
+
+    // Update text for the selected language
+    updateText(selectedLanguage);
+  });
+
 // Initialize the application
 document.addEventListener("DOMContentLoaded", () => {
+  // Set the language selector to the saved language
+  document.getElementById("language-selector").value = currentLanguage;
+
+  // Update text with the saved language
+  updateText(currentLanguage);
+
   fetchCryptoPrices()
     .then(() => {
       fetchCryptoNews();
