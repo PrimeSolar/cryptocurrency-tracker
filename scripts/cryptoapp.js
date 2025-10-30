@@ -206,7 +206,7 @@ toggleThemeButton.addEventListener("click", () => {
 
 // Function to set a price alert
 function setPriceAlert(coinId) {
-  currentCoinId = coinId; // Store the current coin ID
+  currentCoinId = coinId; // Store the current coin identifier
   modal.style.display = "block"; // Show the modal
 }
 
