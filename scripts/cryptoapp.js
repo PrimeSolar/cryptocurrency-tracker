@@ -34,7 +34,8 @@ let cryptoDataContainer = document.getElementById("crypto-data");
 const searchInput = document.getElementById("search");
 const modal = document.getElementById("price-alert-modal");
 const closeButton = document.querySelector(".close-button");
-const setAlertButton = document.getElementById("set-alert-button");
+const setCryptocurrencyPriceAlertButton =
+  document.getElementById("set-alert-button");
 let currentCoinId = null;
 const toggleThemeButton = document.getElementById("toggle-theme");
 const loadingSpinner = document.getElementById("loading-spinner");
@@ -44,6 +45,7 @@ cryptoDataContainer.appendChild(errorMessage);
 
 let darkMode = JSON.parse(localStorage.getItem("darkMode")) || false;
 const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let latestCryptoData = [];
 
 // Debounce function to limit the rate of function calls
 function debounce(func, delay) {
@@ -62,11 +64,12 @@ async function fetchCryptoPrices() {
 
   try {
     const response = await fetch(
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false"
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=120&page=1&sparkline=false"
     );
     if (!response.ok) throw new Error("Failed to fetch data from the server.");
 
     const data = await response.json();
+    latestCryptoData = data;
     populateCryptoData(data);
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -89,45 +92,51 @@ function populateCryptoData(data) {
 
   const favoriteCoins = data.filter((coin) => favorites.includes(coin.id));
   const nonFavoriteCoins = data.filter((coin) => !favorites.includes(coin.id));
-
   const sortedData = [...favoriteCoins, ...nonFavoriteCoins];
 
-  // Create cards for each currency
+  // Create cards for each cryptocurrency
   sortedData.forEach((coin) => {
     const card = document.createElement("div");
     card.className = "crypto-card";
-    card.dataset.id = coin.id; // Store currency identifiers for favorites
+    card.dataset.id = coin.id;
+
+    // Determine arrow direction
+    const arrowBadge =
+      coin.price_change_percentage_24h >= 0
+        ? '<svg width="14" height="14" fill="lightgreen"><polygon points="7,0 14,14 0,14" /></svg>'
+        : '<svg width="14" height="14" fill="red"><polygon points="7,14 14,0 0,0" /></svg>';
+
+    // Create cards for each currency
     card.innerHTML = `
-            <h2>${coin.name} (${coin.symbol.toUpperCase()})</h2>
-            <p>${langTranslations.labels.price}: ${coin.current_price.toFixed(
-      2
-    )} USD</p>
-            <p>${
-              langTranslations.labels.change
-            }: ${coin.price_change_percentage_24h.toFixed(2)}%</p>
-            <p>${
-              langTranslations.labels.marketCap
-            }: ${coin.market_cap.toLocaleString()} USD</p>
-            <button class="favorite-button" data-tooltip="${
-              favorites.includes(coin.id)
-                ? langTranslations.buttons.favoriteTooltipRemove.replace(
-                    "{coinName}",
-                    coin.name
-                  )
-                : langTranslations.buttons.favoriteTooltipAdd.replace(
-                    "{coinName}",
-                    coin.name
-                  )
-            }">${
+      <h2>${coin.name} (${coin.symbol.toUpperCase()})</h2>
+      <p class="current-price">${langTranslations.labels.price}: ${coin.current_price.toFixed(2)} USD ${arrowBadge}</p>
+      <p class="market-cap">${
+        langTranslations.labels.marketCap
+      }: ${coin.market_cap.toLocaleString()} USD</p>
+      <p class="price-change">${
+        langTranslations.labels.change
+      }: ${coin.price_change_percentage_24h.toFixed(2)}%</p>
+      <button class="favorite-button" data-tooltip="${
+        favorites.includes(coin.id)
+          ? langTranslations.buttons.favoriteTooltipRemove.replace(
+              "{coinName}",
+              coin.name
+            )
+          : langTranslations.buttons.favoriteTooltipAdd.replace(
+              "{coinName}",
+              coin.name
+            )
+      }">${
       favorites.includes(coin.id)
         ? langTranslations.buttons.removeFromFavorites
         : langTranslations.buttons.addToFavorites
     }</button>
-            <button class="alert-button" data-tooltip="${langTranslations.buttons.alertTooltip.replace(
-              "{coinName}",
-              coin.name
-            )}">${langTranslations.buttons.setPriceAlert}</button>
-        `;
+      <button class="alert-button" data-tooltip="${langTranslations.buttons.alertTooltip.replace(
+        "{coinName}",
+        coin.name
+      )}">${langTranslations.buttons.setPriceAlert}</button>
+    `;
+
     cryptoDataContainer.appendChild(card);
 
     // Add event listener for the favorite button
@@ -151,7 +160,15 @@ function toggleFavorite(coinId) {
     favorites.push(coinId);
   }
   localStorage.setItem("favorites", JSON.stringify(favorites));
-  fetchCryptoPrices();
+
+  // Re-render from cached data instead of re-fetching
+  updateCryptoDisplay(
+    document.getElementById("filter-select").value,
+    document.getElementById("sort-select").value
+  );
+
+  // Ensure visual favorite markers updated across all cards
+  updateFavoritesDisplay();
 }
 
 // Function to update favorites display
@@ -204,7 +221,49 @@ toggleThemeButton.addEventListener("click", () => {
   }`;
 });
 
-// Function to set a price alert
+document.addEventListener("DOMContentLoaded", () => {
+  const filterSelect = document.getElementById("filter-select");
+  const sortSelect = document.getElementById("sort-select");
+
+  filterSelect.addEventListener("change", () => {
+    const selectedFilter = filterSelect.value;
+    console.log("Selected Filter:", selectedFilter);
+    updateCryptoDisplay(selectedFilter, sortSelect.value);
+  });
+
+  sortSelect.addEventListener("change", () => {
+    updateCryptoDisplay(filterSelect.value, sortSelect.value);
+  });
+});
+
+function updateCryptoDisplay(filter, sort) {
+  if (!Array.isArray(latestCryptoData) || latestCryptoData.length === 0) return;
+
+  let data = [...latestCryptoData];
+
+  // Apply filter
+  if (filter === "favorites") {
+    data = data.filter((coin) => favorites.includes(coin.id));
+  }
+
+  // Apply sort
+  if (sort === "marketCap") {
+    data.sort((a, b) => (b.market_cap || 0) - (a.market_cap || 0));
+  } else if (sort === "price") {
+    data.sort((a, b) => (b.current_price || 0) - (a.current_price || 0));
+  } else if (sort === "priceChange") {
+    data.sort(
+      (a, b) =>
+        (b.price_change_percentage_24h || 0) -
+        (a.price_change_percentage_24h || 0)
+    );
+  }
+
+  cryptoDataContainer.innerHTML = "";
+  populateCryptoData(data);
+}
+
+// Function to open a price alert modal window
 function setPriceAlert(coinId) {
   currentCoinId = coinId; // Store the current coin identifier
   modal.style.display = "block"; // Show the modal
@@ -215,8 +274,8 @@ closeButton.addEventListener("click", () => {
   modal.style.display = "none"; // Hide the modal
 });
 
-// Event listener for the set alert button
-setAlertButton.addEventListener("click", () => {
+// Function to set a price alert
+const setPriceAlertAction = () => {
   const alertPrice = parseFloat(document.getElementById("alert-price").value);
 
   // Retrieve current language from localStorage
@@ -241,6 +300,18 @@ setAlertButton.addEventListener("click", () => {
     );
 
     modal.style.display = "none";
+  }
+};
+
+// Event listener for the set alert button when clicking it
+setCryptocurrencyPriceAlertButton.addEventListener("click", () =>
+  setPriceAlertAction()
+);
+
+// Event listener for the cryptocurrency input field when pressing the "Enter" button
+document.getElementById("alert-price").addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    setPriceAlertAction();
   }
 });
 
