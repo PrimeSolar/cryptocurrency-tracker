@@ -11,29 +11,53 @@
     </header>
     <main class="container" id="main">
       <section class="controls" aria-labelledby="controls">
-        <select id="language-selector" title="Select Language">
-          <option value="en">English</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="pt">Português</option>
-          <option value="rs">Srpski</option>
-          <option value="ae">عربي</option>
-        </select>
         <h2 id="controls" class="hidden">Controls</h2>
-        <input
-          type="text"
-          id="search"
-          placeholder="Search for cryptocurrency..."
-          aria-label="Search for cryptocurrency"
-        />
-        <button
-          id="toggle-theme"
-          type="button"
-          aria-label="Switch Theme"
-          data-tooltip="Switch between light and dark themes"
-        >
-          <i class="fas fa-adjust"></i> Switch Theme
-        </button>
+        <div>
+          <label for="language-selector">Language:</label>
+          <select id="language-selector" title="Select Language">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="pt">Português</option>
+            <option value="rs">Srpski</option>
+            <option value="ae">عربي</option>
+          </select>
+        </div>
+        <div>
+          <label for="filter-select">Filter By:</label>
+          <select id="filter-select" title="Select Filter">
+            <option value="all">All Cryptocurrencies</option>
+            <option value="favorites">Favorites Only</option>
+          </select>
+        </div>
+        <div>
+          <label for="sort-select">Sort By:</label>
+          <select id="sort-select" title="Select Sorting Parameter">
+            <option value="marketCap">Market Cap</option>
+            <option value="price">Price</option>
+            <option value="priceChange">Price Change</option>
+          </select>
+        </div>
+        <div>
+          <label for="search">Search:</label>
+          <input
+            type="text"
+            id="search"
+            placeholder="Search for cryptocurrency..."
+            aria-label="Search for cryptocurrency"
+          />
+        </div>
+        <div>
+          <label for="setoggle-themearch">Theme:</label>
+          <button
+            id="toggle-theme"
+            type="button"
+            aria-label="Switch Theme"
+            data-tooltip="Switch between light and dark themes"
+          >
+            <i class="fas fa-adjust"></i> Switch Theme
+          </button>
+        </div>
       </section>
       <section class="crypto-data" id="crypto-data" aria-live="polite">
         <div class="loading-spinner" id="loading-spinner" role="status"></div>
@@ -41,6 +65,36 @@
           No cryptocurrency data available.
         </p>
       </section>
+      <!-- <section id="historical-data" class="historical-data">
+        <h2>Historical Price Data</h2>
+        <div class="controls">
+          <input type="date" id="start-date" aria-label="Start date" />
+          <input type="date" id="end-date" aria-label="End date" />
+          <button id="fetch-data" aria-label="Fetch historical data">
+            Fetch Data
+          </button>
+          <select id="chart-type" aria-label="Select chart type">
+            <option value="line">Line Chart</option>
+            <option value="candlestick">Candlestick Chart</option>
+          </select>
+        </div>
+        <canvas id="price-chart" aria-label="Historical Price Chart"></canvas>
+        <div id="data-table">
+          <table aria-label="Historical Data Table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Open</th>
+                <th>Close</th>
+                <th>High</th>
+                <th>Low</th>
+                <th>Volume</th>
+              </tr>
+            </thead>
+            <tbody id="historical-table-body"></tbody>
+          </table>
+        </div>
+      </section> -->
       <section id="about" class="about-section">
         <h2>About Cryptocurrency Tracker</h2>
         <p>
@@ -92,8 +146,13 @@
       </div>
     </div>
     <script src="scripts/meta-tags-min.js"></script>
-    <script src="scripts/cryptoapp-min.js"></script>
+    <script src="scripts/cryptoapp.js"></script>
     <script src="scripts/components-min.js"></script>
     <script src="scripts/translator-min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@1.0.1/dist/chartjs-adapter-moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+    <script src="scripts/price-chart-min.js"></script> -->
   </body>
 </html>
