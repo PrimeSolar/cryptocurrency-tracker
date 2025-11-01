@@ -128,8 +128,8 @@ body {
 
 h1 {
   text-align: center;
-  font-size: 2.5em;
-  font-weight: bold;
+  font-size: 2.5em; /* Set the font size for the text of the element */
+  font-weight: bold; /* Set the font weight for the text of the element */
   text-shadow: 2px 2px 4px #00000070;
   animation: fadeIn 1s ease-in-out;
 }
@@ -137,8 +137,8 @@ h1 {
 h2 {
   text-align: center;
   margin: 50px auto 20px; /* Set the margin of the element */
-  font-size: 1.5em;
-  font-weight: bolder;
+  font-size: 1.5em; /* Set the font size for the text of the element */
+  font-weight: bolder; /* Set the font weight for the text of the element */
   text-shadow: 2px 2px 4px #00000070;
   animation: fadeIn 1s ease-in-out;
 }
@@ -149,7 +149,40 @@ h2 {
   display: -ms-flexbox; /* For Internet Explorer 10 (supports an earlier flexbox model) */
   display: flex; /* Standard syntax for modern browsers (widely supported) */
   justify-content: space-between;
+  gap: 5px;
   margin-bottom: 20px;
+}
+
+div:has(select) {
+  width: min-content;
+}
+
+label {
+  display: block;
+  text-align: center;
+  font-weight: bold; /* Set the font weight for the text of the element */
+}
+
+select,
+div input,
+#toggle-theme {
+  display: block;
+  padding: 10px; /* Set the padding of the element */
+  margin: 5px 7px 0 0; /* Set the margin of the element */
+  border: none;
+  font-size: 1em; /* Set the font size for the text of the element */
+  transition: background-color 0.3s;
+  /* Set the border radius for the corners of the element */
+  -webkit-border-radius: 5px; /* For older versions of Chrome and Safari */
+  -moz-border-radius: 5px; /* For older versions of Firefox */
+  -o-border-radius: 5px; /* For older versions of Opera */
+  border-radius: 5px; /* Standard property for border radius */
+}
+
+select:hover,
+select:focus {
+  outline: none;
+  cursor: pointer;
 }
 
 .hidden {
@@ -159,8 +192,8 @@ h2 {
 input[type="text"] {
   padding: 10px; /* Set the padding of the element */
   border: none;
-  width: 70%; /* Set the width of the element */
-  font-size: 1em;
+  width: 100%; /* Set the width of the element */
+  font-size: 1em; /* Set the font size for the text of the element */
   /* Set the border radius for the corners of the element */
   -webkit-border-radius: 5px; /* For older versions of Chrome and Safari */
   -moz-border-radius: 5px; /* For older versions of Firefox */
@@ -171,7 +204,7 @@ input[type="text"] {
 /* Button Styles */
 button {
   position: relative; /* Set the position of the element */
-  border: 1px solid #ffffff;
+  border: 1px solid #ffffff !important;
   padding: 10px 15px; /* Set the padding of the element */
   z-index: 1; /* Set the stacking order of the element */
   background: linear-gradient(
@@ -232,7 +265,7 @@ button:hover {
   bottom: 0; /* Position the element relative to the bottom edge of its nearest positioned ancestor */
   left: 70%;
   transform: translateX(37.5%);
-  font-weight: normal;
+  font-weight: normal; /* Set the font weight for the text of the element */
   background: #ffffff; /* Set the background of the element */
   color: #000000a7; /* Set the color for the text of the element */
   padding: 5px 10px; /* Set the padding of the element */
@@ -302,19 +335,25 @@ button:hover {
 
 .crypto-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px #0000004d;
+  box-shadow: 0 8px 20px #0000007a;
 }
 
 .crypto-card h2 {
   margin: 0; /* Set the margin of the element */
-  font-size: 1.5em;
-  font-weight: semi-bold;
+  font-size: 1.5em; /* Set the font size for the text of the element */
+  font-weight: semi-bold; /* Set the font weight for the text of the element */
 }
 
 .crypto-card p {
   margin: 5px 0; /* Set the margin of the element */
-  font-size: 1.1em;
+  font-size: 1.1em; /* Set the font size for the text of the element */
   line-height: 1.5;
+  display: flex;
+  align-items: center;
+}
+
+.crypto-card p svg {
+  margin-left: 5px;
 }
 
 .modal {
@@ -363,8 +402,8 @@ button:hover {
 }
 
 .close-button {
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 28px; /* Set the font size for the text of the element */
+  font-weight: bold; /* Set the font weight for the text of the element */
   color: #a7a7a7; /* Set the color for the text of the element */
   /* Use flexbox to align the content inside the element */
   display: -webkit-box; /* For earlier versions of Chrome and Safari (pre-flexbox) */
@@ -475,7 +514,7 @@ a {
 footer {
   text-align: center;
   margin-top: 20px;
-  font-size: 0.9em;
+  font-size: 0.9em; /* Set the font size for the text of the element */
   color: #dddddd; /* Set the color for the text of the element */
 }
 
@@ -601,11 +640,11 @@ to-top.active {
 /* Responsive Design */
 @media (max-width: 600px) {
   h1 {
-    font-size: 2em;
+    font-size: 2em; /* Set the font size for the text of the element */
   }
   .controls {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
   }
   input[type="text"] {
     width: 100%; /* Set the width of the element */
