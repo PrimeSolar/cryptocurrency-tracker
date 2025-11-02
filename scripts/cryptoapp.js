@@ -6,7 +6,7 @@
  * to retrieve the latest news articles in the cryptocurrency space.
  *
  * Key Features:
- * - Displays a list of cryptocurrencies along with their current prices, market cap,
+ * - Displays a list of cryptocurrencies along with their current prices, market capitalization,
  *   and price changes.
  * - Allows users to mark cryptocurrencies as favorites and stores their preferences
  *   in local storage for persistence across sessions.
@@ -108,8 +108,10 @@ function populateCryptoData(data) {
 
     // Create cards for each currency
     card.innerHTML = `
-      <h2>${coin.name} (${coin.symbol.toUpperCase()})</h2>
-      <p class="current-price">${langTranslations.labels.price}: ${coin.current_price.toFixed(2)} USD ${arrowBadge}</p>
+      <h2>${coin.name}<br />(${coin.symbol.toUpperCase()})</h2>
+      <p class="current-price">${
+        langTranslations.labels.price
+      }: ${coin.current_price.toFixed(2)} USD ${arrowBadge}</p>
       <p class="market-cap">${
         langTranslations.labels.marketCap
       }: ${coin.market_cap.toLocaleString()} USD</p>
@@ -211,7 +213,7 @@ toggleThemeButton.addEventListener("click", () => {
   localStorage.setItem("darkMode", JSON.stringify(darkMode));
 
   // Get the current selected language
-  const currentLanguage = document.getElementById("language-selector").value;
+  const currentLanguage = document.getElementById("language-select").value;
 
   // Update theme button text based on language and current mode
   toggleThemeButton.innerHTML = `<i class="fas fa-adjust"></i> ${
@@ -410,12 +412,12 @@ let currentLanguage = localStorage.getItem("selectedLanguage") || "en";
 
 // Modify the language selector event listener
 document
-  .getElementById("language-selector")
+  .getElementById("language-select")
   .addEventListener("change", (event) => {
     const selectedLanguage = event.target.value;
 
     // Update the language selector dropdown to show the correct selected language
-    document.getElementById("language-selector").value = selectedLanguage;
+    document.getElementById("language-select").value = selectedLanguage;
 
     // Save the selected language to localStorage
     localStorage.setItem("selectedLanguage", selectedLanguage);
@@ -427,7 +429,7 @@ document
 // Initialize the application
 document.addEventListener("DOMContentLoaded", () => {
   // Set the language selector to the saved language
-  document.getElementById("language-selector").value = currentLanguage;
+  document.getElementById("language-select").value = currentLanguage;
 
   // Update text with the saved language
   updateText(currentLanguage);
