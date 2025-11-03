@@ -47,7 +47,7 @@ let darkMode = JSON.parse(localStorage.getItem("darkMode")) || false;
 const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 let latestCryptoData = [];
 
-// Debounce function to limit the rate of function calls
+// Debounce function to limit the rate of function calls.
 function debounce(func, delay) {
   let timeout;
   return function (...args) {
@@ -56,7 +56,7 @@ function debounce(func, delay) {
   };
 }
 
-// Function to fetch cryptocurrency prices
+// Function to fetch cryptocurrency prices.
 async function fetchCryptoPrices() {
   loadingSpinner.style.display = "block";
   errorMessage.textContent = "";
@@ -79,34 +79,34 @@ async function fetchCryptoPrices() {
   }
 }
 
-// Function to populate cryptocurrency data
+// Function to populate cryptocurrency data.
 function populateCryptoData(data) {
-  // Clear previous data to avoid duplication
+  // Clear previous data to avoid duplication.
   cryptoDataContainer.innerHTML = "";
 
-  // Get the current language from localStorage
+  // Get the current language from localStorage.
   const currentLanguage = localStorage.getItem("selectedLanguage") || "en";
 
-  // Determine the translation object based on current language
+  // Determine the translation object based on current language.
   const langTranslations = translations[currentLanguage] || translations["en"];
 
   const favoriteCoins = data.filter((coin) => favorites.includes(coin.id));
   const nonFavoriteCoins = data.filter((coin) => !favorites.includes(coin.id));
   const sortedData = [...favoriteCoins, ...nonFavoriteCoins];
 
-  // Create cards for each cryptocurrency
+  // Create cards for each cryptocurrency.
   sortedData.forEach((coin) => {
     const card = document.createElement("div");
     card.className = "crypto-card";
     card.dataset.id = coin.id;
 
-    // Determine arrow direction
+    // Determine arrow direction.
     const arrowBadge =
       coin.price_change_percentage_24h >= 0
         ? '<svg width="14" height="14" fill="lightgreen"><polygon points="7,0 14,14 0,14" /></svg>'
         : '<svg width="14" height="14" fill="red"><polygon points="7,14 14,0 0,0" /></svg>';
 
-    // Create cards for each currency
+    // Create cards for each currency.
     card.innerHTML = `
       <h2>${coin.name}<br />(${coin.symbol.toUpperCase()})</h2>
       <p class="current-price">${
@@ -141,12 +141,12 @@ function populateCryptoData(data) {
 
     cryptoDataContainer.appendChild(card);
 
-    // Add event listener for the favorite button
+    // Add event listener for the favorite button.
     card.querySelector(".favorite-button").addEventListener("click", () => {
       toggleFavorite(coin.id);
     });
 
-    // Add event listener for the alert button
+    // Add event listener for the alert button.
     card.querySelector(".alert-button").addEventListener("click", () => {
       setPriceAlert(coin.id);
     });
@@ -163,17 +163,17 @@ function toggleFavorite(coinId) {
   }
   localStorage.setItem("favorites", JSON.stringify(favorites));
 
-  // Re-render from cached data instead of re-fetching
+  // Re-render from cached data instead of re-fetching.
   updateCryptoDisplay(
     document.getElementById("filter-select").value,
     document.getElementById("sort-select").value
   );
 
-  // Ensure visual favorite markers updated across all cards
+  // Ensure visual favorite markers updated across all cards.
   updateFavoritesDisplay();
 }
 
-// Function to update favorites display
+// Function to update favorites display.
 function updateFavoritesDisplay() {
   const cards = cryptoDataContainer.getElementsByClassName("crypto-card");
   for (let card of cards) {
@@ -188,7 +188,7 @@ function updateFavoritesDisplay() {
   }
 }
 
-// Debounced search functionality
+// Debounced search functionality.
 const debouncedSearch = debounce(() => {
   const filter = searchInput.value.toLowerCase();
   const cards = cryptoDataContainer.getElementsByClassName("crypto-card");
@@ -199,23 +199,23 @@ const debouncedSearch = debounce(() => {
   }
 }, 300); // 300ms debounce delay
 
-// Apply the theme on page load
+// Apply the theme on page load.
 document.body.classList.toggle("dark-mode", darkMode);
 toggleThemeButton.innerHTML = `<i class="fas fa-adjust"></i> ${
   darkMode ? "Dark Theme" : "Light Theme"
 }`;
 
-// Event listeners
+// Event listeners.
 searchInput.addEventListener("input", debouncedSearch);
 toggleThemeButton.addEventListener("click", () => {
   darkMode = !darkMode;
   document.body.classList.toggle("dark-mode", darkMode);
   localStorage.setItem("darkMode", JSON.stringify(darkMode));
 
-  // Get the current selected language
+  // Get the current selected language.
   const currentLanguage = document.getElementById("language-select").value;
 
-  // Update theme button text based on language and current mode
+  // Update theme button text based on language and current mode.
   toggleThemeButton.innerHTML = `<i class="fas fa-adjust"></i> ${
     darkMode
       ? translations[currentLanguage].controls.darkTheme
@@ -243,12 +243,12 @@ function updateCryptoDisplay(filter, sort) {
 
   let data = [...latestCryptoData];
 
-  // Apply filter
+  // Apply filter.
   if (filter === "favorites") {
     data = data.filter((coin) => favorites.includes(coin.id));
   }
 
-  // Apply sort
+  // Apply sort.
   if (sort === "marketCap") {
     data.sort((a, b) => (b.market_cap || 0) - (a.market_cap || 0));
   } else if (sort === "price") {
@@ -265,25 +265,25 @@ function updateCryptoDisplay(filter, sort) {
   populateCryptoData(data);
 }
 
-// Function to open a price alert modal window
+// Function to open a price alert modal window.
 function setPriceAlert(coinId) {
-  currentCoinId = coinId; // Store the current coin identifier
-  modal.style.display = "block"; // Show the modal
+  currentCoinId = coinId; // Store the current coin identifier.
+  modal.style.display = "block"; // Show the modal.
 }
 
-// Event listener for the close button
+// Event listener for the close button.
 closeButton.addEventListener("click", () => {
-  modal.style.display = "none"; // Hide the modal
+  modal.style.display = "none"; // Hide the modal.
 });
 
-// Function to set a price alert
+// Function to set a price alert.
 const setPriceAlertAction = () => {
   const alertPrice = parseFloat(document.getElementById("alert-price").value);
 
-  // Retrieve current language from localStorage
+  // Retrieve current language from localStorage.
   const currentLanguage = localStorage.getItem("selectedLanguage") || "en";
 
-  // Select appropriate translations
+  // Select appropriate translations.
   const langTranslations = translations[currentLanguage] || translations["en"];
 
   if (isNaN(alertPrice)) {
@@ -305,19 +305,19 @@ const setPriceAlertAction = () => {
   }
 };
 
-// Event listener for the set alert button when clicking it
+// Event listener for the set alert button when clicking it.
 setCryptocurrencyPriceAlertButton.addEventListener("click", () =>
   setPriceAlertAction()
 );
 
-// Event listener for the cryptocurrency input field when pressing the "Enter" button
+// Event listener for the cryptocurrency input field when pressing the "Enter" button.
 document.getElementById("alert-price").addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     setPriceAlertAction();
   }
 });
 
-// Function to capitalize the first letter of a string
+// Function to capitalize the first letter of a string.
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -407,31 +407,31 @@ function displayNewsArticles(articles) {
   });
 }
 
-// Add language persistence logic
+// Add language persistence logic.
 let currentLanguage = localStorage.getItem("selectedLanguage") || "en";
 
-// Modify the language selector event listener
+// Modify the language selector event listener.
 document
   .getElementById("language-select")
   .addEventListener("change", (event) => {
     const selectedLanguage = event.target.value;
 
-    // Update the language selector dropdown to show the correct selected language
+    // Update the language selector dropdown to show the correct selected language.
     document.getElementById("language-select").value = selectedLanguage;
 
-    // Save the selected language to localStorage
+    // Save the selected language to localStorage.
     localStorage.setItem("selectedLanguage", selectedLanguage);
 
-    // Update text for the selected language
+    // Update text for the selected language.
     updateText(selectedLanguage);
   });
 
-// Initialize the application
+// Initialize the application.
 document.addEventListener("DOMContentLoaded", () => {
-  // Set the language selector to the saved language
+  // Set the language selector to the saved language.
   document.getElementById("language-select").value = currentLanguage;
 
-  // Update text with the saved language
+  // Update text with the saved language.
   updateText(currentLanguage);
 
   fetchCryptoPrices()
