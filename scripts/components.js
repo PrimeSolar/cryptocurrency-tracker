@@ -1,4 +1,4 @@
-/*
+/**
  * The Library of Custom Reusable Web Components
  * This file is the library containing my collection of custom, reusable web components
  * that can be used across different parts of the project. These components go beyond what browsers provide,
@@ -16,16 +16,18 @@
  * For inquiries about collaboration, usage outside exploratory purposes, or permissions, please contact: hypervisor7@pm.me
  */
 
-// The Navigation Bar
+/** Select the navigation bar component. */
 const nav = document.querySelector("nav");
 
+// The declaration of the function to define the navigation bar content.
 function createNav(nav) {
+  // Only run the following code if the condition is met.
   if (nav) {
-    // Define the navigation bar content:
+    // Define the navigation bar content.
     nav.innerHTML += `
       <ul class="nav-menu">
         <li>
-          <a href="#main" aria-label="View Cryptocurrency Data"
+          <a href="#crypto-data" aria-label="View Cryptocurrency Data"
             >Cryptocurrency Data</a
           >
         </li>
@@ -39,6 +41,7 @@ function createNav(nav) {
       `;
   }
 }
+// The call of the function to define the component's content.
 createNav(nav);
 
 // The Scroll to Top Button
@@ -66,7 +69,7 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// The Printing Functionality
+// The Printing Functionality.
 
 document.addEventListener("keydown", (event) => {
   if (event.ctrlKey && event.key === "p") {
@@ -88,14 +91,14 @@ function printPage() {
   }
 }
 
-// The Footer
+// The Footer.
 const footer = document.querySelector("footer");
 const year = new Date().getFullYear();
 function createFooter(footer) {
   if (footer) {
     footer.style.display = "flex";
     footer.style.flexDirection = "column";
-    // Define the footer content:
+    // Define the footer content.
     footerContainer.innerHTML += `
         <ul class="nav-menu">
           <li>
@@ -128,7 +131,7 @@ function createFooter(footer) {
 }
 createFooter(footer);
 
-// The Contact Us Link Titles
+// The Contact Us Link Titles.
 const contactUsLinks = document.querySelectorAll("a");
 for (let x of contactUsLinks) {
   if (x.getAttribute("href") === "contact.html") {
