@@ -13,8 +13,8 @@
       <section class="controls" aria-labelledby="controls">
         <h2 id="controls" class="hidden">Controls</h2>
         <div>
-          <label for="language-selector">Language:</label>
-          <select id="language-selector" title="Select Language">
+          <label id="language-label" for="language-select"></label>
+          <select id="language-select">
             <option value="en">English</option>
             <option value="es">Español</option>
             <option value="fr">Français</option>
@@ -24,31 +24,26 @@
           </select>
         </div>
         <div>
-          <label for="filter-select">Filter By:</label>
-          <select id="filter-select" title="Select Filter">
-            <option value="all">All Cryptocurrencies</option>
-            <option value="favorites">Favorites Only</option>
+          <label id="filter-label" for="filter-select"></label>
+          <select id="filter-select">
+            <option id="filter-select-all" value="all">All Cryptocurrencies</option>
+            <option id="filter-select-favorites" value="favorites">Favorites Only</option>
           </select>
         </div>
         <div>
-          <label for="sort-select">Sort By:</label>
-          <select id="sort-select" title="Select Sorting Parameter">
-            <option value="marketCap">Market Cap</option>
-            <option value="price">Price</option>
-            <option value="priceChange">Price Change</option>
+          <label id="sort-label" for="sort-select"></label>
+          <select id="sort-select">
+            <option id="sort-select-market-cap" value="marketCap">Market Capitalization</option>
+            <option id="sort-select-price" value="price">Price</option>
+            <option id="sort-select-price-change" value="priceChange">Price Change</option>
           </select>
         </div>
         <div>
-          <label for="search">Search:</label>
-          <input
-            type="text"
-            id="search"
-            placeholder="Search for cryptocurrency..."
-            aria-label="Search for cryptocurrency"
-          />
+          <label id="search-label" for="search"></label>
+          <input id="search" type="text" />
         </div>
         <div>
-          <label for="setoggle-themearch">Theme:</label>
+          <label id="theme-label" for="toggle-theme"></label>
           <button
             id="toggle-theme"
             type="button"
@@ -61,9 +56,7 @@
       </section>
       <section class="crypto-data" id="crypto-data" aria-live="polite">
         <div class="loading-spinner" id="loading-spinner" role="status"></div>
-        <p id="no-data-message" class="hidden">
-          No cryptocurrency data available.
-        </p>
+        <p id="no-data-message" class="hidden"></p>
       </section>
       <!-- <section id="historical-data" class="historical-data">
         <h2>Historical Price Data</h2>
@@ -96,25 +89,10 @@
         </div>
       </section> -->
       <section id="about" class="about-section">
-        <h2>About Cryptocurrency Tracker</h2>
-        <p>
-          The <strong>Cryptocurrency Tracker</strong> is a user-friendly
-          application designed to help you monitor the latest prices and trends
-          in the cryptocurrency market. Whether you're a seasoned investor or
-          just starting, our platform provides real-time data and insights to
-          make informed decisions.
-        </p>
-        <p>
-          With features like price alerts, market cap tracking, and a
-          customizable interface, you can tailor your experience to fit your
-          needs. Our goal is to empower users with the information they need to
-          navigate the ever-evolving world of cryptocurrencies.
-        </p>
-        <p>
-          Data provided by CoinGecko, ensuring you receive accurate and
-          up-to-date information. Join us on this journey to explore the future
-          of finance!
-        </p>
+        <h2></h2>
+        <p></p>
+        <p></p>
+        <p></p>
       </section>
     </main>
     <div
