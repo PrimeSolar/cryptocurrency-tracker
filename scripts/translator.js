@@ -1,23 +1,23 @@
-/*
+/**
  * Multilingual Translator for Cryptocurrency Tracker Application
  *
  * This script contains localized text strings for multiple languages, supporting:
- * - English (en)
- * - Spanish (es)
- * - French (fr)
- * - Portuguese (pt)
- * - Serbian (rs)
- * - Arabic (ae)
+ * - English (en).
+ * - Spanish (es).
+ * - French (fr).
+ * - Portuguese (pt).
+ * - Serbian (rs).
+ * - Arabic (ae).
  *
  * Covers key application areas:
- * - Navigation Menu
- * - Header Texts
- * - Button Texts
- * - Button Labels
- * - Error Messages
- * - About Page Content
- * - Modal Dialogs
- * - Price Alerts
+ * - Navigation Menu.
+ * - Header Texts.
+ * - Button Texts.
+ * - Button Labels.
+ * - Error Messages.
+ * - About Page Content.
+ * - Modal Dialogs.
+ * - Price Alerts.
  *
  * Provides a comprehensive internationalization solution
  * for the Cryptocurrency Tracker,
@@ -35,8 +35,9 @@
  * For inquiries about collaboration, usage outside exploratory purposes, or permissions, please contact: hypervisor7@pm.me
  */
 
-// Translation data
+/** Translation data. */
 const translations = {
+  /** English. */
   en: {
     navMenu: {
       cryptocurrencyData: "Cryptocurrency Data",
@@ -47,16 +48,29 @@ const translations = {
       title: "Cryptocurrency Tracker",
     },
     controls: {
+      language: "Language",
+      selectLanguage: "Select language",
+      filterBy: "Filter By",
+      selectFilteringParameter: "Select filtering parameter",
+      allCryptocurrencies: "All Cryptocurrencies",
+      favoritesOnly: "Favorites Only",
+      sortBy: "Sort By",
+      selectSortingParameter: "Select sorting parameter",
+      marketCap: "Market Capitalization",
+      price: "Price",
+      priceChange: "Price Change",
+      search: "Search",
       searchPlaceholder: "Search for cryptocurrency...",
-      toggleTheme: "Switch Theme", // English
-      toggleThemeTooltip: "Switch between light and dark themes", // English
-      lightTheme: "Light Theme", // English
-      darkTheme: "Dark Theme", // English
+      theme: "Theme",
+      toggleTheme: "Switch Theme",
+      toggleThemeTooltip: "Switch between light and dark themes",
+      lightTheme: "Light Theme",
+      darkTheme: "Dark Theme",
     },
     labels: {
       price: "Price",
       change: "Change",
-      marketCap: "Market Cap",
+      marketCap: "Market Capitalization",
     },
     modal: {
       setAlert: "Set Price Alert",
@@ -83,7 +97,7 @@ const translations = {
       paragraph1:
         "The Cryptocurrency Tracker is a user-friendly application designed to help you monitor the latest prices and trends in the cryptocurrency market. Whether you're a seasoned investor or just starting, our platform provides real-time data and insights to make informed decisions.",
       paragraph2:
-        "With features like price alerts, market cap tracking, and a customizable interface, you can tailor your experience to fit your needs. Our goal is to empower users with the information they need to navigate the ever-evolving world of cryptocurrencies.",
+        "With features like price alerts, market capitalization tracking, and a customizable interface, you can tailor your experience to fit your needs. Our goal is to empower users with the information they need to navigate the ever-evolving world of cryptocurrencies.",
       paragraph3:
         "Data provided by CoinGecko, ensuring you receive accurate and up-to-date information. Join us on this journey to explore the future of finance!",
     },
@@ -95,12 +109,26 @@ const translations = {
     },
     scrollToTop: "Scroll to top",
   },
+  /** Spanish. */
   es: {
     header: {
       title: "Rastreador de Criptomonedas",
     },
     controls: {
+      language: "Idioma",
+      selectLanguage: "Seleccionar idioma",
+      filterBy: "Filtrar Por",
+      selectFilteringParameter: "Seleccionar parámetro de filtrado",
+      allCryptocurrencies: "Todas las Criptomonedas",
+      favoritesOnly: "Solo Favoritos",
+      sortBy: "Ordenar Por",
+      selectSortingParameter: "Seleccionar parámetro de ordenación",
+      marketCap: "Capitalización de Mercado",
+      price: "Precio",
+      priceChange: "Cambio de Precio",
+      search: "Búsqueda",
       searchPlaceholder: "Buscar criptomoneda...",
+      theme: "Tema",
       toggleTheme: "Cambiar Tema",
       toggleThemeTooltip: "Alternar entre temas claro y oscuro",
       lightTheme: "Tema Claro",
@@ -154,6 +182,7 @@ const translations = {
       cryptocurrencyNews: "Noticias de Criptomonedas",
     },
   },
+  /** French. */
   fr: {
     navMenu: {
       cryptocurrencyData: "Données de Cryptomonnaie",
@@ -164,7 +193,20 @@ const translations = {
       title: "Suivi des Cryptomonnaies",
     },
     controls: {
+      language: "Langue",
+      selectLanguage: "Sélectionner la langue",
+      filterBy: "Filtrer Par",
+      selectFilteringParameter: "Sélectionner paramètre de filtrage",
+      allCryptocurrencies: "Toutes les Cryptomonnaies",
+      favoritesOnly: "Favoris Uniquement",
+      sortBy: "Trier Par",
+      selectSortingParameter: "Sélectionner paramètre de tri",
+      marketCap: "Capitalisation Boursière",
+      price: "Prix",
+      priceChange: "Changement de Prix",
+      search: "Recherche",
       searchPlaceholder: "Rechercher une cryptomonnaie...",
+      theme: "Thème",
       toggleTheme: "Changer de thème",
       toggleThemeTooltip: "Basculer entre les thèmes clair et sombre",
       lightTheme: "Thème Clair",
@@ -213,12 +255,26 @@ const translations = {
     },
     scrollToTop: "Retour en haut",
   },
+  /** Portuguese. */
   pt: {
     header: {
       title: "Rastreador de Criptomoedas",
     },
     controls: {
+      language: "Língua",
+      selectLanguage: "Selecione o idioma",
+      filterBy: "Filtrar Por",
+      selectFilteringParameter: "Selecione o parâmetro de filtragem",
+      allCryptocurrencies: "Todas as Criptomoedas",
+      favoritesOnly: "Apenas Favoritos",
+      sortBy: "Ordenar Por",
+      selectSortingParameter: "Selecione o parâmetro de classificação",
+      marketCap: "Capitalização de Mercado",
+      price: "Preço",
+      priceChange: "Alteração de preço",
+      search: "Busca",
       searchPlaceholder: "Buscar criptomoeda...",
+      theme: "Tema",
       toggleTheme: "Alternar Tema",
       toggleThemeTooltip: "Alternar entre temas claro e escuro",
       lightTheme: "Tema Claro",
@@ -272,6 +328,7 @@ const translations = {
       cryptocurrencyNews: "Notícias de Criptomoedas",
     },
   },
+  /** Serbian. */
   rs: {
     navMenu: {
       cryptocurrencyData: "Podaci o Kriptovalutama",
@@ -282,11 +339,24 @@ const translations = {
       title: "Praćenje Kriptovaluta",
     },
     controls: {
-      searchPlaceholder: "Pretraži kriptovalutu...",
-      toggleTheme: "Promeni temu", // Serbian for "Switch Theme"
-      toggleThemeTooltip: "Prebacite između svetlih i tamnih tema", // Serbian
-      lightTheme: "Svetla Tema", // Serbian
-      darkTheme: "Tamna Tema", // Serbian
+      language: "Jezik",
+      selectLanguage: "Izabrati jezik",
+      filterBy: "Filtrirati Po",
+      selectFilteringParameter: "Izabrati parametar filtriranja",
+      allCryptocurrencies: "Sve Kriptovalute",
+      favoritesOnly: "Samo Omiljeni",
+      sortBy: "Sortirati Po",
+      selectSortingParameter: "Izabrati parametar sortiranja",
+      marketCap: "Tržišna Kapitalizacija",
+      price: "Cena",
+      priceChange: "Promena Cene",
+      search: "Pretraga",
+      searchPlaceholder: "Pretražiti kriptovalutu...",
+      theme: "Tema",
+      toggleTheme: "Promeniti temu",
+      toggleThemeTooltip: "Prebacite između svetlih i tamnih tema",
+      lightTheme: "Svetla Tema",
+      darkTheme: "Tamna Tema",
     },
     labels: {
       price: "Cena",
@@ -307,12 +377,12 @@ const translations = {
       invalidPrice: "Molimo unesite važeću cenu.",
     },
     buttons: {
-      addToFavorites: "Dodajte u omiljene",
-      removeFromFavorites: "Ukloni iz omiljenih",
-      setPriceAlert: "Postavite upozorenje",
-      favoriteTooltipAdd: "Dodajte {coinName} u omiljene",
-      favoriteTooltipRemove: "Uklonite {coinName} iz omiljenih",
-      alertTooltip: "Postavite upozorenje o ceni za {coinName}. ",
+      addToFavorites: "Dodati u omiljene",
+      removeFromFavorites: "Ukloniti iz omiljenih",
+      setPriceAlert: "Postaviti upozorenje",
+      favoriteTooltipAdd: "Dodati {coinName} u omiljene",
+      favoriteTooltipRemove: "Ukloniti {coinName} iz omiljenih",
+      alertTooltip: "Postaviti upozorenje o ceni za {coinName}. ",
     },
     about: {
       title: "O Praćenju Kriptovaluta",
@@ -331,12 +401,26 @@ const translations = {
     },
     scrollToTop: "Povratak na vrh",
   },
+  /** Arabic. */
   ae: {
     header: {
       title: "متتبع العملات المشفرة",
     },
     controls: {
+      language: "لغة",
+      selectLanguage: "اختر اللغة",
+      filterBy: "تصفية حسب",
+      selectFilteringParameter: "حدد معلمة التصفية",
+      allCryptocurrencies: "جميع العملات المشفرة",
+      favoritesOnly: "المفضلة فقط",
+      sortBy: "فرز حسب",
+      selectSortingParameter: "حدد معلمة الفرز",
+      marketCap: "القيمة السوقية",
+      price: "سعر",
+      priceChange: "تغير السعر",
+      search: "يبحث",
       searchPlaceholder: "البحث عن عملة مشفرة...",
+      theme: "سمة",
       toggleTheme: "تبديل الوضع",
       toggleThemeTooltip: "التبديل بين الوضع الفاتح والداكن",
       lightTheme: "الوضع الفاتح",
@@ -391,18 +475,35 @@ const translations = {
   },
 };
 
-// Function to update text based on selected language
+/** Function to update text based on selected language. */
 function updateText(language) {
-  // Define variables for elements used in the function
+  /** Define variables for elements used in the function. */
+  const languageLabel = document.querySelector("#language-label");
+  const languageSelect = document.querySelector("#language-select");
+  const filterLabel = document.querySelector("#filter-label");
+  const filterSelect = document.querySelector("#filter-select");
+  const filterSelectAll = document.querySelector("#filter-select-all");
+  const filterSelectFavorites = document.querySelector(
+    "#filter-select-favorites"
+  );
+  const sortLabel = document.querySelector("#sort-label");
+  const sortSelect = document.querySelector("#sort-select");
+  const sortSelectMarketCap = document.querySelector("#sort-select-market-cap");
+  const sortSelectPrice = document.querySelector("#sort-select-price");
+  const sortSelectPriceChange = document.querySelector(
+    "#sort-select-price-change"
+  );
+  const searchLabel = document.querySelector("#search-label");
   const searchInput = document.getElementById("search");
+  const themeLabel = document.querySelector("#theme-label");
   const toggleThemeButton = document.getElementById("toggle-theme");
   const setAlertButton = document.getElementById("set-alert-button");
   const errorMessage = document.getElementById("no-data-message");
   const footer = document.querySelector("footer");
   const newsHeading = document.querySelector("#news-section h2");
 
-  // Set document direction based on language
-  const rtlLanguages = ["ae"]; // Add other RTL languages if needed
+  /** Set document direction based on language. */
+  const rtlLanguages = ["ae"];
   document.documentElement.dir = rtlLanguages.includes(language)
     ? "rtl"
     : "ltr";
@@ -410,11 +511,11 @@ function updateText(language) {
 
   document.body.classList.toggle("rtl-layout", rtlLanguages.includes(language));
 
-  // Update header title
+  /** Update header title. */
   document.querySelector("header h1").innerText =
     translations[language].header.title;
 
-  // Update navigation menu
+  /** Update navigation menu. */
   const navLinks = document.querySelectorAll(".nav-menu li a");
   navLinks[0].innerText =
     translations[language].navMenu.cryptocurrencyData || "Cryptocurrency Data";
@@ -422,9 +523,28 @@ function updateText(language) {
   navLinks[2].innerText =
     translations[language].navMenu.cryptocurrencyNews || "Cryptocurrency News";
 
-  // Update controls
+  /** Update controls. */
+  languageLabel.innerText = translations[language].controls.language;
+  languageSelect.title = translations[language].controls.selectLanguage;
+  filterLabel.innerText = translations[language].controls.filterBy;
+  filterSelect.title = translations[language].controls.selectFilteringParameter;
+  filterSelectAll.innerText =
+    translations[language].controls.allCryptocurrencies;
+  filterSelectFavorites.innerText =
+    translations[language].controls.favoritesOnly;
+  sortLabel.innerText = translations[language].controls.sortBy;
+  sortSelect.title = translations[language].controls.selectSortingParameter;
+  sortSelectMarketCap.innerText = translations[language].controls.marketCap;
+  sortSelectPrice.innerText = translations[language].controls.price;
+  sortSelectPriceChange.innerText = translations[language].controls.priceChange;
+  searchLabel.innerText = translations[language].controls.search;
+  themeLabel.innerText = translations[language].controls.theme;
   searchInput.placeholder = translations[language].controls.searchPlaceholder;
-  toggleThemeButton.innerText = translations[language].controls.toggleTheme; // Correctly set to "Promeni temu"
+  searchInput.setAttribute(
+    "aria-label",
+    translations[language].controls.searchPlaceholder
+  );
+  toggleThemeButton.innerText = translations[language].controls.toggleTheme;
   toggleThemeButton.setAttribute(
     "aria-label",
     translations[language].controls.toggleTheme
@@ -432,14 +552,14 @@ function updateText(language) {
   toggleThemeButton.setAttribute(
     "data-tooltip",
     translations[language].controls.toggleThemeTooltip
-  ); // Update tooltip
+  ); /** Update tooltip. */
 
-  // Update modal
+  /** Update modal window. */
   setAlertButton.innerText = translations[language].modal.setAlert;
   document.getElementById("alert-price").placeholder =
     translations[language].modal.alertPrice;
 
-  // Update modal content with translations
+  /** Update modal window content with translations. */
   const modalTitle = document.getElementById("modal-title");
   const alertPriceLabel = document.querySelector('label[for="alert-price"]');
 
@@ -453,13 +573,13 @@ function updateText(language) {
     setAlertButton.textContent = translations[language].buttons.setPriceAlert;
   }
 
-  // Update error messages if the element exists
+  /** Update error messages if the element exists. */
   if (errorMessage) {
     errorMessage.textContent = translations[language].errorMessages.fetchError;
   }
 
-  // Update "Scroll to top" link text
-  const scrollToTopLink = document.querySelector("to-top a"); // Update this line
+  /** Update "Scroll to top" link text. */
+  const scrollToTopLink = document.querySelector("to-top a");
   if (scrollToTopLink) {
     scrollToTopLink.setAttribute(
       "aria-label",
@@ -468,30 +588,30 @@ function updateText(language) {
     scrollToTopLink.title = translations[language].scrollToTop;
   }
 
-  // Update the About section based on the selected language
+  /** Update the "About" section based on the selected language. */
   const aboutSection = document.querySelector("#about");
   if (aboutSection) {
     aboutSection.querySelector("h2").innerText =
-      translations[language].about.title; // Title
+      translations[language].about.title; /** Title */
     aboutSection.querySelector("p:nth-of-type(1)").innerText =
-      translations[language].about.paragraph1; // First paragraph
+      translations[language].about.paragraph1; /** First paragraph */
     aboutSection.querySelector("p:nth-of-type(2)").innerText =
-      translations[language].about.paragraph2; // Second paragraph
+      translations[language].about.paragraph2; /** Second paragraph */
     aboutSection.querySelector("p:nth-of-type(3)").innerText =
-      translations[language].about.paragraph3; // Third paragraph
+      translations[language].about.paragraph3; /** Third paragraph */
   }
 
-  // Update footer text
+  /** Update footer text. */
   if (footer) {
     footer.innerText = translations[language].footer.dataProvided;
   }
 
-  // Update news section heading
+  /** Update the news section heading. */
   if (newsHeading) {
     newsHeading.textContent = translations[language].news.latestNews;
   }
 
-  // Update labels for price, change, and market cap
+  /** Update labels for price, change, and market cap. */
   const priceLabels = document.querySelectorAll(".crypto-card p");
   priceLabels.forEach((label) => {
     if (
@@ -520,14 +640,14 @@ function updateText(language) {
   fetchCryptoPrices();
 }
 
-// Event listener for language selection
+/** Event listener for language selection. */
 document
-  .getElementById("language-selector")
+  .getElementById("language-select")
   .addEventListener("change", (event) => {
     const selectedLanguage = event.target.value;
     updateText(selectedLanguage);
   });
 
-// Initialize with default language
-const defaultLanguage = "en"; // Set default language to English
+/** Initialize with default language. */
+const defaultLanguage = "en"; /** Set default language to English. */
 updateText(defaultLanguage);
