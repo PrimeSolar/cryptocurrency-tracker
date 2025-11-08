@@ -19,11 +19,11 @@
 /** Select the navigation bar component. */
 const nav = document.querySelector("nav");
 
-// The declaration of the function to define the navigation bar content.
+/** The declaration of the function to define the navigation bar content. */
 function createNav(nav) {
-  // Only run the following code if the condition is met.
+  /** Only run the following code if the condition is met. */
   if (nav) {
-    // Define the navigation bar content.
+    /** Define the navigation bar content. */
     nav.innerHTML += `
       <ul class="nav-menu">
         <li>
@@ -41,10 +41,10 @@ function createNav(nav) {
       `;
   }
 }
-// The call of the function to define the component's content.
+/** The call of the function to define the component's content. */
 createNav(nav);
 
-// The Scroll to Top Button
+/** The "Scroll to top" button. */
 class ToTop extends HTMLElement {
   connectedCallback() {
     this.innerHTML += `
@@ -69,7 +69,7 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// The Printing Functionality.
+/** The printing functionality. */
 
 document.addEventListener("keydown", (event) => {
   if (event.ctrlKey && event.key === "p") {
@@ -91,14 +91,14 @@ function printPage() {
   }
 }
 
-// The Footer.
+/** The footer. */
 const footer = document.querySelector("footer");
 const year = new Date().getFullYear();
 function createFooter(footer) {
   if (footer) {
     footer.style.display = "flex";
     footer.style.flexDirection = "column";
-    // Define the footer content.
+    /** Define the footer content. */
     footerContainer.innerHTML += `
         <ul class="nav-menu">
           <li>
@@ -131,7 +131,7 @@ function createFooter(footer) {
 }
 createFooter(footer);
 
-// The Contact Us Link Titles.
+/** The "Contact Us" links titles. */
 const contactUsLinks = document.querySelectorAll("a");
 for (let x of contactUsLinks) {
   if (x.getAttribute("href") === "contact.html") {
