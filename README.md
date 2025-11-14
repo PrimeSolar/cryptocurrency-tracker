@@ -1,6 +1,8 @@
 # Cryptocurrency Tracker
 
-&nbsp;&nbsp;Welcome to the Cryptocurrency Tracker project! This web application is designed to provide users with real-time tracking of cryptocurrency prices, making it an essential tool for investors, traders, and enthusiasts. With its intuitive interface and powerful features, the Cryptocurrency Tracker helps you make informed decisions in the trading. Whether you're a seasoned investor or just starting, this tool is designed to meet your needs.
+&nbsp;&nbsp;Welcome to the Cryptocurrency Tracker project! This web application is designed to provide users with real-time tracking of cryptocurrency prices, making it an important tool for investors, traders, and enthusiasts. With its intuitive interface and powerful features, the Cryptocurrency Tracker helps you make informed decisions in the trading. Whether you're a seasoned investor or just starting, this tool is designed to meet your needs.
+
+&nbsp;&nbsp;**<a href="https://primesolar.github.io/dice-game/" target="_blank" rel="noopener noreferrer">Navigate the Crypto Market with Confidence: Accurate Tracking Anywhere, Anytime</a>**
 
 - [Cryptocurrency Tracker](#cryptocurrency-tracker)
   - [Interface](#interface)
@@ -23,7 +25,7 @@
 ## Features
 
 - **Real-Time Data**: stay updated with live cryptocurrency prices, ensuring you never miss a market movement. The application fetches data at intervals to provide the most accurate information.
-- **User-Friendly Interface**: the intuitive design allows users to easily search for their favorite cryptocurrencies and view detailed price information, including price changes and market capitalization.
+- **User-Friendly Interface**: the intuitive design allows you to easily search for your favorite cryptocurrencies and view detailed price information, including price changes and market capitalization.
 - **Theme Toggle**: switch between light and dark themes for a personalized viewing experience, catering to user preferences and enhancing usability, especially in different lighting conditions.
 - **Search Functionality**: quickly find specific cryptocurrencies using the search bar.
 - **Latest Cryptocurrency News**: stay informed with the latest news articles related to cryptocurrencies, helping make timely and informed trading decisions.
