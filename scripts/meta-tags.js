@@ -81,10 +81,10 @@ linkStyle.type = "text/css";
 linkStyle.href = "styles/style-min.css";
 head.appendChild(linkStyle);
 
-/** Insert <link rel="icon" href="pics/logos/logo.svg">. */
+/** Insert <link rel="icon" href="assets/logo.png">. */
 const linkImage = document.createElement("link");
 linkImage.rel = "icon";
-linkImage.href = "assets/logo.svg";
+linkImage.href = "assets/logo.png";
 head.appendChild(linkImage);
 
 /** Connect <script src="https://npmcdn.com/dexie@4.0.11/dist/dexie.min.js"></script>. */
