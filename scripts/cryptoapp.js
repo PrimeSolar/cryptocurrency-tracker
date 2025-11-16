@@ -90,9 +90,13 @@ function populateCryptoData(data) {
   /** Determine the translation object based on current language. */
   const langTranslations = translations[currentLanguage] || translations["en"];
 
+  /** Move favorites to top. */
   const favoriteCoins = data.filter((coin) => favorites.includes(coin.id));
   const nonFavoriteCoins = data.filter((coin) => !favorites.includes(coin.id));
   const sortedData = [...favoriteCoins, ...nonFavoriteCoins];
+
+  /** Build all cards first. */
+  const fragment = document.createDocumentFragment();
 
   /** Create cards for each cryptocurrency. */
   sortedData.forEach((coin) => {
@@ -108,50 +112,73 @@ function populateCryptoData(data) {
 
     /** Create cards for each currency. */
     card.innerHTML = `
-      <h2>${coin.name}<br />(${coin.symbol.toUpperCase()})</h2>
-      <p class="current-price">${
-        langTranslations.labels.price
-      }: ${coin.current_price.toFixed(2)} USD ${arrowBadge}</p>
-      <p class="market-cap">${
-        langTranslations.labels.marketCap
-      }: ${coin.market_cap.toLocaleString()} USD</p>
-      <p class="price-change">${
-        langTranslations.labels.change
-      }: ${coin.price_change_percentage_24h.toFixed(2)}%</p>
-      <button class="favorite-button" data-tooltip="${
-        favorites.includes(coin.id)
-          ? langTranslations.buttons.favoriteTooltipRemove.replace(
-              "{coinName}",
-              coin.name
-            )
-          : langTranslations.buttons.favoriteTooltipAdd.replace(
-              "{coinName}",
-              coin.name
-            )
-      }">${
-      favorites.includes(coin.id)
-        ? langTranslations.buttons.removeFromFavorites
-        : langTranslations.buttons.addToFavorites
-    }</button>
-      <button class="alert-button" data-tooltip="${langTranslations.buttons.alertTooltip.replace(
-        "{coinName}",
-        coin.name
-      )}">${langTranslations.buttons.setPriceAlert}</button>
+      <h2 class="coin-title" data-coin-name="${coin.name}">${
+      coin.name
+    }<br />(${coin.symbol.toUpperCase()})</h2>
+    <p class="current-price" data-price="${coin.current_price}">
+      ${langTranslations.labels.price}: ${Number(coin.current_price).toFixed(2)}
+      USD ${arrowBadge}
+    </p>
+    <p class="market-cap">
+      ${langTranslations.labels.marketCap}: ${Number(
+      coin.market_cap || 0
+    ).toLocaleString()} USD
+    </p>
+    <p class="price-change">
+      ${langTranslations.labels.change}: ${Number(
+      coin.price_change_percentage_24h || 0
+    ).toFixed(2)}%
+    </p>
+    <button
+      type="button"
+      class="favorite-button"
+      aria-label="toggle-favorite"
+    ></button>
+    <button class="alert-button" data-tooltip="${langTranslations.buttons.alertTooltip.replace(
+      "{coinName}",
+      coin.name
+    )}">
+      ${langTranslations.buttons.setPriceAlert}
+    </button>
     `;
 
-    cryptoDataContainer.appendChild(card);
-
-    /** Add event listener for the favorite button. */
-    card.querySelector(".favorite-button").addEventListener("click", () => {
-      toggleFavorite(coin.id);
-    });
-
-    /** Add event listener for the alert button. */
-    card.querySelector(".alert-button").addEventListener("click", () => {
-      setPriceAlert(coin.id);
-    });
+    fragment.appendChild(card);
   });
 
+  cryptoDataContainer.appendChild(fragment);
+
+  /** Attach event listeners after cards are in DOM. */
+  const cards = cryptoDataContainer.getElementsByClassName("crypto-card");
+  for (let card of cards) {
+    const coinId = card.dataset.id;
+    const coinName =
+      card.querySelector(".coin-title").dataset.coinName || coinId;
+    const favBtn = card.querySelector(".favorite-button");
+    const alertBtn = card.querySelector(".alert-button");
+
+    /** Initial favorite button tooltip. */
+    const isFav = favorites.includes(coinId);
+    favBtn.textContent = isFav
+      ? langTranslations.buttons.removeFromFavorites
+      : langTranslations.buttons.addToFavorites;
+    favBtn.setAttribute(
+      "data-tooltip",
+      isFav
+        ? langTranslations.buttons.favoriteTooltipRemove.replace(
+            "{coinName}",
+            coinName
+          )
+        : langTranslations.buttons.favoriteTooltipAdd.replace(
+            "{coinName}",
+            coinName
+          )
+    );
+
+    favBtn.addEventListener("click", () => toggleFavorite(coinId));
+    alertBtn.addEventListener("click", () => setPriceAlert(coinId));
+  }
+
+  /** Ensure favorites visual state is correct. */
   updateFavoritesDisplay();
 }
 
@@ -265,7 +292,7 @@ function updateCryptoDisplay(filter, sort) {
   populateCryptoData(data);
 }
 
-/** Function to open a price alert modal window. */
+/** Function to open the price alert modal window. */
 function setPriceAlert(coinId) {
   currentCoinId = coinId; /** Store the current coin identifier. */
   modal.style.display = "block"; /** Show the modal. */
