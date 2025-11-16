@@ -1,5 +1,5 @@
 /**
- * Multilingual Translator for Cryptocurrency Tracker Application
+ * The Multilingual Translator Script for the Cryptocurrency Tracker Application
  *
  * This script contains localized text strings for multiple languages, supporting:
  * - English (en).
@@ -19,9 +19,13 @@
  * - Modal Dialogs.
  * - Price Alerts.
  *
- * Provides a comprehensive internationalization solution
+ * Provides an extensive internationalization solution
  * for the Cryptocurrency Tracker,
  * enabling localized user experience.
+ * 
+ * This level of internationalization ensures linguistic accuracy, cultural appropriateness, technical
+ * robustness, and a delightful global user experience, important for scaling the product,
+ * enhancing user trust, and driving significant revenue.
  *
  * Copyright © Vladislav Kazantsev
  * All rights reserved.
@@ -49,18 +53,18 @@ const translations = {
     },
     controls: {
       language: "Language",
-      selectLanguage: "Select language",
+      selectLanguage: "Select a language",
       filterBy: "Filter By",
-      selectFilteringParameter: "Select filtering parameter",
+      selectFilteringParameter: "Select a filtering parameter",
       allCryptocurrencies: "All Cryptocurrencies",
       favoritesOnly: "Favorites Only",
       sortBy: "Sort By",
-      selectSortingParameter: "Select sorting parameter",
+      selectSortingParameter: "Select a sorting parameter",
       marketCap: "Market Capitalization",
       price: "Price",
       priceChange: "Price Change",
       search: "Search",
-      searchPlaceholder: "Search for cryptocurrency...",
+      searchPlaceholder: "Search for a cryptocurrency...",
       theme: "Theme",
       toggleTheme: "Switch Theme",
       toggleThemeTooltip: "Switch between light and dark themes",
@@ -73,7 +77,7 @@ const translations = {
       marketCap: "Market Capitalization",
     },
     modal: {
-      setAlert: "Set Price Alert",
+      setAlert: "Set a Price Alert",
       alertPrice: "Alert Price (USD):",
     },
     alerts: {
@@ -87,7 +91,7 @@ const translations = {
     buttons: {
       addToFavorites: "Add to Favorites",
       removeFromFavorites: "Remove from Favorites",
-      setPriceAlert: "Set Price Alert",
+      setPriceAlert: "Set a Price Alert",
       favoriteTooltipAdd: "Add {coinName} to your favorites",
       favoriteTooltipRemove: "Remove {coinName} from your favorites",
       alertTooltip: "Set a price alert for {coinName}",
@@ -101,9 +105,9 @@ const translations = {
       paragraph3:
         "Data provided by CoinGecko, ensuring you receive accurate and up-to-date information. Join us on this journey to explore the future of finance!",
     },
-    footer: {
+    /** footer: {
       dataProvided: "Data provided by CoinGecko",
-    },
+    }, */
     news: {
       latestNews: "Latest Cryptocurrency News",
     },
@@ -169,9 +173,9 @@ const translations = {
       paragraph3:
         "Datos proporcionados por CoinGecko, garantizando que recibas información precisa y actualizada. ¡Únete a nosotros en este viaje para explorar el futuro de las finanzas!",
     },
-    footer: {
+    /** footer: {
       dataProvided: "Datos proporcionados por CoinGecko",
-    },
+    }, */
     news: {
       latestNews: "Últimas Noticias de Criptomonedas",
     },
@@ -247,9 +251,9 @@ const translations = {
       paragraph3:
         "Données fournies par CoinGecko, garantissant que vous recevez des informations précises et à jour. Rejoignez-nous dans ce voyage pour explorer l'avenir de la finance !",
     },
-    footer: {
+    /** footer: {
       dataProvided: "Données fournies par CoinGecko",
-    },
+    }, */
     news: {
       latestNews: "Dernières Actualités des Cryptomonnaies",
     },
@@ -315,9 +319,9 @@ const translations = {
       paragraph3:
         "Dados fornecidos pelo CoinGecko, garantindo que você receba informações precisas e atualizadas. Junte-se a nós nesta jornada para explorar o futuro das finanças!",
     },
-    footer: {
+    /** footer: {
       dataProvided: "Dados fornecidos pelo CoinGecko",
-    },
+    }, */
     news: {
       latestNews: "Últimas Notícias de Criptomoedas",
     },
@@ -393,9 +397,9 @@ const translations = {
       paragraph3:
         "Podaci su obezbeđeni od CoinGecko, što osigurava da dobijate tačne i ažurirane informacije. Pridružite nam se na ovom putu da istražimo budućnost finansija!",
     },
-    footer: {
+    /** footer: {
       dataProvided: "Podaci obezbeđeni od CoinGecko",
-    },
+    }, */
     news: {
       latestNews: "Najnovije vesti o kriptovalutama",
     },
@@ -460,9 +464,9 @@ const translations = {
       paragraph3:
         "البيانات مقدمة من CoinGecko، مما يضمن حصولك على معلومات دقيقة ومحدثة. انضم إلينا في هذه الرحلة لاستكشاف مستقبل التمويل!",
     },
-    footer: {
+    /** footer: {
       dataProvided: "البيانات مقدمة من CoinGecko",
-    },
+    }, */
     news: {
       latestNews: "أحدث أخبار العملات المشفرة",
     },
@@ -499,7 +503,7 @@ function updateText(language) {
   const toggleThemeButton = document.getElementById("toggle-theme");
   const setAlertButton = document.getElementById("set-alert-button");
   const errorMessage = document.getElementById("no-data-message");
-  const footer = document.querySelector("footer");
+  /** const footer = document.querySelector("footer"); */
   const newsHeading = document.querySelector("#news-section h2");
 
   /** Set document direction based on language. */
@@ -601,10 +605,10 @@ function updateText(language) {
       translations[language].about.paragraph3; /** Third paragraph */
   }
 
-  /** Update footer text. */
+  /** Update footer text.
   if (footer) {
     footer.innerText = translations[language].footer.dataProvided;
-  }
+  } */
 
   /** Update the news section heading. */
   if (newsHeading) {
