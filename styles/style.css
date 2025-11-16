@@ -1,8 +1,8 @@
 /*
- * Cryptocurrency Tracker Stylesheet
+ * The Cryptocurrency Tracker Stylesheet
  * 
- * This stylesheet provides an extensive, responsive design for the 
- * cryptocurrency tracker. Key features include:
+ * This stylesheet provides a detailed, responsive design with cross-browser support for the 
+ * Cryptocurrency Tracker application. Key features include:
  * 
  * Design Principles:
  * - Modern, gradient-based color scheme.
@@ -67,7 +67,7 @@ html {
 }
 
 body {
-  margin: 0; /* Set the margin of the element. */
+  margin: 0; /* Set the thickness for the margin area of the element. */
   padding: 37px; /* Set the padding of the element. */
   overflow-x: hidden;
   font-family: "Roboto", sans-serif;
@@ -85,7 +85,7 @@ body {
 
 .nav-menu {
   list-style-type: none;
-  margin: 0;
+  margin: 0; /* Set the thickness for the margin area of the element. */
   padding: 0; /* Set the padding of the element. */
   /* Use flexbox to align the content inside the element. */
   display: -webkit-box; /* For earlier versions of Chrome and Safari (pre-flexbox). */
@@ -95,25 +95,26 @@ body {
 }
 
 .nav-menu li {
-  margin: 0; /* Set the margin of the element. */
+  margin: 0; /* Set the thickness for the margin area of the element. */
 }
 
 .nav-menu a {
   color: #ffffff; /* Set the color for the text of the element. */
-  text-decoration: none; /* Specify the decoration applied to the text of the element. */
+  text-decoration: none; /* Specify the decoration applied to the text of the element, affecting its visual presentation. */
   padding: 15px 21px; /* Set the padding of the element. */
   display: block; /* Specify the display behavior of the element. */
 }
 
 .container {
-  margin: auto; /* Set the margin of the element. */
+  margin: auto; /* Set the thickness for the margin area of the element. */
   max-width: 1200px; /* Set the maximum width of the element. */
-  box-shadow: 0 4px 21px #0000004d;
   padding: 21px; /* Set the padding of the element. */
   background: #ffffff1a; /* Set the background of the element. */
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   animation: fadeIn 1s ease-in-out;
+  -webkit-box-shadow: 0 4px 21px #0000004d;
+  box-shadow: 0 4px 21px #0000004d;
   /* Set the border radius for the corners of the element. */
   -webkit-border-radius: 12px; /* For older versions of Chrome and Safari. */
   -moz-border-radius: 12px; /* For older versions of Firefox. */
@@ -131,7 +132,7 @@ body {
 }
 
 h1 {
-  margin: 37px 0 52px;
+  margin: 37px 0 52px; /* Set the thickness for the margin area of the element. */
   font-size: 37px; /* Set the font size for the text of the element. */
   text-align: center; /* Align the text within the element. */
   font-weight: bold; /* Set the font weight for the text of the element. */
@@ -141,11 +142,15 @@ h1 {
 
 h2 {
   text-align: center; /* Align the text within the element. */
-  margin: 50px auto 21px; /* Set the margin of the element. */
+  margin: 52px auto; /* Set the thickness for the margin area of the element. */
   font-size: 1.5em; /* Set the font size for the text of the element. */
   font-weight: bolder; /* Set the font weight for the text of the element. */
   text-shadow: 2px 2px 4px #00000070;
   animation: fadeIn 1s ease-in-out;
+}
+
+header h2 {
+  font-size: 1.4em;
 }
 
 .controls {
@@ -172,7 +177,7 @@ div input,
 #toggle-theme {
   display: block;
   padding: 10px; /* Set the padding of the element. */
-  margin: 5px 0 0; /* Set the margin of the element. */
+  margin: 5px 0 0; /* Set the thickness for the margin area of the element. */
   border: none;
   font-size: 1em; /* Set the font size for the text of the element. */
   /* Set the border radius for the corners of the element. */
@@ -193,7 +198,7 @@ div input,
 select:hover,
 select:focus {
   outline: none;
-  cursor: pointer;
+  cursor: pointer; /* Specify the type of cursor to be displayed when hovering over the element, indicating interactivity. */
 }
 
 .hidden {
@@ -224,25 +229,42 @@ button {
     #0073ff
   ); /* Set the background of the element. */
   color: #ffffff; /* Set the color for the text of the element. */
-  cursor: pointer;
+  cursor: pointer; /* Specify the type of cursor to be displayed when hovering over the element, indicating interactivity. */
   /* Set the border radius for the corners of the element. */
   -webkit-border-radius: 5px; /* For older versions of Chrome and Safari. */
   -moz-border-radius: 5px; /* For older versions of Firefox. */
   -o-border-radius: 5px; /* For older versions of Opera. */
   border-radius: 5px; /* Standard property for border radius. */
   /* Add a transition effect for changes in properties. */
-  -webkit-transition: background-color 0.25s, transform 0.25s, border 0.25s; /* For older versions of Chrome and Safari. */
-  -o-transition: background-color 0.25s, transform 0.25s, border 0.25s; /* For older versions of Opera. */
-  transition: background-color 0.25s, transform 0.25s, border 0.25s; /* Standard syntax for modern browsers (widely supported). */
+  -webkit-transition: background-color 0.25s, transform 0.25s, border 0.25s,
+    box-shadow 0.25s; /* For older versions of Chrome and Safari. */
+  -o-transition: background-color 0.25s, transform 0.25s, border 0.25s,
+    box-shadow 0.25s; /* For older versions of Opera. */
+  transition: background-color 0.25s, transform 0.25s, border 0.25s,
+    box-shadow 0.25s; /* Standard syntax for modern browsers (widely supported). */
 }
 
 button:hover {
   background: #0073ff; /* Set the background of the element. */
-  transform: scale(1.05);
+  -webkit-transform: scale(1.05); /* For older versions of Chrome and Safari. */
+  -ms-transform: scale(1.05); /* For Internet Explorer 10. */
+  transform: scale(
+    1.05
+  ); /* Standard syntax for modern browsers (widely supported). */
+}
+
+button:active {
+  -webkit-box-shadow: 0 4px 8px #0000004d;
+  box-shadow: 0 4px 8px #0000004d;
+  -webkit-transform: scale(0.97); /* For older versions of Chrome and Safari. */
+  -ms-transform: scale(0.97); /* For Internet Explorer 10. */
+  transform: scale(
+    0.97
+  ); /* Standard syntax for modern browsers (widely supported). */
 }
 
 .favorite-button {
-  margin: 0 auto 5px; /* Set the margin of the element. */
+  margin: 0 auto 5px; /* Set the thickness for the margin area of the element. */
 }
 
 .button-wrapper {
@@ -253,8 +275,12 @@ button:hover {
 .ripple {
   position: absolute; /* Set the position of the element. */
   background: #ffffffee; /* Set the background of the element. */
-  transform: scale(0);
   animation: ripple-animation 0.5s linear;
+  -webkit-transform: scale(0); /* For older versions of Chrome and Safari. */
+  -ms-transform: scale(0); /* For Internet Explorer 10. */
+  transform: scale(
+    0
+  ); /* Standard syntax for modern browsers (widely supported). */
   /* Set the border radius for the corners of the element. */
   -webkit-border-radius: 50%; /* For older versions of Chrome and Safari. */
   -moz-border-radius: 50%; /* For older versions of Firefox. */
@@ -264,8 +290,12 @@ button:hover {
 
 @keyframes ripple-animation {
   to {
-    transform: scale(5);
     opacity: 0; /* Set the opacity of the element. */
+    -webkit-transform: scale(5); /* For older versions of Chrome and Safari. */
+    -ms-transform: scale(5); /* For Internet Explorer 10. */
+    transform: scale(
+      5
+    ); /* Standard syntax for modern browsers (widely supported). */
   }
 }
 
@@ -339,6 +369,7 @@ button:hover {
 .crypto-card {
   background: #ffffff1a; /* Set the background of the element. */
   padding: 25px; /* Set the padding of the element. */
+  -webkit-box-shadow: 0 4px 10px #00000055;
   box-shadow: 0 4px 10px #00000055;
   overflow: visible; /* Set the visibility of content that exceeds the element's boundaries. */
   /* Set the border radius for the corners of the element. */
@@ -354,25 +385,26 @@ button:hover {
 
 .crypto-card:hover {
   transform: translateY(-5px);
+  -webkit-box-shadow: 0 8px 21px #0000007a;
   box-shadow: 0 8px 21px #0000007a;
 }
 
 .crypto-card h2 {
-  margin: 0; /* Set the margin of the element. */
+  margin: 0; /* Set the thickness for the margin area of the element. */
   font-size: 1.5em; /* Set the font size for the text of the element. */
   font-weight: semi-bold; /* Set the font weight for the text of the element. */
 }
 
 .crypto-card p {
-  margin: 0 0 7px; /* Set the margin of the element. */
+  margin: 0 0 7px; /* Set the thickness for the margin area of the element. */
   font-size: 1.1em; /* Set the font size for the text of the element. */
-  line-height: 1.5;
+  line-height: 1.5; /* Set the vertical spacing between lines of text. */
   display: flex;
   align-items: center;
 }
 
 .crypto-card p:first-of-type {
-  margin: 7px 0; /* Set the margin of the element. */
+  margin: 7px 0; /* Set the thickness for the margin area of the element. */
 }
 
 .crypto-card p svg {
@@ -392,19 +424,20 @@ button:hover {
 }
 
 .modal-content {
-  background-color: #fefefe; /* Set the background of the element. */
-  margin: 15% auto; /* Set the margin of the element. */
+  margin: 25vh auto; /* Set the thickness for the margin area of the element. */
   padding: 21px; /* Set the padding of the element. */
   border: 1px solid #888888;
   width: 300px; /* Set the width of the element. */
+  background-color: #fefefe; /* Set the background of the element. */
   color: #373737; /* Set the color for the text of the element. */
   /* Set the border radius for the corners of the element. */
   -webkit-border-radius: 8px; /* For older versions of Chrome and Safari. */
   -moz-border-radius: 8px; /* For older versions of Firefox. */
   -o-border-radius: 8px; /* For older versions of Opera. */
   border-radius: 8px; /* Standard property for border radius. */
-  box-shadow: 0 5px 17px #0000001a;
   animation: fadeIn 0.3s ease;
+  -webkit-box-shadow: 0 5px 17px #0000001a;
+  box-shadow: 0 5px 17px #0000001a;
   /* Use flexbox to align the content inside the element. */
   display: -webkit-box; /* For earlier versions of Chrome and Safari (pre-flexbox). */
   display: -ms-flexbox; /* For Internet Explorer 10 (supports an earlier flexbox model). */
@@ -422,12 +455,13 @@ button:hover {
 }
 
 .modal-item {
-  margin: 10px 0; /* Set the margin of the element. */
+  margin: 10px 0; /* Set the thickness for the margin area of the element. */
   font-weight: bold; /* Set the font weight for the text of the element. */
   font-size: 21px; /* Set the font size for the text of the element. */
 }
 
 .close-button {
+  margin: 0; /* Set the thickness for the margin area of the element. */
   font-size: 28px; /* Set the font size for the text of the element. */
   font-weight: bold; /* Set the font weight for the text of the element. */
   color: #a7a7a7; /* Set the color for the text of the element. */
@@ -441,12 +475,12 @@ button:hover {
 .close-button:hover,
 .close-button:focus {
   color: #000000; /* Set the color for the text of the element. */
-  text-decoration: none; /* Specify the decoration applied to the text of the element. */
-  cursor: pointer;
+  text-decoration: none; /* Specify the decoration applied to the text of the element, affecting its visual presentation. */
+  cursor: pointer; /* Specify the type of cursor to be displayed when hovering over the element, indicating interactivity. */
 }
 
 #modal-title {
-  margin: 1em 0; /* Set the margin of the element. */
+  margin: 1em 0; /* Set the thickness for the margin area of the element. */
   text-shadow: none;
 }
 
@@ -467,11 +501,25 @@ button:hover {
   outline: none;
 }
 
-#set-alert-button {
-  /* Add a transition effect for changes in properties. */
-  -webkit-transition: none; /* For older versions of Chrome and Safari. */
-  -o-transition: none; /* For older versions of Opera. */
-  transition: none; /* Standard syntax for modern browsers (widely supported). */
+#set-alert-button:hover {
+  background: linear-gradient(
+    to right,
+    #00c7ff,
+    #0073ff
+  ); /* Set the background of the element. */
+  -webkit-transform: scale(1.04); /* For older versions of Chrome and Safari. */
+  -ms-transform: scale(1.04); /* For Internet Explorer 10. */
+  transform: scale(
+    1.04
+  ); /* Standard syntax for modern browsers (widely supported). */
+}
+
+#set-alert-button:active {
+  -webkit-transform: scale(0.97); /* For older versions of Chrome and Safari. */
+  -ms-transform: scale(0.97); /* For Internet Explorer 10. */
+  transform: scale(
+    0.97
+  ); /* Standard syntax for modern browsers (widely supported). */
 }
 
 .about-section {
@@ -485,16 +533,16 @@ button:hover {
 }
 
 .about-section p {
-  line-height: 1.6; /* Improved readability. */
+  line-height: 1.6; /* Set the vertical spacing between lines of text. */
 }
 
 .about-section a {
   color: #007bff; /* Set the color for the text of the element. */
-  text-decoration: none; /* Specify the decoration applied to the text of the element. */
+  text-decoration: none; /* Specify the decoration applied to the text of the element, affecting its visual presentation. */
 }
 
 .about-section a:hover {
-  text-decoration: underline; /* Specify the decoration applied to the text of the element. */
+  text-decoration: underline; /* Specify the decoration applied to the text of the element, affecting its visual presentation. */
 }
 
 #news-section {
@@ -507,7 +555,7 @@ button:hover {
 .news-article {
   position: relative; /* Set the position of the element. */
   max-width: 1200px; /* Set the maximum width of the element. */
-  margin: 25px auto; /* Set the margin of the element. */
+  margin: 25px auto; /* Set the thickness for the margin area of the element. */
   padding: 25px; /* Set the padding of the element. */
   background: #ffffff1a; /* Set the background of the element. */
   /* Use flexbox to align the content inside the element. */
@@ -528,7 +576,7 @@ h3 {
 h3,
 img,
 .news-article p:nth-of-type(4) {
-  margin: 0 auto 25px !important; /* Set the margin of the element. */
+  margin: 0 auto 25px !important; /* Set the thickness for the margin area of the element. */
 }
 
 a {
@@ -538,7 +586,7 @@ a {
 }
 
 .news-article p {
-  margin: 0 !important; /* Set the margin of the element. */
+  margin: 0 !important; /* Set the thickness for the margin area of the element. */
   width: -moz-fit-content !important; /* For older versions of Firefox. */
   width: fit-content !important; /* Set the width of the element. */
   float: none !important;
@@ -546,10 +594,74 @@ a {
 }
 
 footer {
-  text-align: center; /* Align the text within the element. */
-  margin-top: 21px; /* Set the size for the top margin of the element. */
-  font-size: 0.9em; /* Set the font size for the text of the element. */
-  color: #dddddd; /* Set the color for the text of the element. */
+  margin: 52px 0 10px; /* Set the thickness for the margin area of the element. */
+}
+
+footer p:first-of-type {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  line-height: 1; /* Set the vertical spacing between lines of text. */
+}
+
+footer a:first-of-type,
+footer a:last-of-type {
+  border-bottom: 1px solid #ffffff;
+  padding: 0 0 1px;
+  width: fit-content;
+  text-decoration: none; /* Specify the decoration applied to the text of the element, affecting its visual presentation. */
+  color: #ffffff !important; /* Set the color for the text of the element. */
+}
+
+footer > a:last-of-type {
+  margin: 0 auto; /* Set the thickness for the margin area of the element. */
+}
+
+footer a:hover {
+  text-decoration: none !important; /* Specify the decoration applied to the text of the element, affecting its visual presentation. */
+}
+
+footer a:visited {
+  color: #ffffff; /* Set the color for the text of the element. */
+}
+
+#bmc-button {
+  display: block; /* Specify the display behavior of the element. */
+  box-sizing: content-box;
+  width: fit-content; /* Set the width of the element. */
+  height: 24px; /* Set the height of the element. */
+  margin: 0 auto; /* Set the thickness for the margin area of the element. */
+  background-color: #ff843f !important; /* Set the color for the background of the element. */
+  color: #ffffff; /* Set the color for the text of the element. */
+  font-family: "Cookie", cursive; /* Set the font family for the text of the element. */
+  font-weight: bold; /* Set the font weight for the text of the element. */
+  text-decoration: none; /* Specify the decoration applied to the text of the element, affecting its visual presentation. */
+  text-shadow: 1px 1px 2px #00000080; /* Set the shadow for the text of the element. */
+  border: none;
+  padding: 10px 20px; /* Set the padding of the element. */
+  cursor: pointer; /* Specify the type of cursor to be displayed when hovering over the element. */
+  outline: none;
+  -webkit-box-shadow: 0 4px 8px #00000037; /* Set the shadow of the element. */
+  box-shadow: 0 4px 8px #00000037; /* Set the shadow of the element. */
+  /* Set the border radius for the corners of the element. */
+  -webkit-border-radius: 5px; /* For older versions of Chrome and Safari. */
+  -moz-border-radius: 5px; /* For older versions of Firefox. */
+  -o-border-radius: 5px; /* For older versions of Opera. */
+  border-radius: 5px; /* Standard property for border radius. */
+  /* Add a transition effect for changes in properties. */
+  -webkit-transition: 0.5s; /* For older versions of Chrome and Safari. */
+  -o-transition: 0.5s; /* For older versions of Opera. */
+  transition: 0.5s; /* Standard syntax for modern browsers (widely supported). */
+}
+
+#bmc-button:active {
+  -webkit-box-shadow: 0 4px 8px #0000004d;
+  box-shadow: 0 4px 8px #0000004d;
+  -webkit-transform: scale(0.95); /* For older versions of Chrome and Safari. */
+  -ms-transform: scale(0.95); /* For Internet Explorer 10. */
+  transform: scale(
+    0.95
+  ); /* Standard syntax for modern browsers (widely supported). */
 }
 
 body.dark-mode {
@@ -591,7 +703,7 @@ body.dark-mode [data-tooltip]:hover::after {
 
 .loading-spinner {
   display: none; /* Specify the display behavior of the element. */
-  margin: auto; /* Set the margin of the element. */
+  margin: auto; /* Set the thickness for the margin area of the element. */
   border: 8px solid #ffffff1a;
   border-top: 8px solid #00c6ff;
   /* Set the border radius for the corners of the element. */
@@ -644,7 +756,7 @@ to-top {
   opacity: 0; /* Set the opacity of the element. */
   z-index: 2; /* Set the stacking order of the element. */
   font-size: 16px; /* Set the font size for the text. */
-  text-decoration: none; /* Specify the decoration applied to the text of the element. */
+  text-decoration: none; /* Specify the decoration applied to the text of the element, affecting its visual presentation. */
   pointer-events: none; /* Control the element's response to pointer events. */
   /* Use flexbox to align content inside the element. */
   display: -ms-flexbox; /* For Internet Explorer 10 (supports an earlier flexbox model. */
@@ -685,7 +797,7 @@ to-top.active {
   }
 
   h1 {
-    margin: 17px 0 32px;
+    margin: 17px 0 32px; /* Set the thickness for the margin area of the element. */
     font-size: 2em; /* Set the font size for the text of the element. */
   }
 
