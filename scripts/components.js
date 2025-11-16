@@ -99,21 +99,8 @@ function createFooter(footer) {
     footer.style.display = "flex";
     footer.style.flexDirection = "column";
     /** Define the footer content. */
-    footerContainer.innerHTML += `
-        <ul class="nav-menu">
-          <li>
-            <a href="#main" aria-label="View Cryptocurrency Data"
-              >Cryptocurrency Data</a
-            >
-          </li>
-          <li><a href="#about" aria-label="About This Tracker">About</a></li>
-          <li>
-            <a href="#news-section" aria-label="View Cryptocurrency Data"
-              >Cryptocurrency News</a
-            >
-          </li>
-        </ul>
-        <p id="copyright">Copyright © <a href="https://primesolar.github.io/web-developer/" class="link-primary" rel="noopener noreferrer">Vladislav Kazantsev</a> ${year}</p>
+    footer.innerHTML += `
+        <p id="copyright">Copyright ©&nbsp;<a href="https://primesolar.github.io/web-developer/" class="link-primary" rel="noopener noreferrer">Vladislav Kazantsev</a>&nbsp;${year}</p>
         <a type="button" href="https://www.buymeacoffee.com/CocaCola" id="bmc-button" target="_blank" rel="noopener noreferrer" aria-label="Buy me a coffee" role="button">☕ Buy me a coffee</a>
         <a href="https://www.buymeacoffee.com/CocaCola" id="bmc-arrow" target="_blank" rel="noopener noreferrer" aria-label="Buy me a coffee" role="button">⬇</a>
         <a href="https://www.buymeacoffee.com/CocaCola" id="bmc-link" target="_blank" rel="noopener noreferrer" aria-label="Buy me a coffee" role="button">coff.ee/CocaCola</a>
