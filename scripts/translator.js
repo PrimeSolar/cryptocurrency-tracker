@@ -22,7 +22,7 @@
  * Provides an extensive internationalization solution
  * for the Cryptocurrency Tracker,
  * enabling localized user experience.
- * 
+ *
  * This level of internationalization ensures linguistic accuracy, cultural appropriateness, technical
  * robustness, and a delightful global user experience, important for scaling the product,
  * enhancing user trust, and driving significant revenue.
@@ -103,10 +103,10 @@ const translations = {
       paragraph2:
         "With features like price alerts, market capitalization tracking, and a customizable interface, you can tailor your experience to fit your needs. Our goal is to empower users with the information they need to navigate the ever-evolving world of cryptocurrencies.",
       paragraph3:
-        "Data provided by CoinGecko, ensuring you receive accurate and up-to-date information. Join us on this journey to explore the future of finance!",
+        "Data provided by CoinGecko and Cointelegraph, ensuring you receive accurate and up-to-date information. Join us on this journey to explore the future of finance!",
     },
     /** footer: {
-      dataProvided: "Data provided by CoinGecko",
+      dataProvided: "Data provided by CoinGecko and Cointelegraph",
     }, */
     news: {
       latestNews: "Latest Cryptocurrency News",
@@ -171,10 +171,10 @@ const translations = {
       paragraph2:
         "Con funciones como alertas de precio, seguimiento de capitalización de mercado y una interfaz personalizable, puedes adaptar tu experiencia a tus necesidades. Nuestro objetivo es empoderar a los usuarios con la información que necesitan para navegar en el mundo en constante evolución de las criptomonedas.",
       paragraph3:
-        "Datos proporcionados por CoinGecko, garantizando que recibas información precisa y actualizada. ¡Únete a nosotros en este viaje para explorar el futuro de las finanzas!",
+        "Datos proporcionados por CoinGecko y Cointelegraph, garantizando que recibas información precisa y actualizada. ¡Únete a nosotros en este viaje para explorar el futuro de las finanzas!",
     },
     /** footer: {
-      dataProvided: "Datos proporcionados por CoinGecko",
+      dataProvided: "Datos proporcionados por CoinGecko y Cointelegraph",
     }, */
     news: {
       latestNews: "Últimas Noticias de Criptomonedas",
@@ -249,10 +249,10 @@ const translations = {
       paragraph2:
         "Avec des fonctionnalités telles que les alertes de prix, le suivi de la capitalisation boursière et une interface personnalisable, vous pouvez adapter votre expérience à vos besoins. Notre objectif est de donner aux utilisateurs les informations nécessaires pour naviguer dans le monde en constante évolution des cryptomonnaies.",
       paragraph3:
-        "Données fournies par CoinGecko, garantissant que vous recevez des informations précises et à jour. Rejoignez-nous dans ce voyage pour explorer l'avenir de la finance !",
+        "Données fournies par CoinGecko et Cointelegraph, garantissant que vous recevez des informations précises et à jour. Rejoignez-nous dans ce voyage pour explorer l'avenir de la finance !",
     },
     /** footer: {
-      dataProvided: "Données fournies par CoinGecko",
+      dataProvided: "Données fournies par CoinGecko et Cointelegraph",
     }, */
     news: {
       latestNews: "Dernières Actualités des Cryptomonnaies",
@@ -317,10 +317,10 @@ const translations = {
       paragraph2:
         "Com recursos como alertas de preço, acompanhamento de capitalização de mercado e uma interface personalizável, você pode adaptar sua experiência às suas necessidades. Nosso objetivo é capacitar os usuários com as informações necessárias para navegar no mundo em constante evolução das criptomoedas.",
       paragraph3:
-        "Dados fornecidos pelo CoinGecko, garantindo que você receba informações precisas e atualizadas. Junte-se a nós nesta jornada para explorar o futuro das finanças!",
+        "Dados fornecidos pelo CoinGecko e Cointelegraph, garantindo que você receba informações precisas e atualizadas. Junte-se a nós nesta jornada para explorar o futuro das finanças!",
     },
     /** footer: {
-      dataProvided: "Dados fornecidos pelo CoinGecko",
+      dataProvided: "Dados fornecidos pelo CoinGecko e Cointelegraph",
     }, */
     news: {
       latestNews: "Últimas Notícias de Criptomoedas",
@@ -395,10 +395,10 @@ const translations = {
       paragraph2:
         "Sa funkcijama kao što su upozorenja na cene, praćenje tržišne kapitalizacije i prilagodljivim interfejsom, možete prilagoditi svoje iskustvo prema svojim potrebama. Naš cilj je da osnažimo korisnike informacijama koje su im potrebne da se snalaze u stalno promenljivom svetu kriptovaluta.",
       paragraph3:
-        "Podaci su obezbeđeni od CoinGecko, što osigurava da dobijate tačne i ažurirane informacije. Pridružite nam se na ovom putu da istražimo budućnost finansija!",
+        "Podaci su obezbeđeni od CoinGecko i Cointelegraph, što osigurava da dobijate tačne i ažurirane informacije. Pridružite nam se na ovom putu da istražimo budućnost finansija!",
     },
     /** footer: {
-      dataProvided: "Podaci obezbeđeni od CoinGecko",
+      dataProvided: "Podaci obezbeđeni od CoinGecko i Cointelegraph",
     }, */
     news: {
       latestNews: "Najnovije vesti o kriptovalutama",
@@ -462,10 +462,10 @@ const translations = {
       paragraph2:
         "مع ميزات مثل تنبيهات الأسعار، وتتبع القيمة السوقية، وواجهة قابلة للتخصيص، يمكنك تكييف تجربتك وفقًا لاحتياجاتك. هدفنا هو تمكين المستخدمين من المعلومات اللازمة للملاحة في عالم العملات المشفرة المتغير باستمرار.",
       paragraph3:
-        "البيانات مقدمة من CoinGecko، مما يضمن حصولك على معلومات دقيقة ومحدثة. انضم إلينا في هذه الرحلة لاستكشاف مستقبل التمويل!",
+        "البيانات المقدمة من CoinGecko و Cointelegraph، مما يضمن حصولك على معلومات دقيقة ومحدثة. انضم إلينا في هذه الرحلة لاستكشاف مستقبل التمويل!",
     },
     /** footer: {
-      dataProvided: "البيانات مقدمة من CoinGecko",
+      dataProvided: "البيانات المقدمة من CoinGecko و Cointelegraph",
     }, */
     news: {
       latestNews: "أحدث أخبار العملات المشفرة",
