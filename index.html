@@ -2,12 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
+    <noscript
+      >Please enable JavaScript for the full application experience.</noscript
+    >
     <nav></nav>
 
-    <header>
+    <header class="text-center my-6">
       <h1>Cryptocurrency Tracker</h1>
+      <!-- <h2>Navigate the Crypto Market with Confidence: Accurate Tracking Anywhere, Anytime</h2> -->
     </header>
     <main class="container" id="main">
       <section class="controls" aria-labelledby="controls">
@@ -26,16 +31,24 @@
         <div>
           <label id="filter-label" for="filter-select"></label>
           <select id="filter-select">
-            <option id="filter-select-all" value="all">All Cryptocurrencies</option>
-            <option id="filter-select-favorites" value="favorites">Favorites Only</option>
+            <option id="filter-select-all" value="all">
+              All Cryptocurrencies
+            </option>
+            <option id="filter-select-favorites" value="favorites">
+              Favorites Only
+            </option>
           </select>
         </div>
         <div>
           <label id="sort-label" for="sort-select"></label>
           <select id="sort-select">
-            <option id="sort-select-market-cap" value="marketCap">Market Capitalization</option>
+            <option id="sort-select-market-cap" value="marketCap">
+              Market Capitalization
+            </option>
             <option id="sort-select-price" value="price">Price</option>
-            <option id="sort-select-price-change" value="priceChange">Price Change</option>
+            <option id="sort-select-price-change" value="priceChange">
+              Price Change
+            </option>
           </select>
         </div>
         <div>
@@ -93,6 +106,7 @@
         <p></p>
         <p></p>
         <p></p>
+        <footer></footer>
       </section>
     </main>
     <div
@@ -102,31 +116,34 @@
       aria-labelledby="modal-title"
     >
       <div class="modal-content">
-        <span class="modal-item close-button" aria-label="Close modal"
+        <span
+          class="modal-item close-button"
+          aria-label="Close the modal window"
           >&times;</span
         >
-        <h2 id="modal-title" class="modal-item">Set Price Alert</h2>
+        <h2 id="modal-title" class="modal-item"></h2>
         <input
           class="modal-item"
           type="number"
           id="alert-price"
-          placeholder="Enter alert price..."
+          placeholder="Enter an alert price..."
           aria-required="true"
         />
         <button
           id="set-alert-button"
           class="modal-item"
           type="button"
-          aria-label="Set Price Alert"
+          aria-label="Set a Price Alert"
         >
           Set Alert
         </button>
       </div>
     </div>
     <script src="scripts/meta-tags-min.js"></script>
-    <script src="scripts/cryptoapp.js"></script>
+    <script src="scripts/cryptoapp-min.js"></script>
     <script src="scripts/components-min.js"></script>
     <script src="scripts/translator-min.js"></script>
+    <script src="scripts/headings.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@1.0.1/dist/chartjs-adapter-moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial"></script>
