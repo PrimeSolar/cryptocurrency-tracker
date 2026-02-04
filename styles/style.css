@@ -191,8 +191,9 @@ div input,
   transition: background-color 0.25s, transform 0.25s, border 0.25s; /* Standard syntax for modern browsers (widely supported). */
 }
 
-select {
-  color: #000000b7;
+select,
+input {
+  color: #000000f7;
 }
 
 .controls div:has(input) {
@@ -542,6 +543,7 @@ button:active {
 }
 
 .about-section p {
+  margin: 1em 0;
   line-height: 1.6; /* Set the vertical spacing between lines of text. */
 }
 
