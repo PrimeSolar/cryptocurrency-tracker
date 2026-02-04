@@ -1,7 +1,7 @@
 /*
- * The Cryptocurrency Tracker Stylesheet
+ * The Cryptocurrency Tracker Style Sheet
  * 
- * This stylesheet provides a detailed, responsive design with cross-browser support for the 
+ * This style sheet provides a detailed, responsive design with cross-browser support for the 
  * Cryptocurrency Tracker application. Key features include:
  * 
  * Design Principles:
@@ -191,6 +191,10 @@ div input,
   transition: background-color 0.25s, transform 0.25s, border 0.25s; /* Standard syntax for modern browsers (widely supported). */
 }
 
+select {
+  color: #000000b7;
+}
+
 .controls div:has(input) {
   flex-grow: 5;
 }
@@ -217,11 +221,16 @@ input[type="text"] {
   border-radius: 5px; /* Standard property for border radius. */
 }
 
+input:focus {
+  outline: solid #0080ff;
+}
+
 /* Button Styles. */
 button {
   position: relative; /* Set the position of the element. */
   border: 1px solid currentColor !important;
   padding: 10px 15px; /* Set the padding of the element. */
+  font-size: 14px;
   z-index: 1; /* Set the stacking order of the element. */
   background: linear-gradient(
     to right,
@@ -307,7 +316,7 @@ button:active {
   content: attr(data-tooltip);
   position: fixed; /* Set the position of the element. */
   bottom: 0; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
-  left: 70%;
+  left: 75%;
   transform: translateX(37.5%);
   font-weight: normal; /* Set the font weight for the text of the element. */
   background: #ffffff; /* Set the background of the element. */
@@ -332,17 +341,17 @@ button:active {
   bottom: 115%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
   left: 50%;
   transform: translateX(-50%);
-  width: 100%; /* Set the width of the element. */
-  max-width: 100%; /* Set the maximum width of the element. */
+  width: 105%; /* Set the width of the element. */
+  max-width: 105%; /* Set the maximum width of the element. */
 }
 
 .favorite-button[data-tooltip]:hover::after {
-  bottom: -0.25em; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
+  bottom: -60%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
 }
 
 .favorite-button.favorite[data-tooltip]:hover::after {
-  bottom: -1.5em; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
-  left: 80%;
+  bottom: -60%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
+  left: 82.5%;
   transform: translateX(37.5%);
   width: 50%; /* Set the width of the element. */
   max-width: 50%; /* Set the maximum width of the element. */
@@ -355,8 +364,8 @@ button:active {
 }
 
 .alert-button[data-tooltip]:hover::after {
-  bottom: -0.25em; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
-  left: 70%;
+  bottom: -75%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
+  left: 75%;
 }
 
 .crypto-data {
@@ -813,6 +822,25 @@ to-top.active {
     width: 100%; /* Set the width of the element. */
   }
 
+  #toggle-theme[data-tooltip]:hover::after {
+    bottom: -250%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
+  }
+
+  .favorite-button[data-tooltip]:hover::after {
+    bottom: 115%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
+    left: -14%;
+  }
+
+  .favorite-button.favorite[data-tooltip]:hover::after {
+    bottom: 115%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
+    left: 10%;
+  }
+
+  .alert-button[data-tooltip]:hover::after {
+    bottom: -145%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
+    left: -15%;
+  }
+
   img {
     width: 100%;
   }
@@ -841,5 +869,3 @@ to-top.active {
     page-break-after: always;
   }
 }
-
-/*# sourceMappingURL=style.css.map */
