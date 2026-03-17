@@ -13,7 +13,6 @@
  * - Includes metadata for author, copyright, description, and keywords to enhance SEO.
  * - Links to the stylesheet for styling the application.
  * - Adds a badge to enhance brand identity.
- * - Loads the Dexie.js library for client-side database management.
  * - Specifies the type attribute for all script elements for better compatibility.
  *
  * Copyright © Vladislav Kazantsev
@@ -38,8 +37,8 @@ html.lang = "en";
 /** Set `dir="ltr"` for the <html> element. */
 html.dir = "ltr";
 
-/** Set <title>Cryptocurrency Tracker</title>. */
-document.title = "Cryptocurrency Tracker";
+/** Set <title>Cryptocurrency Tracker | Web Developer Vladislav Kazantsev</title>. */
+document.title = "Cryptocurrency Tracker | Web Developer Vladislav Kazantsev";
 
 /** Set <meta name="viewport" content="width=device-width, initial-scale=1" />. */
 const metaViewport = document.createElement("meta");
@@ -86,11 +85,6 @@ const linkImage = document.createElement("link");
 linkImage.rel = "icon";
 linkImage.href = "assets/logo.png";
 head.appendChild(linkImage);
-
-/** Connect <script src="https://npmcdn.com/dexie@4.0.11/dist/dexie.min.js"></script>. */
-const dexieScript = document.createElement("script");
-dexieScript.src = "https://npmcdn.com/dexie@4.0.11/dist/dexie.min.js";
-body.appendChild(dexieScript);
 
 /** Connect <script src="scripts/cryptoapp-min.js"></script>.
 const cryptoAppScript = document.createElement("script");
