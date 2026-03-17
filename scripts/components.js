@@ -16,15 +16,13 @@
  * For inquiries about collaboration, usage outside exploratory purposes, or permissions, please contact: hypervisor7@pm.me
  */
 
-/** Select the navigation bar component. */
-const nav = document.querySelector("nav");
-
-/** The declaration of the function to define the navigation bar content. */
-function createNav(nav) {
-  /** Only run the following code if the condition is met. */
-  if (nav) {
-    /** Define the navigation bar content. */
-    nav.innerHTML += `
+(function ($) {
+  /** Build and return the navigation bar component with accessible links and descriptive labels. */
+  const createNav = () => {
+    /** Build the navigation bar component. */
+    const $nav = $("<nav>", {
+      /** Use a template string. */
+      html: `
       <ul class="nav-menu">
         <li>
           <a href="#crypto-data" aria-label="View Cryptocurrency Data"
@@ -38,92 +36,115 @@ function createNav(nav) {
           >
         </li>
       </ul>
-      `;
-  }
-}
-/** The call of the function to define the component's content. */
-createNav(nav);
+      `,
+    });
+    $("nav").replaceWith($nav);
+  };
+  /** The call of the function to build and return the navigation bar component with accessible links and descriptive labels. */
+  createNav();
 
-/** The "Scroll to top" button. */
-class ToTop extends HTMLElement {
-  connectedCallback() {
-    this.innerHTML += `
+  /** Build and return the "Scroll to top" button component. */
+  const createToTopElement = function () {
+    const $toTop = $("<to-top>", {
+      html: `
     <a href="#" aria-label="Scroll to top" title="Scroll to top">
       <svg width="45px" height="45px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M6 15L12 9L18 15" stroke="#0088ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
-    `;
-  }
-}
-customElements.define("to-top", ToTop);
+          `,
+    });
 
-const toTop = document
-  .querySelector("body")
-  .appendChild(document.createElement("to-top"));
-window.addEventListener("scroll", () => {
-  if (window.pageYOffset > 100) {
-    toTop.classList.add("active");
-  } else {
-    toTop.classList.remove("active");
-  }
-});
+    $("body").append($toTop);
 
-/** The printing functionality. */
+    return $toTop;
+  };
+  /** The call of the function to build and return the "Scroll to top" button component. */
+  const $toTop = createToTopElement();
 
-document.addEventListener("keydown", (event) => {
-  if (event.ctrlKey && event.key === "p") {
+  /** The scroll event listener. */
+  $(window).on("scroll", function () {
+    if ($(window).scrollTop() > 100) {
+      $toTop.addClass("active");
+    } else {
+      $toTop.removeClass("active");
+    }
+  });
+
+  /** The printing functionality. */
+  $(window).keydown((event) => {
+    if (event.ctrlKey && event.key === "p") {
+      event.preventDefault();
+      printPage();
+    }
+  });
+
+  $("#print-button").click(() => {
     event.preventDefault();
     printPage();
-  }
-});
+  });
 
-function printPage() {
-  const htmlElement = document.body;
-  if (htmlElement.classList.contains("dark-mode")) {
-    htmlElement.classList.remove("dark-mode");
-    htmlElement.classList.add("light-mode");
-    window.print();
-    htmlElement.classList.remove("light-mode");
-    htmlElement.classList.add("dark-mode");
-  } else {
-    window.print();
-  }
-}
+  function printPage() {
+    /** Check if the body has the "dark-mode" class. */
+    if ($("body").hasClass("dark-mode")) {
+      /** Enable the light mode. */
+      $("body").removeClass("dark-mode").addClass("light-mode");
 
-/** The footer. */
-const footer = document.querySelector("footer");
-const year = new Date().getFullYear();
-function createFooter(footer) {
-  if (footer) {
-    footer.style.display = "flex";
-    footer.style.flexDirection = "column";
-    /** Define the footer content. */
-    footer.innerHTML += `
+      /** Launch printing. */
+      window.print();
+
+      /** Revert back to dark mode. */
+      $("body").removeClass("light-mode").addClass("dark-mode");
+    } else {
+      /** Launch printing if the body has the "light-mode" class. */
+      window.print();
+    }
+  }
+
+  /** The footer component. */
+  const footer = $("footer");
+  const year = new Date().getFullYear();
+  /** Build and return the footer component. */
+  function createFooter() {
+    if (footer) {
+      footer.css({
+        display: "flex",
+        flexDirection: "column",
+      });
+      /** Define the footer content. */
+      footer.append(`
         <p id="copyright">Copyright ©&nbsp;<a href="https://primesolar.github.io/web-developer/" class="link-primary" rel="noopener noreferrer">Vladislav Kazantsev</a>&nbsp;${year}</p>
         <a type="button" href="https://www.buymeacoffee.com/CocaCola" id="bmc-button" target="_blank" rel="noopener noreferrer" aria-label="Buy me a coffee" role="button">☕ Buy me a coffee</a>
         <a href="https://www.buymeacoffee.com/CocaCola" id="bmc-arrow" target="_blank" rel="noopener noreferrer" aria-label="Buy me a coffee" role="button">⬇</a>
         <a href="https://www.buymeacoffee.com/CocaCola" id="bmc-link" target="_blank" rel="noopener noreferrer" aria-label="Buy me a coffee" role="button">coff.ee/CocaCola</a>
-      `;
-    function applyFooterStyles() {
-      if (window.matchMedia("(max-width: 768px)").matches) {
-        footer.style.paddingBottom = "4rem";
-      } else {
-        footer.style.paddingBottom = "";
+      `);
+      /** Apply style rules based on a size of a user device. */
+      function applyFooterStyles() {
+        if (window.matchMedia("(max-width: 768px)").matches) {
+          footer.css({
+            paddingBottom: "4rem",
+          });
+        } else {
+          footer.css({
+            paddingBottom: "",
+          });
+        }
       }
+      applyFooterStyles();
+      /** Reapply style rules on window resize. */
+      $(window).on("resize", applyFooterStyles);
     }
-    applyFooterStyles();
-    window.addEventListener("resize", applyFooterStyles);
   }
-}
-createFooter(footer);
+  /** The call of the function to build and return the footer component. */
+  createFooter();
 
-/** The "Contact Us" links titles. */
-const contactUsLinks = document.querySelectorAll("a");
-for (let x of contactUsLinks) {
-  if (x.getAttribute("href") === "contact.html") {
-    x.title = "Navigate to Our Contact Page";
+  /** The "Contact Us" links titles. */
+  const contactUsLinks = document.querySelectorAll("a");
+  for (let x of contactUsLinks) {
+    if (x.getAttribute("href") === "contact.html") {
+      x.title = "Navigate to Our Contact Page";
+    }
   }
-}
 
-console.log("components.js is completed");
+  console.log("components.js is completed");
+})(window.jQuery);
