@@ -47,6 +47,7 @@
 
 html {
   scroll-behavior: smooth; /* Set the scroll behavior of the element. */
+  --spacing-unit: 25px;
 }
 
 .rtl-layout {
@@ -101,20 +102,19 @@ body {
 .nav-menu a {
   color: #ffffff; /* Set the color for the text of the element. */
   text-decoration: none; /* Specify the decoration applied to the text of the element, affecting its visual presentation. */
-  padding: 15px 21px; /* Set the padding of the element. */
+  padding: 15px var(--spacing-unit); /* Set the padding of the element. */
   display: block; /* Specify the display behavior of the element. */
 }
 
 .container {
   margin: auto; /* Set the thickness for the margin area of the element. */
-  max-width: 1200px; /* Set the maximum width of the element. */
-  padding: 21px; /* Set the padding of the element. */
+  padding: var(--spacing-unit); /* Set the padding of the element. */
   background: #ffffff1a; /* Set the background of the element. */
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   animation: fadeIn 1s ease-in-out;
-  -webkit-box-shadow: 0 4px 21px #0000004d;
-  box-shadow: 0 4px 21px #0000004d;
+  -webkit-box-shadow: 0 4px var(--spacing-unit) #0000004d;
+  box-shadow: 0 4px var(--spacing-unit) #0000004d;
   /* Set the border radius for the corners of the element. */
   -webkit-border-radius: 12px; /* For older versions of Chrome and Safari. */
   -moz-border-radius: 12px; /* For older versions of Firefox. */
@@ -158,8 +158,9 @@ header h2 {
   display: -webkit-box; /* For earlier versions of Chrome and Safari (pre-flexbox). */
   display: -ms-flexbox; /* For Internet Explorer 10 (supports an earlier flexbox model). */
   display: flex; /* Standard syntax for modern browsers (widely supported). */
-  justify-content: space-between;
-  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-unit);
 }
 
 div:has(select) {
@@ -172,13 +173,54 @@ label {
   font-weight: bold; /* Set the font weight for the text of the element. */
 }
 
+label::before {
+  position: relative;
+  top: 1px;
+  right: 5px;
+}
+
+[lang="ae"] label::before {
+  right: unset;
+  left: 5px; /* Position the element relative to the left edge of its nearest positioned ancestor. */
+}
+
+#language-label::before {
+  content: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="white" focusable="false"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855q-.215.403-.395.872c.705.157 1.472.257 2.282.287zM4.249 3.539q.214-.577.481-1.078a7 7 0 0 1 .597-.933A7 7 0 0 0 3.051 3.05q.544.277 1.198.49zM3.509 7.5c.036-1.07.188-2.087.436-3.008a9 9 0 0 1-1.565-.667A6.96 6.96 0 0 0 1.018 7.5zm1.4-2.741a12.3 12.3 0 0 0-.4 2.741H7.5V5.091c-.91-.03-1.783-.145-2.591-.332M8.5 5.09V7.5h2.99a12.3 12.3 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5c.035.987.176 1.914.399 2.741A13.6 13.6 0 0 1 7.5 10.91V8.5zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741zm-3.282 3.696q.18.469.395.872c.552 1.035 1.218 1.65 1.887 1.855V11.91c-.81.03-1.577.13-2.282.287zm.11 2.276a7 7 0 0 1-.598-.933 9 9 0 0 1-.481-1.079 8.4 8.4 0 0 0-1.198.49 7 7 0 0 0 2.276 1.522zm-1.383-2.964A13.4 13.4 0 0 1 3.508 8.5h-2.49a6.96 6.96 0 0 0 1.362 3.675c.47-.258.995-.482 1.565-.667m6.728 2.964a7 7 0 0 0 2.275-1.521 8.4 8.4 0 0 0-1.197-.49 9 9 0 0 1-.481 1.078 7 7 0 0 1-.597.933M8.5 11.909v3.014c.67-.204 1.335-.82 1.887-1.855q.216-.403.395-.872A12.6 12.6 0 0 0 8.5 11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.96 6.96 0 0 0 14.982 8.5h-2.49a13.4 13.4 0 0 1-.437 3.008M14.982 7.5a6.96 6.96 0 0 0-1.362-3.675c-.47.258-.995.482-1.565.667.248.92.4 1.938.437 3.008zM11.27 2.461q.266.502.482 1.078a8.4 8.4 0 0 0 1.196-.49 7 7 0 0 0-2.275-1.52c.218.283.418.597.597.932m-.488 1.343a8 8 0 0 0-.395-.872C9.835 1.897 9.17 1.282 8.5 1.077V4.09c.81-.03 1.577-.13 2.282-.287z"/></svg>');
+}
+
+#filter-label::before {
+  content: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="white" focusable="false"><path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/></svg>');
+}
+
+#sort-label::before {
+  content: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="white" focusable="false"><path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.5.5 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"/></svg>');
+}
+
+#search-label::before {
+  content: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="white" focusable="false"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>');
+}
+
+#print-label::before {
+  content: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="white" focusable="false"><path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/><path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"/></svg>');
+}
+
+#theme-label::before {
+  content: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="white" focusable="false"><path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a2 2 0 0 0-.453-.618A5.98 5.98 0 0 1 2 6m3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5"/></svg>');
+}
+
+.dark-mode #theme-label::before {
+  content: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="white" focusable="false"><path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a2 2 0 0 0-.453-.618A5.98 5.98 0 0 1 2 6m6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1"/></svg>');
+}
+
 select,
 div input,
+#print-button,
 #toggle-theme {
   display: block;
-  padding: 10px; /* Set the padding of the element. */
   margin: 5px 0 0; /* Set the thickness for the margin area of the element. */
   border: none;
+  padding: 10px; /* Set the padding of the element. */
+  height: 45px; /* Set the height of the element. */
   font-size: 1em; /* Set the font size for the text of the element. */
   /* Set the border radius for the corners of the element. */
   -webkit-border-radius: 5px; /* For older versions of Chrome and Safari. */
@@ -206,7 +248,8 @@ select:focus {
   cursor: pointer; /* Specify the type of cursor to be displayed when hovering over the element, indicating interactivity. */
 }
 
-.hidden {
+.hidden,
+.hidden * {
   display: none; /* Specify the display behavior of the element. */
 }
 
@@ -224,6 +267,11 @@ input[type="text"] {
 
 input:focus {
   outline: solid #0080ff;
+}
+
+.print-select-modal {
+  background-color: #ffffff;
+  color: #000000f7;
 }
 
 /* Button Styles. */
@@ -317,7 +365,7 @@ button:active {
   content: attr(data-tooltip);
   position: fixed; /* Set the position of the element. */
   bottom: 0; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
-  left: 75%;
+  left: 75%; /* Position the element relative to the left edge of its nearest positioned ancestor. */
   transform: translateX(37.5%);
   font-weight: normal; /* Set the font weight for the text of the element. */
   background: #ffffff; /* Set the background of the element. */
@@ -333,14 +381,15 @@ button:active {
   -o-border-radius: 5px; /* For older versions of Opera. */
   border-radius: 5px; /* Standard property for border radius. */
   /* Add a transition effect for changes in properties. */
-  -webkit-transition: opacity 0.25s; /* For older versions of Chrome and Safari. */
-  -o-transition: opacity 0.25s; /* For older versions of Opera. */
-  transition: opacity 0.25s; /* Standard syntax for modern browsers (widely supported). */
+  -webkit-transition: none; /* For older versions of Chrome and Safari. */
+  -o-transition: none; /* For older versions of Opera. */
+  transition: none; /* Standard syntax for modern browsers (widely supported). */
 }
 
+#print-button[data-tooltip]:hover::after,
 #toggle-theme[data-tooltip]:hover::after {
   bottom: 115%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
-  left: 50%;
+  left: 50%; /* Position the element relative to the left edge of its nearest positioned ancestor. */
   transform: translateX(-50%);
   width: 105%; /* Set the width of the element. */
   max-width: 105%; /* Set the maximum width of the element. */
@@ -352,7 +401,7 @@ button:active {
 
 .favorite-button.favorite[data-tooltip]:hover::after {
   bottom: -60%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
-  left: 82.5%;
+  left: 82.5%; /* Position the element relative to the left edge of its nearest positioned ancestor. */
   transform: translateX(37.5%);
   width: 50%; /* Set the width of the element. */
   max-width: 50%; /* Set the maximum width of the element. */
@@ -366,19 +415,21 @@ button:active {
 
 .alert-button[data-tooltip]:hover::after {
   bottom: -75%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
-  left: 75%;
+  left: 75%; /* Position the element relative to the left edge of its nearest positioned ancestor. */
 }
 
 .crypto-data {
   display: grid; /* Specify the display behavior of the element. */
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 25px;
-  padding-top: 25px; /* Set the size for the top margin of the element. */
+  gap: var(--spacing-unit);
+  padding-top: var(
+    --spacing-unit
+  ); /* Set the size for the top padding of the element. */
 }
 
 .crypto-card {
   background: #ffffff1a; /* Set the background of the element. */
-  padding: 25px; /* Set the padding of the element. */
+  padding: var(--spacing-unit); /* Set the padding of the element. */
   -webkit-box-shadow: 0 4px 10px #00000055;
   box-shadow: 0 4px 10px #00000055;
   overflow: visible; /* Set the visibility of content that exceeds the element's boundaries. */
@@ -395,14 +446,20 @@ button:active {
 
 .crypto-card:hover {
   transform: translateY(-5px);
-  -webkit-box-shadow: 0 8px 21px #0000007a;
-  box-shadow: 0 8px 21px #0000007a;
+  -webkit-box-shadow: 0 8px var(--spacing-unit) #0000007a;
+  box-shadow: 0 8px var(--spacing-unit) #0000007a;
 }
 
 .crypto-card h2 {
   margin: 0; /* Set the thickness for the margin area of the element. */
   font-size: 1.5em; /* Set the font size for the text of the element. */
   font-weight: semi-bold; /* Set the font weight for the text of the element. */
+}
+
+.crypto-card img {
+  width: 50%;
+  height: auto; /* Set the height of the element. */
+  margin: 7px auto !important;
 }
 
 .crypto-card p {
@@ -425,7 +482,7 @@ button:active {
   display: none; /* Specify the display behavior of the element. */
   position: fixed; /* Set the position of the element. */
   z-index: 1; /* Set the stacking order of the element. */
-  left: 0;
+  left: 0; /* Position the element relative to the left edge of its nearest positioned ancestor. */
   top: 0;
   width: 100vw; /* Set the width of the element. */
   height: 100vh; /* Set the height of the element. */
@@ -435,7 +492,7 @@ button:active {
 
 .modal-content {
   margin: 25vh auto; /* Set the thickness for the margin area of the element. */
-  padding: 21px; /* Set the padding of the element. */
+  padding: var(--spacing-unit); /* Set the padding of the element. */
   border: 1px solid #888888;
   width: 300px; /* Set the width of the element. */
   background-color: #fefefe; /* Set the background of the element. */
@@ -467,7 +524,9 @@ button:active {
 .modal-item {
   margin: 10px 0; /* Set the thickness for the margin area of the element. */
   font-weight: bold; /* Set the font weight for the text of the element. */
-  font-size: 21px; /* Set the font size for the text of the element. */
+  font-size: var(
+    --spacing-unit
+  ); /* Set the font size for the text of the element. */
 }
 
 .close-button {
@@ -533,7 +592,7 @@ button:active {
 }
 
 .about-section {
-  padding: 21px; /* Set the padding of the element. */
+  padding: var(--spacing-unit); /* Set the padding of the element. */
   text-align: center; /* Align the text within the element. */
   /* Set the border radius for the corners of the element. */
   -webkit-border-radius: 8px; /* For older versions of Chrome and Safari. */
@@ -566,8 +625,8 @@ button:active {
 .news-article {
   position: relative; /* Set the position of the element. */
   max-width: 1200px; /* Set the maximum width of the element. */
-  margin: 25px auto; /* Set the thickness for the margin area of the element. */
-  padding: 25px; /* Set the padding of the element. */
+  margin: var(--spacing-unit) auto; /* Set the thickness for the margin area of the element. */
+  padding: var(--spacing-unit); /* Set the padding of the element. */
   background: #ffffff1a; /* Set the background of the element. */
   /* Use flexbox to align the content inside the element. */
   display: -webkit-box; /* For earlier versions of Chrome and Safari (pre-flexbox). */
@@ -587,7 +646,7 @@ h3 {
 h3,
 img,
 .news-article p:nth-of-type(4) {
-  margin: 0 auto 25px !important; /* Set the thickness for the margin area of the element. */
+  margin: 0 auto var(--spacing-unit) !important; /* Set the thickness for the margin area of the element. */
 }
 
 a {
@@ -683,6 +742,7 @@ body.dark-mode {
 body.dark-mode .container {
   background: #ffffff0e; /* Set the background of the element. */
 }
+
 body.dark-mode .crypto-card {
   background: #ffffff1a; /* Set the background of the element. */
 }
@@ -709,7 +769,9 @@ body.dark-mode [data-tooltip]:hover::after {
 .error-message {
   color: #ff0000; /* Set the color for the text of the element. */
   text-align: center; /* Align the text within the element. */
-  margin-top: 21px; /* Set the size for the top margin of the element. */
+  margin-top: var(
+    --spacing-unit
+  ); /* Set the size for the top margin of the element. */
 }
 
 .loading-spinner {
@@ -760,8 +822,9 @@ body.dark-mode [data-tooltip]:hover::after {
 to-top {
   background: #ffffff; /* Set the background of the element. */
   position: fixed; /* Set the position of the element. */
-  bottom: 56px; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
-  right: 25px; /* Position the element 25 pixels from the right side of the viewport. */
+  right: var(
+    --spacing-unit
+  ); /* Position the element 25 pixels from the right side of the viewport. */
   width: 45px; /* Set the width of the element. */
   height: 45px; /* Set the height of the element. */
   opacity: 0; /* Set the opacity of the element. */
@@ -792,13 +855,24 @@ to-top {
 }
 
 to-top.active {
-  bottom: 9.6rem; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
+  bottom: 70px; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
   pointer-events: auto; /* Control the element's response to pointer events. */
   opacity: 1; /* Set the opacity of the element. */
 }
 
 /* Responsive Design. */
-@media (max-width: 800px) {
+
+@media (max-width: 1290px) {
+  html {
+    --spacing-unit: 21px;
+  }
+
+  .container {
+    max-width: 1200px; /* Set the maximum width of the element. */
+  }
+}
+
+@media (max-width: 1185px) {
   body {
     padding: 17px;
   }
@@ -812,35 +886,27 @@ to-top.active {
     font-size: 2em; /* Set the font size for the text of the element. */
   }
 
-  .controls {
-    -webkit-box-orient: vertical; /* For older versions of Chrome and Safari. */
-    -webkit-box-direction: normal; /* For older versions of Chrome and Safari. */
-    -ms-flex-direction: column; /* For Internet Explorer 10. */
-    flex-direction: column; /* Standard syntax for modern browsers (widely supported). */
-    align-items: center;
+  div:has(#search) {
+    width: 50%;
   }
 
   button {
     width: 100%; /* Set the width of the element. */
   }
 
-  #toggle-theme[data-tooltip]:hover::after {
-    bottom: -250%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
-  }
-
   .favorite-button[data-tooltip]:hover::after {
     bottom: 115%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
-    left: -14%;
+    left: -14%; /* Position the element relative to the left edge of its nearest positioned ancestor. */
   }
 
   .favorite-button.favorite[data-tooltip]:hover::after {
     bottom: 115%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
-    left: 10%;
+    left: 10%; /* Position the element relative to the left edge of its nearest positioned ancestor. */
   }
 
   .alert-button[data-tooltip]:hover::after {
     bottom: -145%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
-    left: -15%;
+    left: -15%; /* Position the element relative to the left edge of its nearest positioned ancestor. */
   }
 
   img {
@@ -848,26 +914,86 @@ to-top.active {
   }
 
   to-top.active {
-    bottom: 70px;
+    right: 5px;
+  }
+}
+
+@media (max-width: 680px) {
+  div:has(#search) {
+    width: 100%;
+  }
+}
+
+@media (max-width: 628px) {
+  div:has(#filter-select) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #filter-select {
+    width: fit-content;
+  }
+
+  to-top.active {
+    bottom: 150px; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
+  }
+}
+
+@media (max-width: 350px) {
+  #print-button[data-tooltip]:hover::after {
+    bottom: 110%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
+  }
+
+  #toggle-theme[data-tooltip]:hover::after {
+    bottom: -250%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
   }
 }
 
 @media print {
   * {
     color: #1a1a1a; /* Set the color for the text of the element. */
+    opacity: 1 !important;
+    transform: translateY(0) !important;
   }
 
   .controls,
-  button {
+  .crypto-card button {
     display: none; /* Specify the display behavior of the element. */
   }
 
   .crypto-card,
+  .about-section,
   .news-article {
     page-break-inside: avoid;
   }
 
   .about-section {
     page-break-after: always;
+  }
+
+  #bmc-button {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    /* display: none; */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color: #808080;
+  }
+
+  #bmc-arrow {
+    display: block;
+    margin: 5pt auto 0;
+    font-size: 15pt;
+    text-decoration: none !important;
+  }
+
+  #copyright a,
+  #bmc-link {
+    display: block;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    color: #1177ff !important;
   }
 }
