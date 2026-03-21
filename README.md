@@ -1,13 +1,17 @@
 # Cryptocurrency Tracker
 
-&nbsp;&nbsp;Welcome to the Cryptocurrency Tracker project! This web application is designed to provide users with real-time tracking of cryptocurrency prices, making it an important tool for investors, traders, and enthusiasts. With its intuitive interface and powerful features, the Cryptocurrency Tracker helps you make informed decisions in the trading. Whether you're a seasoned investor or just starting, this tool is designed to meet your needs.
+&nbsp;&nbsp;**Welcome to the Cryptocurrency Tracker project!** This web application is designed to provide users with real-time tracking of cryptocurrency prices, making it an important tool for investors, traders, and enthusiasts. With its intuitive interface and powerful features, the Cryptocurrency Tracker helps you make informed decisions in the trading. Whether you're an experienced trader optimizing your portfolio or a newcomer exploring the crypto market, this tool is designed to meet your needs.
 
-&nbsp;&nbsp;**<a href="https://primesolar.github.io/dice-game/" target="_blank" rel="noopener noreferrer">Navigate the Crypto Market with Confidence: Accurate Tracking Anywhere, Anytime</a>**
+&nbsp;&nbsp;**<a href="https://primesolar.github.io/cryptocurrency-tracker/" target="_blank" rel="noopener noreferrer">Navigate the Crypto Market with Confidence: Accurate Data Anywhere, Anytime</a>**
 
 - [Cryptocurrency Tracker](#cryptocurrency-tracker)
   - [Interface](#interface)
   - [Features](#features)
   - [Technologies Used](#technologies-used)
+  - [Localization \& Internationalization](#localization--internationalization)
+    - [Multi-Language Support](#multi-language-support)
+    - [Localization Strategy](#localization-strategy)
+    - [Why This Matters](#why-this-matters)
   - [Getting Started](#getting-started)
   - [Usage](#usage)
   - [Acknowledgments](#acknowledgments)
@@ -16,27 +20,61 @@
 
 ## Interface
 
-&nbsp;&nbsp;The interface is designed to be user-friendly and visually appealing.
+&nbsp;&nbsp;The interface combines visually appealing design with intuitive navigation, enabling you to access real-time cryptocurrency data. Every component is strategically placed to support quick decision-making and market analysis.
 
 <!--prettier-ignore-->
-<img alt="Cryptocurrency Tracker" src="assets/interface.jpg"/>
+<img alt="Cryptocurrency Tracker" src="assets/interface.png"/>
 <p align="center"><em>The Cryptocurrency Tracker Interface</em></p>
 
 ## Features
 
-- **Real-Time Data**: stay updated with live cryptocurrency prices, ensuring you never miss a market movement. The application fetches data at intervals to provide the most accurate information.
-- **User-Friendly Interface**: the intuitive design allows you to easily search for your favorite cryptocurrencies and view detailed price information, including price changes and market capitalization.
-- **Theme Toggle**: switch between light and dark themes for a personalized viewing experience, catering to user preferences and enhancing usability, especially in different lighting conditions.
-- **Search Functionality**: quickly find specific cryptocurrencies using the search bar.
+- **Real-Time Data**: stay updated with live cryptocurrency prices, ensuring you never miss a market movement. The application fetches data at intervals to provide the most accurate information. This enables traders to react quickly to price fluctuations and make timely decisions.
 - **Latest Cryptocurrency News**: stay informed with the latest news articles related to cryptocurrencies, helping make timely and informed trading decisions.
-- **Responsive Design**: optimized for all devices, ensuring a seamless experience whether you're on a desktop, tablet, or smartphone.
+- **Multi-Language Support**: the application offers multilingual support, including **English, Spanish, French, Portuguese, Serbian, and Arabic**, making it inclusive and accessible with seamless language switching while maintaining full functionality.
+- **Searching**: quickly find specific cryptocurrencies using the search bar.
+- **Filtering and Sorting**: easily filter and sort cryptocurrencies based on various criteria, such as market capitalization, prices, and price changes, allowing you to quickly find the information you need for informed decision-making.
+- **Theme Toggle**: implement light and dark mode themes with persistent user preferences, improving readability across varying lighting conditions and reducing eye strain for extended trading sessions.
+- **Printing**: generate and print professional market reports with current prices and news summaries, enabling you to document market conditions and trading decisions.
+- **User-Friendly Interface**: the intuitive interface allows you to easily search for your favorite cryptocurrencies and view detailed price information, including price changes and market capitalization.
+- **Responsive Design**: the application is fully optimized for all devices, ensuring a seamless experience whether you're on a desktop, tablet, or smartphone.
 
 ## Technologies Used
 
-- **HTML5**: for structuring the web application, ensuring semantic markup and improved SEO.
-- **CSS3**: for styling and layout, including responsive design techniques that enhance user experience across devices.
-- **JavaScript**: for dynamic content updates and user interactions, providing a smooth and interactive experience.
-- **APIs**: the web application utilizes the CoinGecko API for fetching real-time cryptocurrency data, ensuring accurate and up-to-date information. Also, it integrates CoinTelegraph's RSS feed to provide the latest cryptocurrency news.
+  - **JS (JavaScript)**: a foundational programming language for web development. It powers dynamic web interactions, enables complex client-side functionality, supports modern web standards, and facilitates responsive, interactive user experiences through event-driven programming and asynchronous operations.
+  - **jQuery**: a fast and lightweight JavaScript library that simplifies HTML document traversing and event handling. jQuery allows for easy manipulation of the DOM (Document Object Model). It also provides methods for handling events, making it straightforward to create the responsive user interface that can react to actions.
+  - **API**: Cryptocurrency Tracker utilizes the CoinGecko API for fetching real-time cryptocurrency data, ensuring accurate and up-to-date information.
+  - **RSS**: the application integrates CoinTelegraph's RSS feed to provide the latest cryptocurrency news.
+  - **HTML5**: a markup language for structuring the application, ensuring semantic markup and improved SEO.
+  - **CSS3**: a style sheet language for styling and layout, including responsive design techniques that improve your experience across various devices.
+  - **Tailwind CSS**: a framework used for consistent UI construction. It provides a collection of CSS utility classes, supports responsive design, and is highly configurable.
+
+## Localization & Internationalization
+
+### Multi-Language Support
+
+&nbsp;&nbsp;**Cryptocurrency Tracker** is designed for a global audience with support for multiple languages. The application dynamically adapts content - including the project name, navigation, and interface text - based on user language preference.
+
+### Localization Strategy
+
+&nbsp;&nbsp;When users select a language, the experience is localized through JavaScript-driven
+dynamic DOM updates. Language preference is persisted in local storage
+for consistent experience across sessions. This approach respects user preferences and
+demonstrates professional internationalization practices used by global tech companies
+(Apple, Google, Microsoft). The language collection may be expanded. If you'd like to
+contribute translations or suggest a language, please open an issue or contact me.
+
+**Implementation**
+
+- Language selector in the main interface.
+- Dynamic content rendering based on user selection.
+- Consistent localization across UI components.
+- Professional translations maintaining brand voice.
+
+### Why This Matters
+
+&nbsp;&nbsp;By localizing the content, the application provides
+an authentic experience for multiple language communities. This approach shows
+professional internationalization practices and respects user preferences.
 
 ## Getting Started
 
@@ -66,22 +104,22 @@ git clone https://github.com/PrimeSolar/cryptocurrency-tracker.git
 
 ## Acknowledgments
 
-- **Data Providers**: special thanks to CoinGecko for providing the cryptocurrency data that powers this application and to CoinTelegraph for their comprehensive cryptocurrency news.
+- **Data Providers**: special thanks to CoinGecko for providing the cryptocurrency data that powers this application and to CoinTelegraph for their extensive cryptocurrency news.
 - **Inspiration**: inspired by the growing interest in cryptocurrency and the need for appropriate tools that empower users to make informed financial decisions.
 
 ## Support My Work ☕
 
-&nbsp;&nbsp;If you enjoy my project and would like to support my work, consider buying me a coffee! Your contributions help me stay energized and motivated to create even more amazing content.
+If you enjoy my project and would like to support my work, consider buying me a coffee! Your contributions help me stay energized and motivated to create even more amazing content.
 
-&nbsp;&nbsp;Every cup of coffee you buy not only fuels my passion but also allows me to dedicate more time to developing innovative projects and sharing knowledge. Whether it's a small gesture or a generous contribution, every bit is greatly appreciated!
+Every cup of coffee you buy not only fuels my passion but also allows me to dedicate more time to developing innovative projects and sharing knowledge. Whether it's a small gesture or a generous contribution, every bit is greatly appreciated!
 
 **Click the image to support my work:**
 
-<a href="https://coff.ee/cocacola">
+<a href="https://coff.ee/cocacola" rel="noopener noreferrer">
   <img src="assets/coffee.jpg" width="370" height="auto" alt="Buy Me a Coffee"/>
 </a>
 
-&nbsp;&nbsp;Thank you for your support! Together, we can create something wonderful! 💖
+Thank you for your support! Together, we can create something wonderful! 💖
 
 **Copyright Notice**
 
