@@ -15,6 +15,11 @@
  * - Adds a badge to enhance brand identity.
  * - Specifies the type attribute for all script elements for better compatibility.
  *
+ * Any corresponding manual changes in the HTML document would be overridden at runtime.
+ * The <meta> charset tag is hardcoded because it needs to be guaranteed to be within the first 1024 bytes of the HTML document,
+ * as some browsers only look at those bytes before choosing an encoding
+ * (see https://html.spec.whatwg.org/multipage/semantics.html#charset).
+ *
  * Copyright © Vladislav Kazantsev
  * All rights reserved.
  * This code is the intellectual property of Vladislav Kazantsev.
