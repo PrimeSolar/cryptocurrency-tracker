@@ -215,7 +215,7 @@ label::before {
 select,
 div input,
 #print-button,
-#toggle-theme {
+#theme-button {
   display: block;
   margin: 5px 0 0; /* Set the thickness for the margin area of the element. */
   border: none;
@@ -231,6 +231,22 @@ div input,
   -webkit-transition: background-color 0.25s, transform 0.25s, border 0.25s; /* For older versions of Chrome and Safari. */
   -o-transition: background-color 0.25s, transform 0.25s, border 0.25s; /* For older versions of Opera. */
   transition: background-color 0.25s, transform 0.25s, border 0.25s; /* Standard syntax for modern browsers (widely supported). */
+}
+
+.controls-buttons-container {
+  /* Use flexbox to align the content inside the element. */
+  display: -webkit-box; /* For earlier versions of Chrome and Safari (pre-flexbox). */
+  display: -ms-flexbox; /* For Internet Explorer 10 (supports an earlier flexbox model). */
+  display: flex; /* Standard syntax for modern browsers (widely supported). */
+  flex-direction: row;
+  justify-content: center;
+  gap: var(--spacing-unit);
+}
+
+#print-button,
+#theme-button {
+  min-width: -webkit-fill-available;
+  min-width: fit-content;
 }
 
 select,
@@ -387,7 +403,7 @@ button:active {
 }
 
 #print-button[data-tooltip]:hover::after,
-#toggle-theme[data-tooltip]:hover::after {
+#theme-button[data-tooltip]:hover::after {
   bottom: 115%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
   left: 50%; /* Position the element relative to the left edge of its nearest positioned ancestor. */
   transform: translateX(-50%);
@@ -428,6 +444,7 @@ button:active {
 }
 
 .crypto-card {
+  position: relative;
   background: #ffffff1a; /* Set the background of the element. */
   padding: var(--spacing-unit); /* Set the padding of the element. */
   -webkit-box-shadow: 0 4px 10px #00000055;
@@ -450,6 +467,23 @@ button:active {
   box-shadow: 0 8px var(--spacing-unit) #0000007a;
 }
 
+.market-cap-rank {
+  position: absolute;
+  width: 10%;
+  aspect-ratio: 1 / 1;
+  top: 10px;
+  right: 10px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  background: linear-gradient(to right, #00c6ff, #0073ff);
+  /* Use flexbox to align the content inside the element. */
+  display: -webkit-box; /* For earlier versions of Chrome and Safari (pre-flexbox). */
+  display: -ms-flexbox; /* For Internet Explorer 10 (supports an earlier flexbox model). */
+  display: flex; /* Standard syntax for modern browsers (widely supported). */
+  align-items: center;
+  justify-content: center;
+}
+
 .crypto-card h2 {
   margin: 0; /* Set the thickness for the margin area of the element. */
   font-size: 1.5em; /* Set the font size for the text of the element. */
@@ -459,6 +493,7 @@ button:active {
 .crypto-card img {
   width: 50%;
   height: auto; /* Set the height of the element. */
+  aspect-ratio: 1 / 1;
   margin: 7px auto !important;
 }
 
@@ -466,7 +501,10 @@ button:active {
   margin: 0 0 7px; /* Set the thickness for the margin area of the element. */
   font-size: 1.1em; /* Set the font size for the text of the element. */
   line-height: 1.5; /* Set the vertical spacing between lines of text. */
-  display: flex;
+  /* Use flexbox to align the content inside the element. */
+  display: -webkit-box; /* For earlier versions of Chrome and Safari (pre-flexbox). */
+  display: -ms-flexbox; /* For Internet Explorer 10 (supports an earlier flexbox model). */
+  display: flex; /* Standard syntax for modern browsers (widely supported). */
   align-items: center;
 }
 
@@ -643,24 +681,35 @@ h3 {
   animation: fadeIn 1s ease-in-out;
 }
 
-h3,
-img,
-.news-article p:nth-of-type(4) {
-  margin: 0 auto var(--spacing-unit) !important; /* Set the thickness for the margin area of the element. */
-}
-
 a {
   display: block;
   text-align: center;
   color: #ffffff; /* Set the color for the text of the element. */
 }
 
+.news-article h3,
 .news-article p {
-  margin: 0 !important; /* Set the thickness for the margin area of the element. */
   width: -moz-fit-content !important; /* For older versions of Firefox. */
   width: fit-content !important; /* Set the width of the element. */
   float: none !important;
   text-align: center !important; /* Align the text within the element. */
+}
+
+.news-article h3 {
+  margin: var(--spacing-unit) auto !important; /* Set the thickness for the margin area of the element. */
+}
+
+.news-article p {
+  margin: 0 auto var(--spacing-unit) !important; /* Set the thickness for the margin area of the element. */
+}
+
+.news-article a {
+  text-decoration: underline;
+}
+
+.news-article img {
+  max-height: 45vh;
+  width: auto;
 }
 
 footer {
@@ -668,10 +717,27 @@ footer {
 }
 
 footer p:first-of-type {
-  display: flex;
-  justify-content: center;
   margin-top: 0;
   line-height: 1; /* Set the vertical spacing between lines of text. */
+  /* Use flexbox to align the content inside the element. */
+  display: -webkit-box; /* For earlier versions of Chrome and Safari (pre-flexbox). */
+  display: -ms-flexbox; /* For Internet Explorer 10 (supports an earlier flexbox model). */
+  display: flex; /* Standard syntax for modern browsers (widely supported). */
+  justify-content: center;
+}
+
+#copyright {
+  font-size: 1.25rem;
+}
+
+#copyright a {
+  border-bottom: 1px solid #ffffff;
+  padding-bottom: 1px; /* Set the size for the margin of the element. */
+  font-weight: bold;
+  background: #ffffff;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
 }
 
 footer a:first-of-type,
@@ -747,6 +813,10 @@ body.dark-mode .crypto-card {
   background: #ffffff1a; /* Set the background of the element. */
 }
 
+.dark-mode .market-cap-rank {
+  color: #ffffff;
+}
+
 body.dark-mode th {
   background: #ffffff1a; /* Set the background of the element. */
   color: #00c7ff; /* Set the color for the text of the element. */
@@ -759,6 +829,12 @@ body.dark-mode td {
 body.dark-mode [data-tooltip]:hover::after {
   background: #707070; /* Set the background of the element. */
   color: #ffffff; /* Set the color for the text of the element. */
+}
+
+.dark-mode #copyright a {
+  border-image: linear-gradient(to right, #1ab1ff, #1177ff) 1;
+  background: linear-gradient(to right, #1ab1ff, #1177ff);
+  background-clip: text;
 }
 
 .crypto-card.favorite {
@@ -867,6 +943,16 @@ to-top.active {
     --spacing-unit: 21px;
   }
 
+  [lang="es"] .controls,
+  [lang="es"] .controls-buttons-container,
+  [lang="fr"] .controls,
+  [lang="fr"] .controls-buttons-container,
+  [lang="pt"] .controls,
+  [lang="pt"] .controls-buttons-container {
+    font-size: 15px;
+    gap: 10px;
+  }
+
   .container {
     max-width: 1200px; /* Set the maximum width of the element. */
   }
@@ -884,10 +970,6 @@ to-top.active {
   h1 {
     margin: 17px 0 32px; /* Set the thickness for the margin area of the element. */
     font-size: 2em; /* Set the font size for the text of the element. */
-  }
-
-  div:has(#search) {
-    width: 50%;
   }
 
   button {
@@ -927,7 +1009,10 @@ to-top.active {
 @media (max-width: 628px) {
   div:has(#filter-select) {
     width: 100%;
-    display: flex;
+    /* Use flexbox to align the content inside the element. */
+    display: -webkit-box; /* For earlier versions of Chrome and Safari (pre-flexbox). */
+    display: -ms-flexbox; /* For Internet Explorer 10 (supports an earlier flexbox model). */
+    display: flex; /* Standard syntax for modern browsers (widely supported). */
     flex-direction: column;
     align-items: center;
   }
@@ -946,7 +1031,7 @@ to-top.active {
     bottom: 110%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
   }
 
-  #toggle-theme[data-tooltip]:hover::after {
+  #theme-button[data-tooltip]:hover::after {
     bottom: -250%; /* Position the element relative to the bottom edge of its nearest positioned ancestor. */
   }
 }
