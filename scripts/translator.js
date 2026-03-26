@@ -61,12 +61,16 @@ const translations = {
       sortBy: "Sort By",
       selectSortingParameter: "Select a sorting parameter",
       marketCap: "Market Capitalization",
+      marketCapRank: "Market Capitalization Rank",
       price: "Price",
       priceChange: "Price Change",
       search: "Search",
       searchPlaceholder: "Search for a cryptocurrency...",
+      print: "Print",
+      printContent: "Print Content",
+      printTooltip: "Print the current content to PDF",
       theme: "Theme",
-      toggleTheme: "Switch Theme",
+      toggleTheme: "Toggle Theme",
       toggleThemeTooltip: "Switch between light and dark themes",
       lightTheme: "Light Theme",
       darkTheme: "Dark Theme",
@@ -75,6 +79,7 @@ const translations = {
       price: "Price",
       change: "Change",
       marketCap: "Market Capitalization",
+      marketCapRank: "Market Capitalization Rank",
     },
     modal: {
       setAlert: "Set a Price Alert",
@@ -121,31 +126,34 @@ const translations = {
     controls: {
       language: "Idioma",
       selectLanguage: "Seleccionar idioma",
-      filterBy: "Filtrar Por",
+      filterBy: "Filtrar por",
       selectFilteringParameter: "Seleccionar parámetro de filtrado",
-      allCryptocurrencies: "Todas las Criptomonedas",
-      favoritesOnly: "Solo Favoritos",
-      sortBy: "Ordenar Por",
+      allCryptocurrencies: "Todas las criptomonedas",
+      favoritesOnly: "Solo favoritos",
+      sortBy: "Ordenar por",
       selectSortingParameter: "Seleccionar parámetro de ordenación",
-      marketCap: "Capitalización de Mercado",
+      marketCap: "Capitalización de mercado",
       price: "Precio",
-      priceChange: "Cambio de Precio",
+      priceChange: "Cambio de precio",
       search: "Búsqueda",
       searchPlaceholder: "Buscar criptomoneda...",
+      print: "Imprimir",
+      printContent: "Imprimir contenido",
+      printTooltip: "Imprimir el contenido actual en PDF",
       theme: "Tema",
-      toggleTheme: "Cambiar Tema",
+      toggleTheme: "Cambiar tema",
       toggleThemeTooltip: "Alternar entre temas claro y oscuro",
-      lightTheme: "Tema Claro",
-      darkTheme: "Tema Oscuro",
+      lightTheme: "Tema claro",
+      darkTheme: "Tema oscuro",
     },
     labels: {
       price: "Precio",
       change: "Cambio",
-      marketCap: "Capitalización de Mercado",
+      marketCap: "Capitalización de mercado",
     },
     modal: {
-      setAlert: "Establecer Alerta de Precio",
-      alertPrice: "Precio de Alerta (USD):",
+      setAlert: "Establecer alerta de precio",
+      alertPrice: "Precio de alerta (USD):",
     },
     alerts: {
       priceAlertSet:
@@ -157,9 +165,9 @@ const translations = {
       invalidPrice: "Por favor, introduzca un precio válido.",
     },
     buttons: {
-      addToFavorites: "Añadir a Favoritos",
-      removeFromFavorites: "Eliminar de Favoritos",
-      setPriceAlert: "Establecer Alerta",
+      addToFavorites: "Añadir a favoritos",
+      removeFromFavorites: "Eliminar de favoritos",
+      setPriceAlert: "Establecer alerta",
       favoriteTooltipAdd: "Añadir {coinName} a favoritos",
       favoriteTooltipRemove: "Eliminar {coinName} de favoritos",
       alertTooltip: "Establecer una alerta de precio para {coinName}",
@@ -177,21 +185,21 @@ const translations = {
       dataProvided: "Datos proporcionados por CoinGecko y Cointelegraph",
     }, */
     news: {
-      latestNews: "Últimas Noticias de Criptomonedas",
+      latestNews: "Últimas noticias de criptomonedas",
     },
     scrollToTop: "Volver arriba",
     navMenu: {
-      cryptocurrencyData: "Datos de Criptomonedas",
+      cryptocurrencyData: "Datos de criptomonedas",
       about: "Acerca de",
-      cryptocurrencyNews: "Noticias de Criptomonedas",
+      cryptocurrencyNews: "Noticias de criptomonedas",
     },
   },
   /** French. */
   fr: {
     navMenu: {
-      cryptocurrencyData: "Données de Cryptomonnaie",
-      about: "À Propos",
-      cryptocurrencyNews: "Actualités des Cryptomonnaies",
+      cryptocurrencyData: "Données de cryptomonnaies",
+      about: "À propos",
+      cryptocurrencyNews: "Actualités des cryptomonnaies",
     },
     header: {
       title: "Suivi des Cryptomonnaies",
@@ -199,31 +207,34 @@ const translations = {
     controls: {
       language: "Langue",
       selectLanguage: "Sélectionner la langue",
-      filterBy: "Filtrer Par",
-      selectFilteringParameter: "Sélectionner paramètre de filtrage",
-      allCryptocurrencies: "Toutes les Cryptomonnaies",
-      favoritesOnly: "Favoris Uniquement",
-      sortBy: "Trier Par",
-      selectSortingParameter: "Sélectionner paramètre de tri",
-      marketCap: "Capitalisation Boursière",
+      filterBy: "Filtrer par",
+      selectFilteringParameter: "Sélectionner le paramètre de filtrage",
+      allCryptocurrencies: "Toutes les cryptomonnaies",
+      favoritesOnly: "Favoris uniquement",
+      sortBy: "Trier par",
+      selectSortingParameter: "Sélectionner le paramètre de tri",
+      marketCap: "Capitalisation boursière",
       price: "Prix",
-      priceChange: "Changement de Prix",
+      priceChange: "Variation de prix",
       search: "Recherche",
       searchPlaceholder: "Rechercher une cryptomonnaie...",
+      print: "Imprimer",
+      printContent: "Imprimer le contenu",
+      printTooltip: "Imprimer le contenu actuel au format PDF",
       theme: "Thème",
       toggleTheme: "Changer de thème",
       toggleThemeTooltip: "Basculer entre les thèmes clair et sombre",
-      lightTheme: "Thème Clair",
-      darkTheme: "Thème Sombre",
+      lightTheme: "Thème clair",
+      darkTheme: "Thème sombre",
     },
     labels: {
       price: "Prix",
       change: "Variation",
-      marketCap: "Capitalisation Boursière",
+      marketCap: "Capitalisation boursière",
     },
     modal: {
-      setAlert: "Définir une Alerte de Prix",
-      alertPrice: "Prix d'Alerte (USD) :",
+      setAlert: "Définir une alerte de prix",
+      alertPrice: "Prix d'alerte (USD) :",
     },
     alerts: {
       priceAlertSet:
@@ -235,17 +246,17 @@ const translations = {
       invalidPrice: "Veuillez saisir un prix valide.",
     },
     buttons: {
-      addToFavorites: "Ajouter aux Favoris",
-      removeFromFavorites: "Retirer des Favoris",
-      setPriceAlert: "Définir une Alerte",
+      addToFavorites: "Ajouter aux favoris",
+      removeFromFavorites: "Retirer des favoris",
+      setPriceAlert: "Définir une alerte",
       favoriteTooltipAdd: "Ajouter {coinName} à vos favoris",
       favoriteTooltipRemove: "Retirer {coinName} de vos favoris",
       alertTooltip: "Définir une alerte de prix pour {coinName}",
     },
     about: {
-      title: "À Propos du Suivi des Cryptomonnaies",
+      title: "À propos du Suivi des Cryptomonnaies",
       paragraph1:
-        "Le Suivi des Cryptomonnaies est une application conviviale conçue pour vous aider à surveiller les derniers prix et tendances du marché des cryptomonnaies. Que vous soyez un investisseur chevronné ou débutant, notre plateforme fournit des données en temps réel et des perspectives pour prendre des décisions éclairées.",
+        "Le Suivi des Cryptomonnaies est une application conviviale développée pour vous aider à surveiller les derniers prix et tendances du marché des cryptomonnaies. Que vous soyez un investisseur chevronné ou débutant, notre plateforme fournit des données en temps réel et des perspectives pour prendre des décisions éclairées.",
       paragraph2:
         "Avec des fonctionnalités telles que les alertes de prix, le suivi de la capitalisation boursière et une interface personnalisable, vous pouvez adapter votre expérience à vos besoins. Notre objectif est de donner aux utilisateurs les informations nécessaires pour naviguer dans le monde en constante évolution des cryptomonnaies.",
       paragraph3:
@@ -255,7 +266,7 @@ const translations = {
       dataProvided: "Données fournies par CoinGecko et Cointelegraph",
     }, */
     news: {
-      latestNews: "Dernières Actualités des Cryptomonnaies",
+      latestNews: "Dernières actualités des cryptomonnaies",
     },
     scrollToTop: "Retour en haut",
   },
@@ -265,33 +276,36 @@ const translations = {
       title: "Rastreador de Criptomoedas",
     },
     controls: {
-      language: "Língua",
+      language: "Idioma",
       selectLanguage: "Selecione o idioma",
-      filterBy: "Filtrar Por",
+      filterBy: "Filtrar por",
       selectFilteringParameter: "Selecione o parâmetro de filtragem",
-      allCryptocurrencies: "Todas as Criptomoedas",
-      favoritesOnly: "Apenas Favoritos",
-      sortBy: "Ordenar Por",
+      allCryptocurrencies: "Todas as criptomoedas",
+      favoritesOnly: "Apenas favoritos",
+      sortBy: "Ordenar por",
       selectSortingParameter: "Selecione o parâmetro de classificação",
-      marketCap: "Capitalização de Mercado",
+      marketCap: "Capitalização de mercado",
       price: "Preço",
       priceChange: "Alteração de preço",
       search: "Busca",
       searchPlaceholder: "Buscar criptomoeda...",
+      print: "Imprimir",
+      printContent: "Imprimir conteúdo",
+      printTooltip: "Imprimir o conteúdo atual em PDF",
       theme: "Tema",
-      toggleTheme: "Alternar Tema",
+      toggleTheme: "Alternar tema",
       toggleThemeTooltip: "Alternar entre temas claro e escuro",
-      lightTheme: "Tema Claro",
-      darkTheme: "Tema Escuro",
+      lightTheme: "Tema claro",
+      darkTheme: "Tema escuro",
     },
     labels: {
       price: "Preço",
       change: "Variação",
-      marketCap: "Capitalização de Mercado",
+      marketCap: "Capitalização de mercado",
     },
     modal: {
-      setAlert: "Definir Alerta de Preço",
-      alertPrice: "Preço do Alerta (USD):",
+      setAlert: "Definir alerta de preço",
+      alertPrice: "Preço do alerta (USD):",
     },
     alerts: {
       priceAlertSet:
@@ -303,9 +317,9 @@ const translations = {
       invalidPrice: "Por favor, insira um preço válido.",
     },
     buttons: {
-      addToFavorites: "Adicionar aos Favoritos",
-      removeFromFavorites: "Remover dos Favoritos",
-      setPriceAlert: "Definir Alerta",
+      addToFavorites: "Adicionar aos favoritos",
+      removeFromFavorites: "Remover dos favoritos",
+      setPriceAlert: "Definir alerta",
       favoriteTooltipAdd: "Adicionar {coinName} aos favoritos",
       favoriteTooltipRemove: "Remover {coinName} dos favoritos",
       alertTooltip: "Definir um alerta de preço para {coinName}",
@@ -323,13 +337,13 @@ const translations = {
       dataProvided: "Dados fornecidos pelo CoinGecko e Cointelegraph",
     }, */
     news: {
-      latestNews: "Últimas Notícias de Criptomoedas",
+      latestNews: "Últimas notícias de criptomoedas",
     },
     scrollToTop: "Voltar ao topo",
     navMenu: {
-      cryptocurrencyData: "Dados de Criptomoedas",
+      cryptocurrencyData: "Dados de criptomoedas",
       about: "Sobre",
-      cryptocurrencyNews: "Notícias de Criptomoedas",
+      cryptocurrencyNews: "Notícias de criptomoedas",
     },
   },
   /** Serbian. */
@@ -356,6 +370,9 @@ const translations = {
       priceChange: "Promena Cene",
       search: "Pretraga",
       searchPlaceholder: "Pretražiti kriptovalutu...",
+      print: "Ispis",
+      printContent: "Ispis sadržaja",
+      printTooltip: "Ispišite trenutni sadržaj u PDF format",
       theme: "Tema",
       toggleTheme: "Promeniti temu",
       toggleThemeTooltip: "Prebacite između svetlih i tamnih tema",
@@ -424,6 +441,9 @@ const translations = {
       priceChange: "تغير السعر",
       search: "يبحث",
       searchPlaceholder: "البحث عن عملة مشفرة...",
+      print: "طباعة",
+      printContent: "طباعة المحتوى",
+      printTooltip: "اطبع المحتوى الحالي بصيغة PDF",
       theme: "سمة",
       toggleTheme: "تبديل الوضع",
       toggleThemeTooltip: "التبديل بين الوضع الفاتح والداكن",
@@ -499,8 +519,10 @@ function updateText(language) {
   );
   const searchLabel = document.querySelector("#search-label");
   const searchInput = document.getElementById("search");
+  const printLabel = document.querySelector("#print-label");
+  const printButton = document.getElementById("print-button");
   const themeLabel = document.querySelector("#theme-label");
-  const toggleThemeButton = document.getElementById("toggle-theme");
+  const themeButton = document.getElementById("theme-button");
   const setAlertButton = document.getElementById("set-alert-button");
   const errorMessage = document.getElementById("no-data-message");
   /** const footer = document.querySelector("footer"); */
@@ -542,18 +564,28 @@ function updateText(language) {
   sortSelectPrice.innerText = translations[language].controls.price;
   sortSelectPriceChange.innerText = translations[language].controls.priceChange;
   searchLabel.innerText = translations[language].controls.search;
+  printLabel.innerText = translations[language].controls.print;
   themeLabel.innerText = translations[language].controls.theme;
   searchInput.placeholder = translations[language].controls.searchPlaceholder;
   searchInput.setAttribute(
     "aria-label",
     translations[language].controls.searchPlaceholder
   );
-  toggleThemeButton.innerText = translations[language].controls.toggleTheme;
-  toggleThemeButton.setAttribute(
+  printButton.innerText = translations[language].controls.printContent;
+  printButton.setAttribute(
+    "aria-label",
+    translations[language].controls.printContent
+  );
+  printButton.setAttribute(
+    "data-tooltip",
+    translations[language].controls.printTooltip
+  ); /** Update tooltip. */
+  themeButton.innerText = translations[language].controls.toggleTheme;
+  themeButton.setAttribute(
     "aria-label",
     translations[language].controls.toggleTheme
   );
-  toggleThemeButton.setAttribute(
+  themeButton.setAttribute(
     "data-tooltip",
     translations[language].controls.toggleThemeTooltip
   ); /** Update tooltip. */
@@ -615,7 +647,7 @@ function updateText(language) {
     newsHeading.textContent = translations[language].news.latestNews;
   }
 
-  /** Update labels for price, change, and market cap. */
+  /** Update labels for price, change, and market capitalization. */
   const priceLabels = document.querySelectorAll(".crypto-card p");
   priceLabels.forEach((label) => {
     if (
