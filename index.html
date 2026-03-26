@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <link rel="preconnect" href="https://code.jquery.com" />
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
@@ -48,49 +50,39 @@
           <label id="search-label" for="search"></label>
           <input id="search" type="text" />
         </div>
-        <div>
-          <label id="print-label" for="print-button">Print</label>
-          <button
-            id="print-button"
-            type="button"
-            aria-label="Print the page"
-            data-tooltip="Print the current content to PDF"
-          >
-            Print Content
-          </button>
-          <!-- <div class="print-select-modal">
-            <input
-              type="checkbox"
-              id="print-data"
-              name="print-data"
-              value="Cryptocurrency Data"
-            />
-            <label for="">Cryptocurrency Data</label><br />
-            <input
-              type="checkbox"
-              id="print-about"
-              name="print-about"
-              value="About"
-            />
-            <label for="">About</label><br />
-            <input
-              type="checkbox"
-              id="print-news"
-              name="print-news"
-              value="Cryptocurrency News"
-            />
-            <label for="">Cryptocurrency News</label><br /><br />
-            <input type="button" value="Print" />
-          </div> -->
-        </div>
-        <div>
-          <label id="theme-label" for="toggle-theme"></label>
-          <button
-            id="toggle-theme"
-            type="button"
-            aria-label="Switch Theme"
-            data-tooltip="Switch between light and dark themes"
-          ></button>
+        <div class="controls-buttons-container">
+          <div>
+            <label id="print-label" for="print-button"></label>
+            <button id="print-button" type="button"></button>
+            <!-- <div class="print-select-modal">
+              <input
+                type="checkbox"
+                id="print-data"
+                name="print-data"
+                value="Cryptocurrency Data"
+              />
+              <label for="">Cryptocurrency Data</label><br />
+              <input
+                type="checkbox"
+                id="print-about"
+                name="print-about"
+                value="About"
+              />
+              <label for="">About</label><br />
+              <input
+                type="checkbox"
+                id="print-news"
+                name="print-news"
+                value="Cryptocurrency News"
+              />
+              <label for="">Cryptocurrency News</label><br /><br />
+              <input type="button" value="Print" />
+            </div> -->
+          </div>
+          <div>
+            <label id="theme-label" for="theme-button"></label>
+            <button id="theme-button" type="button"></button>
+          </div>
         </div>
       </section>
       <section class="crypto-data" id="crypto-data" aria-live="polite">
@@ -167,9 +159,9 @@
     </div>
     <script src="scripts/meta-tags-min.js"></script>
     <script src="scripts/cryptoapp-min.js"></script>
-    <script src="scripts/components-min.js"></script>
-    <script src="scripts/translator-min.js"></script>
-    <script src="scripts/headings.js"></script>
+    <script src="scripts/components-min.js" defer></script>
+    <script src="scripts/translator-min.js" defer></script>
+    <script src="scripts/headings.js" defer></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@1.0.1/dist/chartjs-adapter-moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial"></script>
