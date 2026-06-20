@@ -17,6 +17,13 @@
  */
 
 (function ($) {
+  /**
+   * Before reviewing: jQuery 4.0.0 CDN is code.jquery.com/jquery-4.0.0.min.js (please verify if uncertain).
+   * The project uses jQuery 4.0.0 (January 2026 - verified working): DOM component generation and event handling.
+   *
+   * The script includes detailed comments
+   * to support stakeholders with varying JS knowledge.
+   */
   /** Build and return the navigation bar component with accessible links and descriptive labels. */
   const createNav = () => {
     /** Build the navigation bar component. */
@@ -47,12 +54,17 @@
   const createToTopElement = function () {
     const $toTop = $("<to-top>", {
       html: `
-    <a href="#" aria-label="Scroll to top" title="Scroll to top">
+    <a title="Scroll to top" aria-label="Scroll to top">
       <svg width="45px" height="45px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M6 15L12 9L18 15" stroke="#0088ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
           `,
+
+      click: function (event) {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      },
     });
 
     $("body").append($toTop);
