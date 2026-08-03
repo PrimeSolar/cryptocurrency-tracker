@@ -708,8 +708,9 @@ a {
 }
 
 .news-article img {
-  max-height: 45vh;
+  display: inline;
   width: auto;
+  max-height: 45vh;
 }
 
 footer {
